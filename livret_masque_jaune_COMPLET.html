@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Livret Masque Jaune — Méthode V.A.L.E.U.R© · Workbook complet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --g900:#030a03;
+  --j900:#0d0c00;--j800:#221e00;--j700:#342e00;--j600:#504600;
+  --j500:#524800;--j400:#8e7e00;--j300:#c4aa00;--j200:#d4b800;
+  --j100:#f0d840;--j50:#fdf0a0;
+;--g800:#060e07;--g700:#0a1a0c;--g600:#152e17;
+  --g500:#1e4220;--g400:#28562b;--g300:#3a7a3d;--g200:#5ea862;
+  --g100:#9cd89f;--g50:#d0f0d2;
+  --gold:#C9A84C;--goldm:#D4AF37;--goldl:#F0D080;--goldp:#FBF0D0;
+  --cream:#F9F5EE;--creamm:#EDE8DC;--creamd:#D4CEBF;
+  --ink:#1C1A14;--inkm:#3A3628;--inkl:#6B6554;--inkf:#9A9284;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{background:#1a1a1a;font-family:'Jost',sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased;-webkit-user-select:none;-moz-user-select:none;user-select:none}
+
+/* ── BOOK WRAPPER */
+.book{max-width:620px;margin:0 auto;padding:2rem 1rem 8rem;display:flex;flex-direction:column;align-items:center;gap:48px}
+
+/* ── PAGE BASE */
+.page{width:148mm;min-height:210mm;margin:0;position:relative;overflow:hidden;box-shadow:0 6px 35px rgba(0,0,0,.55),0 2px 8px rgba(0,0,0,.35)}
+
+/* ── COVER */
+.page-cover{background:linear-gradient(168deg,#5a5000 0%,#2e2800 55%,#181600 100%)!important}
+.page-cover::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2.5px;z-index:5;background:linear-gradient(180deg,transparent 0%,var(--gold) 18%,var(--goldl) 50%,var(--gold) 82%,transparent 100%);opacity:.5}
+.cov-vignette{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 88% 88% at 50% 50%,transparent 32%,rgba(0,0,0,.62) 100%)}
+.cov-light{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 65% 50% at 50% 42%,rgba(90,80,0,.22) 0%,transparent 70%)}
+.cov-rl-t{position:absolute;top:13.5mm;left:9mm;right:9mm;height:.4px;z-index:6;background:linear-gradient(90deg,transparent,var(--gold) 22%,var(--gold) 78%,transparent);opacity:.35}
+.cov-rl-b{position:absolute;bottom:23mm;left:9mm;right:9mm;height:.4px;z-index:6;background:linear-gradient(90deg,transparent,var(--gold) 22%,var(--gold) 78%,transparent);opacity:.35}
+.cov-inner{position:relative;z-index:10;width:100%;height:100%;display:flex;flex-direction:column;padding:0 11mm;min-height:210mm}
+.cov-head{display:flex;justify-content:space-between;align-items:center;padding-top:6mm}
+.cov-col{font-family:'Jost',sans-serif;font-size:5.5pt;font-weight:400;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);opacity:.58}
+.cov-logo{font-family:'Cormorant Garamond',serif;font-size:7pt;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);opacity:.76}
+.cov-body{flex:1;display:flex;flex-direction:column;justify-content:center;padding-bottom:4mm}
+.cov-vol{font-family:'Jost',sans-serif;font-size:5pt;font-weight:300;letter-spacing:.32em;text-transform:uppercase;color:var(--j100);opacity:.38;margin-bottom:10mm}
+.cov-ml{font-family:'Jost',sans-serif;font-size:5pt;font-weight:300;letter-spacing:.58em;text-transform:uppercase;color:var(--j100);opacity:.4;display:block;margin-bottom:2.5mm}
+.cov-mn{font-family:'Cormorant Garamond',serif;font-size:30pt;font-weight:600;letter-spacing:.22em;text-transform:uppercase;line-height:1;color:rgba(249,245,238,.92);display:block;margin-bottom:1mm}
+.cov-rule{width:19mm;height:.6px;background:var(--gold);opacity:.62;margin:5mm 0}
+.cov-fl{font-family:'Jost',sans-serif;font-size:5pt;font-weight:300;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);opacity:.43;display:block;margin-bottom:3mm}
+.cov-fear{font-family:'Cormorant Garamond',serif;font-size:14pt;font-weight:400;font-style:italic;line-height:1.45;color:rgba(245,235,150,.76);display:block;margin-bottom:11mm}
+.cov-q{font-family:'Cormorant Garamond',serif;font-size:8.5pt;font-weight:300;font-style:italic;line-height:1.65;color:rgba(249,245,238,.28);display:block;padding-left:3.5mm;border-left:.5px solid rgba(201,168,76,.2)}
+.cov-foot{padding-bottom:6mm;display:flex;justify-content:space-between;align-items:flex-end}
+.cov-auth{font-family:'Jost',sans-serif;font-size:6pt;font-weight:300;letter-spacing:.07em;color:rgba(249,245,238,.3);line-height:1.75}
+.cov-auth strong{display:block;font-family:'Cormorant Garamond',serif;font-size:8.5pt;font-weight:500;letter-spacing:.1em;font-style:normal;color:rgba(249,245,238,.6);margin-bottom:.5mm}
+.cov-auth em{font-style:italic;color:rgba(201,168,76,.46)}
+.cov-wk{text-align:right;font-family:'Cormorant Garamond',serif}
+.cov-wn{font-size:22pt;font-weight:300;letter-spacing:-.02em;color:var(--gold);opacity:.6;display:block;line-height:1}
+.cov-wl{font-size:6pt;font-style:italic;color:rgba(201,168,76,.3);margin-top:.5mm}
+
+/* ── PAGE CONTENU CRÈME */
+.page-c{background:var(--cream);display:flex;flex-direction:column;padding:17mm 17mm 17mm 13mm}
+
+/* ── PAGE FONCÉE */
+.page-d{background:#221e00;display:flex;flex-direction:column;padding:17mm 17mm 17mm 13mm;position:relative;overflow:hidden}
+.page-d::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;z-index:2;background:linear-gradient(180deg,transparent 0%,var(--gold) 20%,var(--goldl) 50%,var(--gold) 80%,transparent 100%);opacity:.42}
+.page-d-bg{position:absolute;right:-3mm;top:6mm;font-family:'Cormorant Garamond',serif;font-size:96pt;font-weight:700;line-height:1;color:rgba(65,58,0,.22);letter-spacing:-.05em;pointer-events:none;z-index:1;-webkit-user-select:none;user-select:none}
+
+/* ── EN-TÊTE / PIED */
+.pg-hd{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7mm;border-bottom:.4px solid var(--creamd);padding-bottom:2mm}
+.pg-ch{font-family:'Jost',sans-serif;font-size:5.5pt;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--inkf)}
+.pg-nb{font-family:'Cormorant Garamond',serif;font-size:7pt;color:var(--inkf)}
+.pg-hd-d{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7mm;border-bottom:.4px solid rgba(255,255,255,.08);padding-bottom:2mm;position:relative;z-index:3}
+.pg-ch-d{font-family:'Jost',sans-serif;font-size:5.5pt;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:rgba(201,168,76,.45)}
+.pg-nb-d{font-family:'Cormorant Garamond',serif;font-size:7pt;color:rgba(201,168,76,.4)}
+
+.pg-ft{margin-top:auto;padding-top:3.5mm;border-top:.4px solid var(--creamd);display:flex;justify-content:space-between;align-items:center}
+.pg-ft-t{font-family:'Jost',sans-serif;font-size:5pt;letter-spacing:.12em;text-transform:uppercase;color:var(--inkf)}
+.pg-ft-d{margin-top:auto;padding-top:3.5mm;border-top:.4px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center;position:relative;z-index:3}
+.pg-ft-td{font-family:'Jost',sans-serif;font-size:5pt;letter-spacing:.12em;text-transform:uppercase;color:rgba(201,168,76,.35)}
+.prog{display:flex;gap:2.5px;align-items:center}
+.pl{width:14px;height:14px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:6pt;font-weight:700;background:var(--creamd);color:var(--inkf)}
+.pl.done{background:var(--j600);color:var(--goldl)}
+.pl.act{background:var(--gold);color:var(--ink)}
+.pl0{width:14px;height:14px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:6pt;font-weight:700;background:var(--creamd);color:var(--inkf);border:.5px solid var(--inkf)}
+.pl0.done{background:var(--j600);color:var(--goldl);border-color:var(--j600)}
+.pl0.act{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+
+/* ── TYPO */
+.tag{font-family:'Jost',sans-serif;font-size:5.5pt;font-weight:600;letter-spacing:.35em;text-transform:uppercase;background:var(--j700);color:var(--goldl);display:inline-block;padding:.25em .7em;border-radius:1px;margin-bottom:3.5mm}
+.tag-g{font-family:'Jost',sans-serif;font-size:5.5pt;font-weight:600;letter-spacing:.35em;text-transform:uppercase;background:rgba(201,168,76,.12);color:var(--gold);display:inline-block;padding:.25em .7em;border-radius:1px;margin-bottom:3.5mm}
+h1{font-family:'Cormorant Garamond',serif;font-size:20pt;font-weight:600;line-height:1.1;color:var(--ink);letter-spacing:-.01em;margin-bottom:1mm}
+h1.lh{color:var(--cream)}
+h2{font-family:'Cormorant Garamond',serif;font-size:14pt;font-weight:600;line-height:1.2;color:var(--ink);margin-bottom:1mm}
+h2.lh{color:var(--cream)}
+h3{font-family:'Cormorant Garamond',serif;font-size:11pt;font-weight:600;line-height:1.3;color:var(--ink);margin-bottom:1.5mm}
+h3.lh{color:rgba(245,235,155,.9)}
+.sub{font-family:'Cormorant Garamond',serif;font-size:9.5pt;font-style:italic;font-weight:400;color:var(--inkl);margin-bottom:4.5mm;line-height:1.4}
+.sub.lh{color:rgba(245,235,155,.6)}
+.rule-g{width:18mm;height:1px;background:linear-gradient(90deg,var(--gold),transparent);margin-bottom:4.5mm}
+.rule-gl{width:18mm;height:1px;background:linear-gradient(90deg,rgba(201,168,76,.5),transparent);margin-bottom:4.5mm}
+.body{font-family:'Jost',sans-serif;font-size:7.5pt;line-height:1.8;color:var(--inkm);margin-bottom:3.5mm}
+.body.lh{color:rgba(249,245,238,.68)}
+.body strong{font-weight:600;color:var(--ink)}
+.body.lh strong{color:var(--cream)}
+.pq{margin:4mm 0;padding:3.5mm 4.5mm;border-left:1.5px solid var(--gold);background:rgba(201,168,76,.05)}
+.pq p{font-family:'Cormorant Garamond',serif;font-size:9.5pt;font-style:italic;line-height:1.6;color:var(--ink);margin-bottom:1.5mm}
+.pq cite{font-family:'Jost',sans-serif;font-size:5.5pt;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);font-style:normal}
+.pq.lh{background:rgba(201,168,76,.08);border-color:rgba(201,168,76,.38)}
+.pq.lh p{color:rgba(249,245,238,.88)}
+.pq.lh cite{color:rgba(201,168,76,.65)}
+
+/* ── LISTES */
+ul.il{list-style:none;margin-bottom:3.5mm}
+ul.il li{font-family:'Jost',sans-serif;font-size:7.5pt;line-height:1.7;color:var(--ink);padding:1.5mm 0 1.5mm 5mm;position:relative;border-bottom:.3px solid var(--creamd)}
+ul.il li:first-child{border-top:.3px solid var(--creamd)}
+ul.il li::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:3px;height:3px;border-radius:50%;background:var(--j400)}
+ul.il li strong{color:var(--ink);font-weight:600}
+
+/* ── GUIDE ITEM */
+.gi{display:flex;gap:4mm;align-items:flex-start;padding:3mm 0;border-bottom:.3px solid var(--creamd)}
+.gi:first-child{border-top:.3px solid var(--creamd)}
+.gi-ico{font-family:'Cormorant Garamond',serif;font-size:15pt;font-weight:300;color:var(--j400);flex-shrink:0;line-height:1;width:6mm;text-align:center;margin-top:-1px}
+.gi-t{font-family:'Jost',sans-serif;font-size:7pt;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-bottom:1mm}
+.gi-b{font-family:'Jost',sans-serif;font-size:7.5pt;line-height:1.65;color:var(--inkm)}
+
+/* ── SOMMAIRE */
+.sr{display:flex;align-items:baseline;gap:3mm;padding:2.5mm 0;border-bottom:.3px solid var(--creamd)}
+.sr:first-child{border-top:.3px solid var(--creamd)}
+.srl{width:15px;height:15px;border-radius:50%;background:var(--j600);color:var(--goldl);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:6.5pt;font-weight:700;flex-shrink:0}
+.srl0{width:15px;height:15px;border-radius:50%;background:var(--j800);color:rgba(245,235,155,.55);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:6.5pt;font-weight:700;flex-shrink:0;border:.5px solid var(--j600)}
+.sri{flex:1}
+.srn{font-family:'Jost',sans-serif;font-size:6.5pt;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);display:block}
+.srd{font-family:'Cormorant Garamond',serif;font-size:7.5pt;font-style:italic;color:var(--inkl)}
+.srw{font-family:'Jost',sans-serif;font-size:5.5pt;color:var(--inkf);letter-spacing:.08em;flex-shrink:0}
+
+/* ── COPYRIGHT BOX */
+.cpbox{border:.5px solid var(--creamd);padding:4mm 5mm;margin-bottom:5mm}
+.cpbox p{font-family:'Jost',sans-serif;font-size:6.5pt;line-height:1.75;color:var(--inkl);text-align:center}
+.cpbox p strong{color:var(--ink);font-weight:600}
+
+/* ── EXERCICES REMPLISSABLES */
+.exo-block{margin:3mm 0}
+.exo-q{font-family:'Cormorant Garamond',serif;font-size:9pt;font-style:italic;color:var(--inkm);margin:3.5mm 0 1.5mm;padding-left:3mm;border-left:1.5px solid var(--j300);line-height:1.5}
+.exo-q.lh{color:rgba(245,235,155,.7);border-color:rgba(201,168,76,.4)}
+.wlines{display:flex;flex-direction:column;gap:0;margin-bottom:2mm}
+.wline{height:28px;border-bottom:.7px solid rgba(106,101,84,.22);position:relative;display:flex;align-items:flex-end}
+.wline input{position:absolute;inset:0;background:transparent;border:none;outline:none;font-family:'Jost',sans-serif;font-size:7.5pt;color:var(--ink);padding:0 0 3px;width:100%}
+.wline input::placeholder{color:var(--creamd);font-style:italic}
+.wta{width:100%;border:none;border-bottom:.7px solid rgba(106,101,84,.22);background:transparent;resize:none;font-family:'Jost',sans-serif;font-size:7.5pt;color:var(--ink);padding:2px 0 3px;outline:none;line-height:1.75;margin-bottom:2mm}
+.wta::placeholder{color:var(--creamd);font-style:italic}
+/* échelle */
+.scale{display:flex;align-items:center;gap:0;margin:2mm 0}
+.scale-l{font-family:'Jost',sans-serif;font-size:6pt;color:var(--inkf);letter-spacing:.05em;flex-shrink:0}
+.scale-dots{flex:1;display:flex;justify-content:space-between;align-items:center;padding:0 3mm}
+.sd{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--creamd);cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:'Jost',sans-serif;font-size:6pt;color:var(--inkf);transition:all .2s}
+.sd:hover,.sd.on{background:var(--j600);border-color:var(--j400);color:var(--goldl)}
+
+/* checkboxes */
+.cb-row{display:flex;align-items:flex-start;gap:2.5mm;padding:1.5mm 0;cursor:pointer}
+.cb{width:11px;height:11px;border:.7px solid var(--creamd);border-radius:2px;flex-shrink:0;margin-top:.5px;display:flex;align-items:center;justify-content:center;transition:all .2s;cursor:pointer}
+.cb.on{background:var(--j600);border-color:var(--j400)}
+.cb.on::after{content:'';width:5px;height:3px;border-left:1.5px solid var(--goldl);border-bottom:1.5px solid var(--goldl);transform:rotate(-45deg) translate(1px,-1px)}
+.cb-lbl{font-family:'Jost',sans-serif;font-size:7pt;color:var(--inkm);line-height:1.6}
+
+/* tableau journal */
+.jtable{width:100%;border-collapse:collapse;font-family:'Jost',sans-serif;font-size:6.5pt;margin-bottom:3mm}
+.jtable th{font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--inkf);background:var(--creamm);padding:1.5mm 2mm;border:.4px solid var(--creamd);text-align:left}
+.jtable td{padding:.5mm 0;border:.4px solid var(--creamd);vertical-align:top}
+.jtable td input{width:100%;border:none;outline:none;background:transparent;font-family:'Jost',sans-serif;font-size:6.5pt;color:var(--ink);padding:1mm 2mm}
+.jtable td input::placeholder{color:var(--creamd)}
+
+/* grille 2 colonnes */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:2.5mm;margin:3mm 0}
+.gcell{padding:3mm 3.5mm;border:.5px solid var(--creamd);background:rgba(0,0,0,.02)}
+.gcell-d{padding:3mm 3.5mm;border:.5px solid rgba(255,255,255,.08);background:rgba(0,0,0,.15)}
+.gc-lbl{font-family:'Jost',sans-serif;font-size:5.5pt;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--inkf);display:block;margin-bottom:1.5mm}
+.gc-lbl-g{font-family:'Jost',sans-serif;font-size:5.5pt;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--j300);display:block;margin-bottom:1.5mm}
+.gc-lbl-d{font-family:'Jost',sans-serif;font-size:5.5pt;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(201,168,76,.5);display:block;margin-bottom:1.5mm}
+.gc-txt{font-family:'Cormorant Garamond',serif;font-size:8pt;font-style:italic;color:var(--inkm);line-height:1.5}
+.gc-txt-d{font-family:'Cormorant Garamond',serif;font-size:8pt;font-style:italic;color:rgba(249,245,238,.65);line-height:1.5}
+
+/* numérotation étapes */
+.step-n{display:flex;gap:3mm;align-items:flex-start;padding:2.5mm 0;border-bottom:.3px solid var(--creamd)}
+.step-n:first-child{border-top:.3px solid var(--creamd)}
+.step-nb{font-family:'Cormorant Garamond',serif;font-size:14pt;font-weight:300;color:var(--j300);flex-shrink:0;width:7mm;text-align:center;line-height:1;margin-top:-1px}
+.step-b{flex:1}
+.step-t{font-family:'Jost',sans-serif;font-size:7pt;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-bottom:1mm}
+.step-tx{font-family:'Jost',sans-serif;font-size:7.5pt;line-height:1.65;color:var(--inkm)}
+
+/* loi des 90j */
+.l90{display:grid;grid-template-columns:repeat(3,1fr);gap:2mm;margin:3mm 0}
+.l90cell{padding:3mm;border:.5px solid var(--creamd);text-align:center}
+.l90n{font-family:'Cormorant Garamond',serif;font-size:14pt;font-weight:300;color:var(--gold);opacity:.7;display:block}
+.l90t{font-family:'Jost',sans-serif;font-size:5.5pt;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);display:block;margin:1.5mm 0 1mm}
+.l90b{font-family:'Jost',sans-serif;font-size:6.5pt;color:var(--inkl);line-height:1.55}
+
+/* section de fin */
+.end-page{background:var(--j800);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:18mm 12mm;min-height:210mm;position:relative;overflow:hidden}
+.end-page::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;z-index:2;background:linear-gradient(180deg,transparent 0%,var(--gold) 20%,var(--goldl) 50%,var(--gold) 80%,transparent 100%);opacity:.42}
+.end-bg{position:absolute;font-family:'Cormorant Garamond',serif;font-size:70pt;font-weight:700;color:rgba(65,58,0,.15);letter-spacing:-.05em;z-index:1;pointer-events:none;-webkit-user-select:none;user-select:none;line-height:1}
+.end-inner{position:relative;z-index:10;width:100%}
+.end-small{font-family:'Jost',sans-serif;font-size:5pt;font-weight:400;letter-spacing:.5em;text-transform:uppercase;color:rgba(201,168,76,.4);margin-bottom:6mm}
+.end-big{font-family:'Cormorant Garamond',serif;font-size:22pt;font-weight:600;line-height:1.15;color:var(--cream);margin-bottom:5mm}
+.end-big em{color:var(--goldl);font-style:italic}
+.end-rule{width:20mm;height:.8px;background:var(--gold);opacity:.4;margin:0 auto 5mm}
+.end-pq{font-family:'Cormorant Garamond',serif;font-size:9pt;font-style:italic;line-height:1.75;color:rgba(249,245,238,.5);max-width:320px;margin:0 auto 6mm;text-align:center}
+.end-cite{font-family:'Jost',sans-serif;font-size:5pt;letter-spacing:.2em;text-transform:uppercase;color:rgba(201,168,76,.4)}
+
+/* ── BARRE NAV */
+.page-nav{position:fixed;bottom:0;left:0;right:0;z-index:200;background:rgba(4,10,4,.97);backdrop-filter:blur(12px);border-top:1px solid rgba(201,168,76,.14);padding:.65rem 1.2rem;display:flex;align-items:center;justify-content:space-between;gap:.8rem}
+.nav-brand{font-family:'Cormorant Garamond',serif;font-size:.68rem;font-weight:500;letter-spacing:.2em;color:var(--gold);white-space:nowrap}
+.nav-mods{display:flex;gap:.28rem;align-items:center}
+.nm{display:flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-family:'Cormorant Garamond',serif;font-size:.68rem;font-weight:700;text-decoration:none;background:rgba(255,255,255,.05);color:rgba(201,168,76,.42);border:1px solid rgba(201,168,76,.1);transition:all .2s;cursor:pointer}
+.nm:hover{background:rgba(201,168,76,.14);color:var(--gold)}
+.nm.cur{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.nav-r{font-family:'Jost',sans-serif;font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(201,168,76,.28);white-space:nowrap}
+
+/* ── PRINT */
+  .page-nav{display:none}
+  .book{padding:0;max-width:none}
+  .page{width:148mm;min-height:210mm;margin:0;box-shadow:none;page-break-after:always}
+  .page:last-child{page-break-after:avoid}
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+}
+@page{size:A5;margin:0}
+}
+
+.page-cover{background:linear-gradient(168deg, #342e00 0%, #221e00 55%, #0d0c00 100%)!important}
+.page-cover .cov-light{background:radial-gradient(ellipse 65% 50% at 50% 42%,rgba(160,140,0,.28) 0%,transparent 70%)!important}
+
+  .book { max-width: none !important; padding: 0 !important; }
+}
+
+
+
+.page-d ul.il li{color:rgba(249,245,238,.72)!important;border-bottom-color:rgba(255,255,255,.10)!important}
+.page-d ul.il li:first-child{border-top-color:rgba(255,255,255,.10)!important}
+.page-d ul.il li::before{background:var(--gold)!important}
+.page-d ul.il li strong{color:rgba(249,245,238,.92)!important}
+
+
+
+
+ul.il li{color:var(--inkm)!important}
+ul.il li strong{color:var(--ink)!important}
+
+.page-d ul.il li{color:rgba(249,245,238,.80)!important;border-bottom-color:rgba(255,255,255,.12)!important}
+.page-d ul.il li:first-child{border-top-color:rgba(255,255,255,.12)!important}
+.page-d ul.il li::before{background:var(--gold)!important}
+.page-d ul.il li strong{color:rgba(255,255,255,.95)!important}
+/* ul.il dans div à fond doré/coloré — lisibilité */
+[style*="background:rgba(201"] ul.il li,
+[style*="background:rgba(90"] ul.il li,
+[style*="background:rgba(14,32"] ul.il li,
+[style*="background:rgba(80,72"] ul.il li,
+[style*="background:rgba(74,64"] ul.il li {
+  border-bottom-color:rgba(0,0,0,.10)!important
+}
+}
+}
+
+
+
+
+
+
+
+.book {
+    max-width: 580px;
+    margin: 0 auto;
+    padding: 2rem 1rem 7rem;
+    background: #ede9e0;
+    box-sizing: border-box;
+  }
+  .page {
+    margin-bottom: 10px;
+  }
+  .page-nav {
+    width: 100%;
+    max-width: 580px;
+    box-sizing: border-box;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+.page {
+    width: 100% !important;
+    min-height: auto;
+    overflow: hidden;
+  }
+}
+.book {
+    max-width: none !important;
+    padding: 0 !important;
+    background: white !important;
+  }
+  .page {
+    width: 148mm !important;
+    min-height: 210mm !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+/* 
+.page-d ul.il li{color:rgba(249,245,238,.80)!important;border-bottom-color:rgba(255,255,255,.12)!important}
+.page-d ul.il li:first-child{border-top-color:rgba(255,255,255,.12)!important}
+.page-d ul.il li::before{background:var(--gold)!important}
+.page-d ul.il li strong{color:rgba(255,255,255,.92)!important}
+
+/* ul.il sur fond sombre */
+.page-d ul.il li{color:rgba(249,245,238,.80)!important;border-bottom-color:rgba(255,255,255,.12)!important}
+.page-d ul.il li:first-child{border-top-color:rgba(255,255,255,.12)!important}
+.page-d ul.il li::before{background:var(--gold)!important}
+.page-d ul.il li strong{color:rgba(255,255,255,.92)!important}
+
+@media print {
+  body { background: white; }
+  .page-nav { display: none; }
+  .book { padding: 0; max-width: none; }
+  .page { width: 148mm; min-height: 210mm; margin: 0; box-shadow: none; page-break-after: always; }
+  .page:last-child { page-break-after: avoid; }
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+}
+
+@media screen {
+  body { background: #1a1a1a; }
+  .book {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 2rem 1rem 8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+    background: #1a1a1a;
+  }
+  .page {
+    width: 560px;
+    min-height: 0;
+    overflow: visible;
+    box-shadow: 0 8px 40px rgba(0,0,0,.7), 0 2px 8px rgba(0,0,0,.4);
+  }
+  .page-nav { width: 100%; max-width: 620px; box-sizing: border-box; }
+}
+@media screen and (max-width: 620px) {
+  .book { padding: .8rem .3rem 6rem; gap: 32px; max-width: 100%; }
+  .page { width: 100%; }
+}
+</style>
+</head>
+<body>
+<div class="book">
+<div class="page page-cover" id="cover">
+<div class="cov-vignette"></div><div class="cov-light"></div>
+<div class="cov-rl-t"></div><div class="cov-rl-b"></div>
+<div class="cov-inner">
+  <div class="cov-head"><span class="cov-col">Collection des 7 Masques</span><span class="cov-logo">V.A.L.E.U.R©</span></div>
+  <div class="cov-body">
+    <span class="cov-vol">Volume III · Workbook complet · 12 semaines</span>
+    <span class="cov-ml">Masque</span>
+    <span class="cov-mn">Jaune</span>
+    <div class="cov-rule"></div>
+    <span class="cov-fl">Peur fondatrice</span>
+    <span class="cov-fear">La peur de l'inconnu<br>et de l'incertitude</span>
+    <span class="cov-q">«&nbsp;J'ai un plan pour tout. Et pourtant,<br>je n'ai jamais vraiment l'impression<br>d'être en sécurité.&nbsp;»</span>
+  </div>
+  <div class="cov-foot">
+    <div class="cov-auth"><strong>Céline Bourbon</strong>Psychologue<br><em>De la peur à la joie d'être soi · L'Harmattan</em></div>
+    <div class="cov-wk"><span class="cov-wn">12</span><span class="cov-wl">semaines</span></div>
+  </div>
+</div></div><div class="page page-c" style="justify-content:center">
+<div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:5mm">
+  <div class="cpbox">
+    <p><strong>© Céline Bourbon — Méthode V.A.L.E.U.R©</strong><br>Tous droits réservés.<br><br>
+    Ce livret est strictement réservé à un usage personnel.<br>
+    Toute reproduction, diffusion ou transmission sous quelque forme que ce soit<br>
+    est interdite sans autorisation écrite de l'auteure.<br><br>
+    Ce workbook accompagne la méthode V.A.L.E.U.R©.<br>
+    Il ne remplace pas un suivi professionnel.</p>
+  </div>
+  <div style="text-align:center">
+    <p style="font-family:'Cormorant Garamond',serif;font-size:9pt;font-style:italic;color:var(--inkl);line-height:1.7;margin-bottom:3mm">Fondements scientifiques du Masque Jaune</p>
+    <div style="display:flex;flex-wrap:wrap;gap:2mm;justify-content:center">
+      <span style="font-family:Jost,sans-serif;font-size:6pt;letter-spacing:.15em;text-transform:uppercase;color:var(--inkf);border:.4px solid var(--creamd);padding:.2em .6em">IUS-12</span><span style="font-family:Jost,sans-serif;font-size:6pt;letter-spacing:.15em;text-transform:uppercase;color:var(--inkf);border:.4px solid var(--creamd);padding:.2em .6em">Intolérance à l'incertitude</span><span style="font-family:Jost,sans-serif;font-size:6pt;letter-spacing:.15em;text-transform:uppercase;color:var(--inkf);border:.4px solid var(--creamd);padding:.2em .6em">Thérapie ACT</span><span style="font-family:Jost,sans-serif;font-size:6pt;letter-spacing:.15em;text-transform:uppercase;color:var(--inkf);border:.4px solid var(--creamd);padding:.2em .6em">FMPS · Perfectionnisme</span><span style="font-family:Jost,sans-serif;font-size:6pt;letter-spacing:.15em;text-transform:uppercase;color:var(--inkf);border:.4px solid var(--creamd);padding:.2em .6em">Dugas 1998</span><span style="font-family:Jost,sans-serif;font-size:6pt;letter-spacing:.15em;text-transform:uppercase;color:var(--inkf);border:.4px solid var(--creamd);padding:.2em .6em">TAS-20</span>
+    </div>
+  </div>
+</div></div><div class="page page-c" id="intro">
+<div class="pg-hd"><span class="pg-ch">Masque Jaune · Introduction</span><span class="pg-nb">3</span></div>
+<span class="tag">Un mot pour vous</span>
+<h1 style="font-size:16pt;margin-bottom:3.5mm">Introduction</h1>
+<div class="rule-g"></div>
+<p class="body" style="font-family:'Cormorant Garamond',serif;font-size:10pt;font-weight:500;font-style:italic;color:var(--ink);margin-bottom:3.5mm">Cher·e lecteur·ice,</p>
+<p class="body">Ce livret a été conçu pour vous. Pour vous — porteur·euse du Masque Jaune — chez qui la peur de l'inconnu a transformé une intelligence naturelle en moteur d'anxiété perpétuelle. Vous planifiez, anticipez, analysez. Et pourtant, la sécurité que vous cherchez ne vient jamais vraiment.</p>
+<p class="body">Vous n'êtes pas un·e obsessionnel·le du contrôle par caprice. Vous êtes quelqu'un dont le cerveau a appris, un jour, que <strong>l'imprévu était dangereux</strong> — et qui depuis travaille sans relâche à l'éliminer. C'est épuisant. Et c'est inutile, parce que l'incertitude est irréductible.</p>
+<div class="pq"><p>«&nbsp;Ce n'est pas une pathologie. Ce n'est pas un trait de caractère. C'est une stratégie de survie — apprise, automatique, et depuis longtemps devenue inutile.&nbsp;»</p><cite>Céline Bourbon — De la peur à la joie d'être soi</cite></div>
+<p class="body">Ce livret ne va pas vous apprendre à planifier mieux. Il va vous apprendre à <strong>faire confiance à votre capacité d'adaptation</strong> — qui est immense, et que vous n'avez jamais vraiment eu besoin de tester.</p>
+<p style="font-family:'Cormorant Garamond',serif;font-size:9pt;font-style:italic;color:var(--inkl);line-height:1.7;margin-top:3mm">Avec toute ma bienveillance,<br><strong style="font-style:normal;font-weight:600;color:var(--ink);display:block;margin-top:1mm">Céline Bourbon</strong>Psychologue · Auteure de <em>De la peur à la joie d'être soi</em> · Éditions L'Harmattan</p>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 act">0</div><div class="pl ">V</div><div class="pl ">A</div><div class="pl ">L</div><div class="pl ">E</div><div class="pl ">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 0 · Formule D=e×r²</span><span class="pg-nb">8</span></div>
+<span class="tag">La formule de la souffrance</span>
+<h2 style="font-size:18pt;letter-spacing:-.01em">D = e × r²</h2>
+<p class="sub">Ce n'est pas la peur de l'inconnu et de l'incertitude qui crée la souffrance durable — c'est la <strong>résistance</strong> à cette peur</p>
+<div class="rule-g"></div>
+<p class="body">Parce que la résistance est <strong>au carré</strong>, doubler votre résistance multiplie par <strong>4</strong> la durée de la souffrance — pour la même peur de départ. Ce n'est pas la peur de l'inconnu et de l'incertitude qui vous épuise. C'est le combat que vous lui livrez.</p>
+<div style="display:flex;gap:4mm;margin:3.5mm 0">
+<div style="flex:1;padding:3mm;border:.5px solid var(--creamd);text-align:center;background:rgba(201,168,76,.04)"><span style="font-family:'Cormorant Garamond',serif;font-size:18pt;font-weight:300;color:var(--gold);display:block;line-height:1.1">D</span><span style="font-family:'Jost',sans-serif;font-size:5.5pt;letter-spacing:.15em;text-transform:uppercase;color:var(--inkf)">Durée anxiété</span></div>
+<div style="flex:1;padding:3mm;border:.5px solid var(--creamd);text-align:center"><span style="font-family:'Cormorant Garamond',serif;font-size:18pt;font-weight:300;color:var(--inkl);display:block;line-height:1.1">e</span><span style="font-family:'Jost',sans-serif;font-size:5.5pt;letter-spacing:.15em;text-transform:uppercase;color:var(--inkf)">Incertitude initiale</span></div>
+<div style="flex:1;padding:3mm;border:.5px solid #c4aa00;background:rgba(0,0,0,.03);text-align:center"><span style="font-family:'Cormorant Garamond',serif;font-size:18pt;font-weight:300;color:#c4aa00;display:block;line-height:1.1">r²</span><span style="font-family:'Jost',sans-serif;font-size:5.5pt;letter-spacing:.15em;text-transform:uppercase;color:var(--inkf)">Résistance (au carré)</span></div>
+</div>
+<div style="background:rgba(201,168,76,.06);border:.5px solid rgba(201,168,76,.2);padding:3mm 4mm;margin-bottom:3mm"><p style="font-family:'Jost',sans-serif;font-size:7pt;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5mm">Résistances typiques — Masque Jaune</p><ul class="il"><li>Sur-planification — listes infinies, plans A/B/C et plans de secours</li><li>Procrastination par perfectionnisme — attendre le moment parfait</li><li>Rumination anticipatoire — les «&nbsp;et si...&nbsp;» en boucle</li><li>Demande de garanties — réassurance sans jamais être rassuré·e durablement</li><li>Paralysie décisionnelle — impossible de trancher sans toutes les informations</li></ul></div>
+<div style="background:rgba(0,0,0,.03);border:.5px solid var(--creamd);padding:3mm 4mm;margin-bottom:2.5mm"><p style="font-family:'Jost',sans-serif;font-size:6.5pt;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--inkl);margin-bottom:1.5mm">L'outil de base — Cohérence cardiaque 365</p><p class="body" style="margin-bottom:0">3 fois par jour · 6 cycles/min · 5 minutes · <strong>Inspiration 5 sec — Expiration 5 sec</strong>. En 21 jours, réduit physiologiquement la réponse d'anxiété chronique.</p></div>
+<p class="exo-q">Ma résistance principale à la peur de l'inconnu et de l'incertitude&nbsp;:</p>
+<div class="wlines"><div class="wline"><input type="text" placeholder="Ce que je fais habituellement face à cette peur..."></div><div class="wline"><input type="text" placeholder=""></div></div>
+</div>
+<div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 0 · Portrait Jaune</span><span class="pg-nb">9</span></div>
+<span class="tag">Anatomie du Masque Jaune</span>
+<h2>Votre masque dominant</h2>
+<p class="sub">Ce que la science dit du Masque Jaune — IUS-12 · FMPS · Dugas · ACT</p>
+<div class="rule-g"></div>
+<p class="body">Votre masque s'est construit autour d'une équation gravée tôt&nbsp;: «&nbsp;Si je prévois tout, rien de grave ne peut arriver.&nbsp;» Cette conviction a développé chez vous une intelligence analytique remarquable — et une incapacité chronique à <strong>faire confiance à l'imprévu.</strong></p>
+<p class="body">Dans sa lumière, ce masque recèle une agilité mentale extraordinaire qui jadis transformait l'inconnu en aventure — et qui peut le refaire.</p>
+<h3 style="margin-top:2mm">Vous reconnaissez-vous ? — Cochez ce qui résonne</h3>
+<div class="cb-row" onclick="togCb(this)"><div class="cb"></div><span class="cb-lbl">Vous avez du mal à prendre une décision sans avoir toutes les informations</span></div><div class="cb-row" onclick="togCb(this)"><div class="cb"></div><span class="cb-lbl">L'imprévu — même mineur — déclenche une anxiété disproportionnée</span></div><div class="cb-row" onclick="togCb(this)"><div class="cb"></div><span class="cb-lbl">Vous avez des listes, des plans, des plans de secours — et des plans de secours pour les plans de secours</span></div><div class="cb-row" onclick="togCb(this)"><div class="cb"></div><span class="cb-lbl">Vous remettez des projets importants en attente d'un «&nbsp;moment parfait&nbsp;» qui ne vient jamais</span></div><div class="cb-row" onclick="togCb(this)"><div class="cb"></div><span class="cb-lbl">Vous ruminez avant, pendant et après les événements importants</span></div><div class="cb-row" onclick="togCb(this)"><div class="cb"></div><span class="cb-lbl">Un changement de dernière minute peut ruiner une journée entière</span></div><div class="cb-row" onclick="togCb(this)"><div class="cb"></div><span class="cb-lbl">Vous demandez souvent une réassurance à vos proches ou experts — sans jamais être vraiment rassuré·e</span></div>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 act">0</div><div class="pl ">V</div><div class="pl ">A</div><div class="pl ">L</div><div class="pl ">E</div><div class="pl ">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 0 · Origines</span><span class="pg-nb">10</span></div>
+<span class="tag">D'où vient ce masque ?</span>
+<h2>Les scènes fondatrices</h2>
+<p class="sub">Quand l'incertitude est devenue synonyme de danger</p>
+<div class="rule-g"></div>
+<p class="body">Votre masque Jaune est né dans un contexte — ou à force de répétition — où quelque chose a appris à votre cerveau&nbsp;: <strong>ce qu'on ne contrôle pas peut faire mal. Mieux vaut tout prévoir.</strong></p>
+<div class="g2">
+<div class="gcell"><span class="gc-lbl">Imprévu douloureux dans l'enfance</span><span class="gc-txt">À 9 ans, Mathieu apprend sans prévenir que sa famille déménage. Tout bascule du jour au lendemain. Son cerveau grave&nbsp;: l'imprévu = danger. Depuis, il planifie tout — même ses vacances.</span></div>
+<div class="gcell"><span class="gc-lbl">Environnement familial instable</span><span class="gc-txt">Clara a grandi dans une famille où l'humeur des parents était imprévisible. Elle a appris à anticiper, à détecter les signes, à se préparer. À 38 ans, elle anticipe encore tout — même ce qui n'arrivera pas.</span></div>
+</div>
+<div class="gcell" style="margin-bottom:3mm"><span class="gc-lbl">Exigence de perfection transmise</span><span class="gc-txt">Louis a appris que les erreurs coûtaient cher — en déception, en punition, en honte. Son cerveau a gravé&nbsp;: l'incertitude = risque d'échec. Pour ne jamais échouer, il ne commence que quand il est sûr. Il attend encore.</span></div>
+<p class="exo-q">Ce que ce portrait réveille en moi&nbsp;:</p>
+<textarea class="wta" rows="3" placeholder="Ce qui résonne, l'événement ou le contexte qui me vient..."></textarea>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 act">0</div><div class="pl ">V</div><div class="pl ">A</div><div class="pl ">L</div><div class="pl ">E</div><div class="pl ">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 0 · Questionnaire initial</span><span class="pg-nb">11</span></div>
+<span class="tag">Évaluation initiale</span>
+<h2>Votre point de départ</h2>
+<p class="sub">À relire dans 12 semaines — prenez 10 minutes, sans planifier vos réponses.</p>
+<div class="rule-g"></div>
+<p class="exo-q" style="font-style:normal;font-family:'Jost',sans-serif;font-size:7.5pt;color:var(--inkm);margin-bottom:2mm"><strong>1.</strong> De 0 à 10, à quel point l'incertitude vous génère-t-elle de l'anxiété quotidiennement&nbsp;?</p>
+<div class="scale"><span class="scale-l">Pas du tout</span><div class="scale-dots"><div class="sd" onclick="selDot(this)">0</div><div class="sd" onclick="selDot(this)">1</div><div class="sd" onclick="selDot(this)">2</div><div class="sd" onclick="selDot(this)">3</div><div class="sd" onclick="selDot(this)">4</div><div class="sd" onclick="selDot(this)">5</div><div class="sd" onclick="selDot(this)">6</div><div class="sd" onclick="selDot(this)">7</div><div class="sd" onclick="selDot(this)">8</div><div class="sd" onclick="selDot(this)">9</div><div class="sd" onclick="selDot(this)">10</div></div><span class="scale-l">Entièrement</span></div>
+<p class="exo-q"><strong>2.</strong> Qu'est-ce qui vous a amené·e à ouvrir ce livret aujourd'hui&nbsp;?</p>
+<textarea class="wta" rows="2" placeholder="Soyez honnête — même si la réponse vous surprend..."></textarea>
+<p class="exo-q"><strong>3.</strong> Quelle situation ou décision vous paralyse le plus en ce moment par peur de l'inconnu&nbsp;?</p>
+<div class="wlines"><div class="wline"><input type="text" placeholder=""></div><div class="wline"><input type="text" placeholder=""></div></div>
+<p class="exo-q"><strong>4.</strong> Quel comportement aimeriez-vous changer en premier au terme de ces 12 semaines&nbsp;?</p>
+<div class="wlines"><div class="wline"><input type="text" placeholder=""></div><div class="wline"><input type="text" placeholder=""></div></div>
+<p class="exo-q"><strong>5.</strong> En une phrase&nbsp;: comment vivriez-vous différemment si l'incertitude ne vous paralysait plus&nbsp;?</p>
+<div class="wlines"><div class="wline"><input type="text" placeholder=""></div><div class="wline"><input type="text" placeholder=""></div></div>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 act">0</div><div class="pl ">V</div><div class="pl ">A</div><div class="pl ">L</div><div class="pl ">E</div><div class="pl ">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 0 · Engagement</span><span class="pg-nb">12</span></div>
+<span class="tag">Avant de commencer</span>
+<h2>Mon acte d'engagement</h2>
+<p class="sub">Cette promesse a la valeur que vous lui donnez.</p>
+<div class="rule-g"></div>
+<div style="border:.5px solid var(--creamd);padding:4mm 5mm;margin-bottom:4mm;background:rgba(80,72,0,.03)">
+<p class="body" style="line-height:2">
+Je m'engage à traverser ces 12 semaines avec honnêteté envers moi-même.<br>
+Je m'engage à écrire sans me corriger — même si ce n'est pas parfait.<br>
+Je m'engage à traiter avec bienveillance la part de moi qui a eu peur de l'imprévu.<br>
+Je m'engage à agir, progressivement, <em>avant</em> d'avoir toutes les garanties.
+</p>
+</div>
+<div class="g2" style="margin-bottom:3mm">
+<div class="gcell"><span class="gc-lbl">Signé le</span><div class="wlines"><div class="wline"><input type="text" placeholder=""></div></div></div>
+<div class="gcell"><span class="gc-lbl">Mon prénom</span><div class="wlines"><div class="wline"><input type="text" placeholder=""></div></div></div>
+</div>
+<p class="exo-q">Mes 3 intentions pour ces 12 semaines&nbsp;:</p>
+<div class="wlines"><div class="wline"><input type="text" placeholder="Mon intention..."></div><div class="wline"><input type="text" placeholder=""></div><div class="wline"><input type="text" placeholder=""></div></div>
+<div class="pq" style="margin-top:3mm"><p>«&nbsp;Vous êtes prêt·e. Le Module 1 commence maintenant. Votre première mission&nbsp;: apprendre à observer le besoin de contrôle — sans le satisfaire immédiatement.&nbsp;»</p><cite>Méthode V.A.L.E.U.R© — Module 1 · VOIR</cite></div>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 act">0</div><div class="pl ">V</div><div class="pl ">A</div><div class="pl ">L</div><div class="pl ">E</div><div class="pl ">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-d" id="mod1">
+<div class="page-d-bg">V</div>
+<div class="pg-hd-d"><span class="pg-ch-d">Masque Jaune · Module 1</span><span class="pg-nb-d">13</span></div>
+<span class="tag-g">Étape 1 · Semaines 1 &amp; 2</span>
+<h1 class="lh" style="font-size:22pt;margin-bottom:1mm">VOIR</h1>
+<p class="sub lh">«&nbsp;Je vois ce qui m'active.&nbsp;»</p>
+<div class="rule-gl"></div>
+<p class="body lh">La conscience observatrice · Vous n'êtes pas vos pensées «&nbsp;et si...&nbsp;»<br>Le cycle invisible du Masque Jaune<br>Vos déclencheurs · Les 3 questions · L'exercice du témoin</p>
+<div class="pg-ft-d"><span class="pg-ft-td">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl act">V</div><div class="pl ">A</div><div class="pl ">L</div><div class="pl ">E</div><div class="pl ">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 1 · VOIR — Fondation</span><span class="pg-nb">14</span></div>
+<span class="tag">L'Observateur intérieur</span>
+<h2>Si vous pouvez observer une pensée<br>«&nbsp;et si...&nbsp;», vous n'êtes pas cette pensée</h2>
+<div class="rule-g"></div>
+<p class="body">Vous pouvez dire&nbsp;: «&nbsp;et si ça se passe mal&nbsp;?&nbsp;» Mais <em>qui entend cette pensée</em>&nbsp;? C'est une part de vous qui l'observe. Cette conscience qui voit — c'est votre <strong>Observateur Intérieur</strong>. Pour le Masque Jaune, il est souvent noyé sous le flux des scénarios catastrophes que le mental génère à la chaîne.</p>
+<p class="body">VOIR, c'est apprendre à <strong>reconnaître la pensée d'incertitude pour ce qu'elle est</strong>&nbsp;: une production du masque — pas une prophétie, pas une réalité, pas une urgence.</p>
+<div class="pq"><p>«&nbsp;La pensée «&nbsp;et si ça tourne mal&nbsp;» n'est pas plus réelle que la pensée «&nbsp;et si tout va bien&nbsp;». Elles ont le même statut&nbsp;: ce sont des constructions du mental. L'Observateur le sait.&nbsp;»</p><cite>Méthode V.A.L.E.U.R© — Céline Bourbon</cite></div>
+<div class="g2">
+<div class="gcell"><span class="gc-lbl" style="color:var(--inkl)">L'Observateur</span><span class="gc-txt">La conscience qui voit le flux de pensées — stable, spacieuse. Elle peut noter «&nbsp;je suis en train de ruminer un scénario catastrophe&nbsp;» sans y croire.</span></div>
+<div class="gcell"><span class="gc-lbl" style="color:var(--inkl)">L'Observé</span><span class="gc-txt">Les pensées «&nbsp;et si...&nbsp;», les plans, les listes, les vérifications. Votre masque qui travaille sans relâche à éliminer l'incertitude.</span></div>
+</div>
+<p class="exo-q">Une pensée «&nbsp;et si...&nbsp;» récurrente — qui l'observe&nbsp;?</p>
+<textarea class="wta" rows="3" placeholder="La pensée est... Une part de moi observe que..."></textarea>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl act">V</div><div class="pl ">A</div><div class="pl ">L</div><div class="pl ">E</div><div class="pl ">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 1 · Exercice fondateur</span><span class="pg-nb">15</span></div>
+<span class="tag">Exercice guidé</span>
+<h2>Rencontrer votre Observateur</h2>
+<p class="sub">Un exercice en deux parties — sans réponse préparée à l'avance</p>
+<div class="rule-g"></div>
+<h3>Partie 1 — Identifier l'Observé</h3>
+<p class="body" style="font-size:7pt;color:var(--inkl);font-style:italic">Fermez les yeux. Pensez à une incertitude réelle que vous portez en ce moment — un projet, une décision, une situation floue. Laissez les pensées «&nbsp;et si...&nbsp;» arriver. Ne les chassez pas. Notez-les.</p>
+<p class="exo-q">Les pensées «&nbsp;et si...&nbsp;» qui sont arrivées&nbsp;:</p>
+<textarea class="wta" rows="2" placeholder="Et si... / Et si... / Et si..."></textarea>
+<h3>Partie 2 — Identifier l'Observateur</h3>
+<p class="body" style="font-size:7pt;color:var(--inkl);font-style:italic">Maintenant, prenez du recul. Ces pensées sont là. Mais qui les regarde&nbsp;? Il y a une part de vous qui peut voir le flux sans y être emportée — et qui sait que ces scénarios ne sont pas des faits.</p>
+<p class="exo-q">Avez-vous senti cette part stable qui regardait les pensées sans les croire automatiquement&nbsp;?</p>
+<textarea class="wta" rows="2" placeholder="Ce que j'ai remarqué en observant le flux sans y plonger..."></textarea>
+<div class="pq" style="margin-top:2mm"><p>«&nbsp;Il faut être deux pour observer. La pensée «&nbsp;et si...&nbsp;» et la conscience qui la voit. C'est votre point de départ.&nbsp;»</p><cite>Méthode V.A.L.E.U.R© — Céline Bourbon</cite></div>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl act">V</div><div class="pl ">A</div><div class="pl ">L</div><div class="pl ">E</div><div class="pl ">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 1 · Le cycle invisible du Jaune</span><span class="pg-nb">16</span></div>
+<span class="tag">Comment ça fonctionne</span>
+<h2>Le cycle invisible du Masque Jaune</h2>
+<p class="sub">4 étapes — et où VOIR peut intervenir</p>
+<div class="rule-g"></div>
+<div class="step-n"><div class="step-nb">1</div><div class="step-b"><div class="step-t">Le déclencheur d'incertitude</div><div class="step-tx">Un imprévu, une information manquante, une décision à prendre, un changement de plan. Il n'a pas besoin d'être objectivement grave — l'incertitude suffit à déclencher l'alarme.</div></div></div>
+<div class="step-n"><div class="step-nb">2</div><div class="step-b"><div class="step-t">La cascade «&nbsp;et si...&nbsp;»</div><div class="step-tx">Le mental génère immédiatement des scénarios&nbsp;: «&nbsp;et si ça tourne mal&nbsp;? et si je me trompe&nbsp;? et si je n'ai pas assez d'informations&nbsp;?&nbsp;» Chaque «&nbsp;et si&nbsp;» en génère d'autres. L'anxiété monte.</div></div></div>
+<div class="step-n"><div class="step-nb">3</div><div class="step-b"><div class="step-t">Le comportement de contrôle</div><div class="step-tx">Planifier davantage. Vérifier encore. Demander une confirmation. Chercher des informations supplémentaires. Reporter la décision. Chaque tentative de contrôle soulage brièvement — et entretient l'anxiété.</div></div></div>
+<div class="step-n"><div class="step-nb" style="color:var(--gold)">4</div><div class="step-b"><div class="step-t" style="color:var(--j300)">Votre liberté commence ici</div><div class="step-tx">La certitude partielle — qui ne suffit jamais. La prochaine incertitude arrive. Le cycle recommence. <strong>L'espace de VOIR est entre l'étape 2 et l'étape 3 — entre la pensée et le comportement de contrôle.</strong></div></div></div>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl act">V</div><div class="pl ">A</div><div class="pl ">L</div><div class="pl ">E</div><div class="pl ">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 1 · Les 3 questions</span><span class="pg-nb">17</span></div>
+<span class="tag">Outil quotidien</span>
+<h2>Les 3 questions de VOIR</h2>
+<p class="sub">Reprendre les commandes — même en pleine cascade «&nbsp;et si...&nbsp;»</p>
+<div class="rule-g"></div>
+<div class="step-n"><div class="step-nb">1</div><div class="step-b"><div class="step-t">Qu'est-ce que je suis en train de faire là&nbsp;?</div><div class="step-tx">Nommez le comportement. Ex.&nbsp;: «&nbsp;Je suis en train de relire ce mail pour la sixième fois avant de l'envoyer.&nbsp;» / «&nbsp;Je suis en train de chercher une garantie supplémentaire pour une décision déjà prise.&nbsp;»</div></div></div>
+<div class="step-n"><div class="step-nb">2</div><div class="step-b"><div class="step-t">Quel masque est en train de parler&nbsp;?</div><div class="step-tx">Ex.&nbsp;: «&nbsp;Mon Masque Jaune — peur de l'incertitude et de l'inconnu — génère ce besoin de vérification.&nbsp;»</div></div></div>
+<div class="step-n"><div class="step-nb">3</div><div class="step-b"><div class="step-t">Y a-t-il en moi une part qui observe cela&nbsp;?</div><div class="step-tx">Cherchez la part qui sait que la sixième relecture ne changera rien — et que la prochaine incertitude sera toujours là.</div></div></div>
+<h3 style="margin-top:3mm">Mes déclencheurs — ce que je reconnais</h3>
+<div class="cb-row" onclick="togCb(this)"><div class="cb"></div><span class="cb-lbl">Un changement de programme de dernière minute</span></div><div class="cb-row" onclick="togCb(this)"><div class="cb"></div><span class="cb-lbl">Une décision à prendre sans toutes les informations</span></div><div class="cb-row" onclick="togCb(this)"><div class="cb"></div><span class="cb-lbl">Une réponse attendue qui tarde à arriver</span></div><div class="cb-row" onclick="togCb(this)"><div class="cb"></div><span class="cb-lbl">Un projet important qui comporte des inconnues</span></div><div class="cb-row" onclick="togCb(this)"><div class="cb"></div><span class="cb-lbl">Un domaine de ma vie que je ne maîtrise pas entièrement</span></div>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl act">V</div><div class="pl ">A</div><div class="pl ">L</div><div class="pl ">E</div><div class="pl ">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 1 · Exercice du témoin</span><span class="pg-nb">18</span></div>
+<span class="tag">Exercice guidé</span>
+<h2>L'exercice du témoin bienveillant</h2>
+<p class="sub">Observer la cascade «&nbsp;et si...&nbsp;» depuis le fauteuil du spectateur</p>
+<div class="rule-g"></div>
+<div class="step-n"><div class="step-nb">1</div><div class="step-b"><div class="step-t">Choisissez une situation</div><div class="step-tx">Un épisode récent d'anxiété liée à l'incertitude. Pas la plus intense — une situation ordinaire.</div></div></div>
+<div class="step-n"><div class="step-nb">2</div><div class="step-b"><div class="step-t">Revoyez la cascade complète</div><div class="step-tx">L'incertitude arrive. Les «&nbsp;et si...&nbsp;» commencent. Le comportement de contrôle s'enclenche. Regardez sans modifier.</div></div></div>
+<div class="step-n"><div class="step-nb">3</div><div class="step-b"><div class="step-t">Installez-vous au fond de la salle</div><div class="step-tx">Vous regardez votre masque en action sur grand écran. Qui est dans le fauteuil&nbsp;? Cette part-là sait que la cascade de pensées n'est pas une urgence réelle.</div></div></div>
+<div class="step-n"><div class="step-nb">4</div><div class="step-b"><div class="step-t">Les 3 questions depuis le fauteuil</div><div class="step-tx">Qu'est-ce que mon masque fait&nbsp;? — Quelle incertitude l'a déclenché&nbsp;? — Y a-t-il une part de moi qui sait que cette pensée n'est pas un fait&nbsp;?</div></div></div>
+<p class="exo-q">Ce que j'ai observé depuis le fauteuil — la cascade, le comportement, ce que l'Observateur sait&nbsp;:</p>
+<textarea class="wta" rows="4" placeholder="L'incertitude était... Mon masque a généré... L'Observateur remarque que..."></textarea>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl act">V</div><div class="pl ">A</div><div class="pl ">L</div><div class="pl ">E</div><div class="pl ">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 1 · Journal semaines 1–2</span><span class="pg-nb">19</span></div>
+<span class="tag">Journal de bord</span>
+<h2>Semaines 1–2 — Observations</h2>
+<p class="sub">Chaque soir, 5 minutes — un moment où la cascade «&nbsp;et si...&nbsp;» s'est activée</p>
+<div class="rule-g"></div>
+<table class="jtable">
+<tr><th>Jour</th><th>Déclencheur</th><th>Pensées «&nbsp;et si...&nbsp;»</th><th>Comportement de contrôle</th></tr>
+<tr><td><input type='text' placeholder='Lundi'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td></tr><tr><td><input type='text' placeholder='Mardi'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td></tr><tr><td><input type='text' placeholder='Mercredi'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td></tr><tr><td><input type='text' placeholder='Jeudi'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td></tr><tr><td><input type='text' placeholder='Vendredi'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td></tr><tr><td><input type='text' placeholder='Samedi'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td></tr><tr><td><input type='text' placeholder='Dimanche'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td></tr>
+</table>
+<p class="exo-q">Y a-t-il eu un moment où j'ai remarqué la cascade <em>avant</em> d'avoir vérifié ou planifié&nbsp;?</p>
+<textarea class="wta" rows="3" placeholder="Le moment... ce que j'ai remarqué..."></textarea>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl act">V</div><div class="pl ">A</div><div class="pl ">L</div><div class="pl ">E</div><div class="pl ">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 1 · Bilan VOIR</span><span class="pg-nb">20</span></div>
+<span class="tag">Bilan</span>
+<h2>Bilan des 2 semaines</h2>
+<p class="sub">Avant de passer à ACCUEILLIR</p>
+<div class="rule-g"></div>
+<p class="exo-q"><strong>Question 1</strong> — Un moment où j'ai vu la cascade sans m'y laisser emporter automatiquement&nbsp;:</p>
+<textarea class="wta" rows="3" placeholder="Ce moment — même infime..."></textarea>
+<p class="exo-q"><strong>Question 2</strong> — Dans quelle situation l'Observateur est-il le plus difficile à activer pour moi&nbsp;?</p>
+<textarea class="wta" rows="3" placeholder=""></textarea>
+<div class="pq" style="margin-top:3mm"><p>«&nbsp;Vous avez commencé à voir la différence entre l'incertitude réelle et la cascade de pensées que votre masque génère. Maintenant vient l'étape suivante&nbsp;: recevoir l'incertitude sans la combattre.&nbsp;»</p><cite>Méthode V.A.L.E.U.R© — Module 2 · ACCUEILLIR</cite></div>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl done">V</div><div class="pl act">A</div><div class="pl ">L</div><div class="pl ">E</div><div class="pl ">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-d" id="mod2">
+<div class="page-d-bg">A</div>
+<div class="pg-hd-d"><span class="pg-ch-d">Masque Jaune · Module 2</span><span class="pg-nb-d">21</span></div>
+<span class="tag-g">Étape 2 · Semaines 3 &amp; 4</span>
+<h1 class="lh" style="font-size:22pt;margin-bottom:1mm">ACCUEILLIR</h1>
+<p class="sub lh">«&nbsp;Je reçois ce qui est là, sans lui ajouter de combat.&nbsp;»</p>
+<div class="rule-gl"></div>
+<p class="body lh">Accueillir l'incertitude sans la résoudre · Formule D=e×r²<br>Les 7 stratégies de contrôle du Masque Jaune<br>La cohérence cardiaque · Le protocole ACCUEILLIR en 4 temps</p>
+<div class="pg-ft-d"><span class="pg-ft-td">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl done">V</div><div class="pl act">A</div><div class="pl ">L</div><div class="pl ">E</div><div class="pl ">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 2 · Fondation</span><span class="pg-nb">22</span></div>
+<span class="tag">Accueillir n'est pas abdiquer</span>
+<h2>Accueillir l'incertitude<br>sans chercher à la résoudre</h2>
+<div class="rule-g"></div>
+<p class="body">Accueillir l'incertitude, ce n'est pas être imprudent·e. Ce n'est pas abandonner la planification. C'est <strong>arrêter de traiter l'incertitude comme une urgence à résoudre immédiatement</strong>. C'est reconnaître qu'elle est là — et que vous n'avez pas à l'éliminer pour aller bien.</p>
+<div class="g2">
+<div class="gcell" style="border-color:rgba(160,140,0,.2)"><span class="gc-lbl" style="color:rgba(140,120,0,.7)">Résistance — Sophie</span><span class="gc-txt">Invitation de dernière minute. Sophie passe 2 heures à vérifier, comparer, lister les risques. Elle part épuisée. Pendant toute la soirée, elle cherche la prochaine chose à contrôler.</span></div>
+<div class="gcell" style="border-color:rgba(80,72,0,.4)"><span class="gc-lbl" style="color:var(--j300)">Accueil — Marc</span><span class="gc-txt">Même invitation. Marc remarque l'anxiété&nbsp;: «&nbsp;Je ne sais pas exactement comment ça va se passer — et c'est OK.&nbsp;» Il se prépare en 10 minutes. Il est présent toute la soirée.</span></div>
+</div>
+<div class="pq"><p>«&nbsp;La résistance à l'incertitude est au carré. Doubler vos efforts de contrôle multiplie par 4 la durée de l'anxiété — pour la même incertitude de départ.&nbsp;»</p><cite>Méthode V.A.L.E.U.R© — Céline Bourbon</cite></div>
+<p class="exo-q">Ma résistance habituelle face à l'incertitude&nbsp;:</p>
+<textarea class="wta" rows="2" placeholder="Quand je ne sais pas ce qui va se passer, je... habituellement..."></textarea>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl done">V</div><div class="pl act">A</div><div class="pl ">L</div><div class="pl ">E</div><div class="pl ">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 2 · Stratégies de contrôle</span><span class="pg-nb">23</span></div>
+<span class="tag">Les stratégies du masque</span>
+<h2>Les 7 stratégies de contrôle<br>du Masque Jaune</h2>
+<p class="sub">Votre masque ne dit pas «&nbsp;je refuse&nbsp;» — il planifie</p>
+<div class="rule-g"></div>
+<ul class="il">
+<li><strong>Sur-planification</strong> — listes infinies, plans A/B/C, scénarios de secours pour chaque scénario de secours</li>
+<li><strong>Procrastination par perfectionnisme</strong> — attendre le moment parfait, les conditions idéales, toutes les informations</li>
+<li><strong>Rumination anticipatoire</strong> — rejouer les «&nbsp;et si...&nbsp;» en boucle avant, pendant, après</li>
+<li><strong>Demande de garanties</strong> — réassurance auprès des proches, experts, internet — sans jamais être rassuré·e durablement</li>
+<li><strong>Micro-contrôle</strong> — vérifier, corriger, superviser les moindres détails d'une situation</li>
+<li><strong>Évitement de l'engagement</strong> — ne pas s'engager dans ce qui comporte des inconnues</li>
+<li><strong>Paralysie décisionnelle</strong> — impossible de trancher, peur de se tromper, report systématique</li>
+</ul>
+<p class="exo-q">Ma stratégie principale — et dans quelle situation je l'utilise le plus&nbsp;:</p>
+<textarea class="wta" rows="2" placeholder=""></textarea>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl done">V</div><div class="pl act">A</div><div class="pl ">L</div><div class="pl ">E</div><div class="pl ">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 2 · Protocole ACCUEILLIR</span><span class="pg-nb">24</span></div>
+<span class="tag">Outil physiologique</span>
+<h2>La cohérence cardiaque + le protocole ACCUEILLIR</h2>
+<p class="sub">Réguler avant d'accueillir — le protocole 365</p>
+<div class="rule-g"></div>
+<div style="border:.5px solid var(--j300);background:rgba(80,72,0,.04);padding:4mm 5mm;margin-bottom:3.5mm;text-align:center">
+<p style="font-family:'Cormorant Garamond',serif;font-size:13pt;font-weight:500;color:var(--ink);margin-bottom:1.5mm">3 fois par jour · 6 cycles par minute · 5 minutes</p>
+<p style="font-family:'Jost',sans-serif;font-size:7pt;color:var(--inkm);line-height:1.7">Inspiration&nbsp;: 5 secondes par le nez.<br>Expiration&nbsp;: 5 secondes par la bouche.</p>
+</div>
+<h3>Le protocole ACCUEILLIR en 4 temps — spécifique Masque Jaune</h3>
+<div class="step-n"><div class="step-nb">1</div><div class="step-b"><div class="step-t">Nommer sans résoudre</div><div class="step-tx">«&nbsp;Je remarque de l'anxiété face à cette incertitude.&nbsp;» Pas «&nbsp;il faut que je règle ça tout de suite.&nbsp;» Nommer sans agir est déjà un acte de VOIR.</div></div></div>
+<div class="step-n"><div class="step-nb">2</div><div class="step-b"><div class="step-t">Réguler — 3 cycles de cohérence cardiaque</div><div class="step-tx">3 respirations lentes. Votre corps reçoit le message&nbsp;: «&nbsp;cette incertitude n'est pas une urgence physiologique.&nbsp;»</div></div></div>
+<div class="step-n"><div class="step-nb">3</div><div class="step-b"><div class="step-t">Localiser dans le corps — sans analyser</div><div class="step-tx">«&nbsp;Où est-ce dans mon corps&nbsp;? Mâchoires&nbsp;? Estomac&nbsp;? Épaules&nbsp;?&nbsp;» Décrire physiquement, pas mentalement.</div></div></div>
+<div class="step-n"><div class="step-nb">4</div><div class="step-b"><div class="step-t">Traverser — sans planifier</div><div class="step-tx">Laisser l'incertitude être là — sans la résoudre, sans vérifier, sans planifier davantage. Elle ne vous détruira pas. Elle traversera.</div></div></div>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl done">V</div><div class="pl act">A</div><div class="pl ">L</div><div class="pl ">E</div><div class="pl ">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 2 · Journal météo</span><span class="pg-nb">25</span></div>
+<span class="tag">Journal de bord</span>
+<h2>Semaines 3–4 — La météo des incertitudes</h2>
+<p class="sub">Chaque soir — nommer l'incertitude, pas la résoudre</p>
+<div class="rule-g"></div>
+<table class="jtable">
+<tr><th>Jour</th><th>Incertitude rencontrée</th><th>Intensité (1–5)</th><th>Contrôle ou accueil&nbsp;?</th></tr>
+<tr><td><input type='text' placeholder='Lundi'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td></tr><tr><td><input type='text' placeholder='Mardi'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td></tr><tr><td><input type='text' placeholder='Mercredi'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td></tr><tr><td><input type='text' placeholder='Jeudi'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td></tr><tr><td><input type='text' placeholder='Vendredi'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td></tr><tr><td><input type='text' placeholder='Samedi'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td></tr><tr><td><input type='text' placeholder='Dimanche'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td></tr>
+</table>
+<p class="exo-q">L'incertitude revenue le plus souvent — et ce qu'elle essaie peut-être de me montrer&nbsp;:</p>
+<div class="wlines"><div class="wline"><input type="text" placeholder=""></div><div class="wline"><input type="text" placeholder=""></div></div>
+<p class="exo-q">Y a-t-il eu un moment où j'ai laissé une incertitude exister sans chercher à la résoudre immédiatement&nbsp;?</p>
+<textarea class="wta" rows="2" placeholder=""></textarea>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl done">V</div><div class="pl act">A</div><div class="pl ">L</div><div class="pl ">E</div><div class="pl ">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 2 · Bilan ACCUEILLIR</span><span class="pg-nb">26</span></div>
+<span class="tag">Bilan</span>
+<h2>Bilan des 2 semaines</h2>
+<p class="sub">Avant de passer à LOCALISER</p>
+<div class="rule-g"></div>
+<p class="exo-q"><strong>Question 1</strong> — Quelle stratégie de contrôle vous ressemble le plus&nbsp;?</p>
+<textarea class="wta" rows="2" placeholder=""></textarea>
+<p class="exo-q"><strong>Question 2</strong> — Y a-t-il eu un moment où vous avez laissé une incertitude traverser sans agir&nbsp;? Qu'avez-vous remarqué&nbsp;?</p>
+<textarea class="wta" rows="2" placeholder=""></textarea>
+<p class="exo-q"><strong>Question 3</strong> — Quelle incertitude répétitive porte peut-être un besoin profond que vous n'avez pas encore identifié&nbsp;?</p>
+<textarea class="wta" rows="2" placeholder=""></textarea>
+<div class="pq" style="margin-top:2mm"><p>«&nbsp;Vous avez commencé à recevoir l'incertitude sans lui faire la guerre. Le Module 3 va vous apprendre à trouver son adresse dans votre corps.&nbsp;»</p><cite>Méthode V.A.L.E.U.R© — Module 3 · LOCALISER</cite></div>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl done">V</div><div class="pl done">A</div><div class="pl act">L</div><div class="pl ">E</div><div class="pl ">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-d" id="mod3">
+<div class="page-d-bg">L</div>
+<div class="pg-hd-d"><span class="pg-ch-d">Masque Jaune · Module 3</span><span class="pg-nb-d">27</span></div>
+<span class="tag-g">Étape 3 · Semaines 5 &amp; 6</span>
+<h1 class="lh" style="font-size:22pt;margin-bottom:1mm">LOCALISER</h1>
+<p class="sub lh">«&nbsp;Le corps ne ment jamais.&nbsp;»</p>
+<div class="rule-gl"></div>
+<p class="body lh">Où vit l'incertitude dans votre corps<br>La carte corporelle du Masque Jaune · Body Scan V.A.L.E.U.R©<br>La respiration localisée · Distinguer tension mentale et tension corporelle</p>
+<div class="pg-ft-d"><span class="pg-ft-td">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl done">V</div><div class="pl done">A</div><div class="pl act">L</div><div class="pl ">E</div><div class="pl ">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 3 · Fondation</span><span class="pg-nb">28</span></div>
+<span class="tag">Le corps avant la tête</span>
+<h2>Où vit l'incertitude<br>dans votre corps</h2>
+<div class="rule-g"></div>
+<p class="body">Le Masque Jaune vit presque entièrement dans le mental. La rumination, les scénarios, les plans — tout se passe dans la tête. Et pourtant, <strong>l'anxiété a une adresse corporelle précise</strong>. La mâchoire serrée. Les épaules remontées. Le ventre noué. L'hyperventilation discrète.</p>
+<p class="body">En travaillant avec le corps plutôt qu'avec le mental, vous court-circuitez la cascade de pensées. Vous accédez à la source de l'anxiété — là où elle réside vraiment.</p>
+<div class="g2">
+<div class="gcell"><span class="gc-lbl">Ce que le mental fait</span><span class="gc-txt">Génère des scénarios. Analyse. Planifie. Cherche des garanties. C'est son terrain familier — et son piège.</span></div>
+<div class="gcell" style="border-color:rgba(80,72,0,.4)"><span class="gc-lbl" style="color:var(--j300)">Ce que le corps sait</span><span class="gc-txt">La tension dans les mâchoires. Le nœud dans l'estomac. La raideur dans les épaules. Le corps enregistre l'incertitude avant que le mental la verbalise.</span></div>
+</div>
+<div class="pq"><p>«&nbsp;Tout ce qui ne s'exprime pas s'imprime. L'incertitude non traversée se stocke dans le corps — souvent pendant des années.&nbsp;»</p><cite>Méthode V.A.L.E.U.R© — Céline Bourbon</cite></div>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl done">V</div><div class="pl done">A</div><div class="pl act">L</div><div class="pl ">E</div><div class="pl ">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 3 · Carte corporelle du Jaune</span><span class="pg-nb">29</span></div>
+<span class="tag">Votre adresse</span>
+<h2>La carte corporelle du Masque Jaune</h2>
+<p class="sub">Lisez chaque zone — cochez celles que vous reconnaissez</p>
+<div class="rule-g"></div>
+<div class="cb-row" onclick="togCb(this)"><div class="cb"></div><span class="cb-lbl"><strong>Mâchoire / nuque</strong> — Serrement, rigidité. Le corps qui tient — qui résiste à l'imprévu. Souvent inconscient jusqu'à la douleur</span></div><div class="cb-row" onclick="togCb(this)"><div class="cb"></div><span class="cb-lbl"><strong>Épaules / trapèzes</strong> — Tension vers le haut, crispation. Le corps en état d'alerte permanent — prêt à «&nbsp;gérer&nbsp;»</span></div><div class="cb-row" onclick="togCb(this)"><div class="cb"></div><span class="cb-lbl"><strong>Estomac / plexus solaire</strong> — Nœud, agitation intérieure, papillons anxieux. Le siège de l'incertitude non résolue</span></div><div class="cb-row" onclick="togCb(this)"><div class="cb"></div><span class="cb-lbl"><strong>Poitrine</strong> — Légère oppression, respiration courte. Le corps qui «&nbsp;retient&nbsp;» face à ce qui échappe au contrôle</span></div><div class="cb-row" onclick="togCb(this)"><div class="cb"></div><span class="cb-lbl"><strong>Mains</strong> — Légère crispation, envie de faire quelque chose — de lister, de vérifier, d'agir</span></div><div class="cb-row" onclick="togCb(this)"><div class="cb"></div><span class="cb-lbl"><strong>Tête / front</strong> — Tension frontale, sensation de surcharge. Le cerveau qui tourne à plein régime</span></div>
+<p class="exo-q" style="margin-top:2mm">La zone que je reconnais le plus — et dans quelle situation&nbsp;:</p>
+<textarea class="wta" rows="3" placeholder="Je reconnais surtout... quand..."></textarea>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl done">V</div><div class="pl done">A</div><div class="pl act">L</div><div class="pl ">E</div><div class="pl ">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 3 · Body Scan · Respiration</span><span class="pg-nb">30</span></div>
+<span class="tag">Body Scan + Respiration localisée</span>
+<h2>Le Body Scan V.A.L.E.U.R©<br>et le protocole 5·5·5</h2>
+<div class="rule-g"></div>
+<h3>Body Scan — 5 étapes</h3>
+<div class="step-n"><div class="step-nb">1</div><div class="step-b"><div class="step-t">Ancrage — fermez les yeux, 3 respirations</div><div class="step-tx">«&nbsp;Je suis en sécurité. Mon corps peut parler. Je l'écoute — sans chercher à résoudre.&nbsp;»</div></div></div>
+<div class="step-n"><div class="step-nb">2</div><div class="step-b"><div class="step-t">Scanner — tête, épaules, mâchoires, poitrine, ventre, mains</div><div class="step-tx">Zones Masque Jaune. Tendu&nbsp;? Serré&nbsp;? Chaud&nbsp;? Froid&nbsp;? Sans analyser — sans résoudre.</div></div></div>
+<div class="step-n"><div class="step-nb">3</div><div class="step-b"><div class="step-t">La zone la plus tendue — une description précise</div><div class="step-tx">«&nbsp;Serrement dans les mâchoires.&nbsp;» «&nbsp;Nœud dans l'estomac.&nbsp;» Pas «&nbsp;je suis anxieux·se&nbsp;».</div></div></div>
+<div class="step-n"><div class="step-nb">4</div><div class="step-b"><div class="step-t">Intensité 0–10 · Protocole 5·5·5</div><div class="step-tx">Inspiration 5 sec → vers la zone. Rétention 5 sec → observez. Expiration 5 sec → relâchez la tension, pas l'incertitude.</div></div></div>
+<div class="step-n"><div class="step-nb">5</div><div class="step-b"><div class="step-t">Phrase d'ancrage du Masque Jaune</div><div class="step-tx">«&nbsp;Je sens cette tension dans mes [zone]. C'est de l'anxiété face à l'incertitude — pas une urgence. Je peux agir sans tout savoir.&nbsp;»</div></div></div>
+<p class="exo-q">Mon Body Scan — zone · sensation · intensité avant · après&nbsp;:</p>
+<textarea class="wta" rows="2" placeholder=""></textarea>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl done">V</div><div class="pl done">A</div><div class="pl act">L</div><div class="pl ">E</div><div class="pl ">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 3 · Journal semaines 5–6</span><span class="pg-nb">31</span></div>
+<span class="tag">Journal de bord</span>
+<h2>Semaines 5–6 — Journal corporel</h2>
+<p class="sub">Chaque soir — où vit l'incertitude aujourd'hui&nbsp;?</p>
+<div class="rule-g"></div>
+<table class="jtable">
+<tr><th>Jour</th><th>Déclencheur</th><th>Zone</th><th>Sensation précise</th><th>0–10</th></tr>
+<tr><td><input type='text' placeholder='Lun'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td></tr><tr><td><input type='text' placeholder='Mar'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td></tr><tr><td><input type='text' placeholder='Mer'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td></tr><tr><td><input type='text' placeholder='Jeu'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td></tr><tr><td><input type='text' placeholder='Ven'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td></tr><tr><td><input type='text' placeholder='Sam'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td></tr><tr><td><input type='text' placeholder='Dim'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td></tr>
+</table>
+<p class="exo-q">La zone la plus fréquemment activée — et ce qu'elle retient&nbsp;:</p>
+<textarea class="wta" rows="2" placeholder=""></textarea>
+<p class="exo-q">Y a-t-il eu un moment où la respiration localisée a réduit l'intensité de l'anxiété sans résoudre l'incertitude&nbsp;?</p>
+<textarea class="wta" rows="2" placeholder=""></textarea>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl done">V</div><div class="pl done">A</div><div class="pl act">L</div><div class="pl ">E</div><div class="pl ">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 3 · Bilan LOCALISER</span><span class="pg-nb">32</span></div>
+<span class="tag">Bilan</span>
+<h2>Bilan des 2 semaines</h2>
+<p class="sub">Avant de passer à EXPLORER</p>
+<div class="rule-g"></div>
+<p class="exo-q"><strong>Question 1</strong> — Quelle zone corporelle est la plus fréquemment activée par votre Masque Jaune&nbsp;?</p>
+<textarea class="wta" rows="2" placeholder=""></textarea>
+<p class="exo-q"><strong>Question 2</strong> — Y a-t-il eu un moment où travailler avec la sensation (plutôt qu'avec la pensée) a réduit l'anxiété&nbsp;?</p>
+<textarea class="wta" rows="2" placeholder=""></textarea>
+<p class="exo-q"><strong>Question 3</strong> — Si cette tension corporelle avait une voix, que dirait-elle sur ce dont vous avez besoin&nbsp;?</p>
+<textarea class="wta" rows="2" placeholder=""></textarea>
+<div class="pq" style="margin-top:2mm"><p>«&nbsp;Vous avez trouvé l'adresse. Le Module 4 va vous permettre de comprendre ce que votre masque protège — et pourquoi l'incertitude vous touche autant.&nbsp;»</p><cite>Méthode V.A.L.E.U.R© — Module 4 · EXPLORER</cite></div>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl done">V</div><div class="pl done">A</div><div class="pl done">L</div><div class="pl act">E</div><div class="pl ">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-d" id="mod4">
+<div class="page-d-bg">E</div>
+<div class="pg-hd-d"><span class="pg-ch-d">Masque Jaune · Module 4</span><span class="pg-nb-d">33</span></div>
+<span class="tag-g">Étape 4 · Semaines 7 &amp; 8</span>
+<h1 class="lh" style="font-size:22pt;margin-bottom:1mm">EXPLORER</h1>
+<p class="sub lh">«&nbsp;Le contrôle protège une valeur légitime — et emprisonne la liberté.&nbsp;»</p>
+<div class="rule-gl"></div>
+<p class="body lh">Ce que le masque protège vraiment · Les 7 questions<br>La technique des 5 pourquoi · Cartographier vos valeurs<br>Le conflit entre sécurité et aventure · Analyse coûts-bénéfices</p>
+<div class="pg-ft-d"><span class="pg-ft-td">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl done">V</div><div class="pl done">A</div><div class="pl done">L</div><div class="pl act">E</div><div class="pl ">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 4 · Fondation</span><span class="pg-nb">34</span></div>
+<span class="tag">Ce que le masque protège</span>
+<h2>Votre masque protège<br>un besoin légitime de sécurité</h2>
+<div class="rule-g"></div>
+<p class="body">La question la plus profonde du parcours&nbsp;: <strong>qu'est-ce que votre besoin de contrôle protège vraiment&nbsp;?</strong></p>
+<div class="pq"><p>«&nbsp;Le masque jaune cherche à vous protéger en maintenant le contrôle sur chaque aspect de la situation, en éliminant toute incertitude. Mais la valeur de spontanéité, d'ouverture et d'aventure aspire à s'exprimer.&nbsp;»</p><cite>Méthode V.A.L.E.U.R© — Céline Bourbon · L'Harmattan</cite></div>
+<p class="body">Votre masque n'est pas votre ennemi. Il protège un besoin profondément humain&nbsp;: la sécurité. Mais en cherchant une sécurité absolue qui n'existe pas, il vous prive de quelque chose d'essentiel&nbsp;: <strong>la capacité de faire confiance à la vie et à vous-même.</strong></p>
+<div class="gcell" style="margin-bottom:2mm">
+<span class="gc-lbl">La structure du conflit — Masque Jaune</span>
+<span class="gc-txt">Mon masque Jaune veut que je planifie tout, que je contrôle chaque détail, que je n'agisse qu'avec des garanties — pour éviter l'imprévu et l'erreur.<br><br>Ma valeur profonde aspire à la <strong>confiance et à la liberté</strong> — pouvoir agir sans garantie absolue, m'engager dans l'incertain, laisser la vie me surprendre.</span>
+</div>
+<p class="exo-q">Ce que je commence à pressentir — ce que mon besoin de contrôle empêche de vivre&nbsp;:</p>
+<textarea class="wta" rows="3" placeholder=""></textarea>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl done">V</div><div class="pl done">A</div><div class="pl done">L</div><div class="pl act">E</div><div class="pl ">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 4 · 7 questions · 5 pourquoi</span><span class="pg-nb">35</span></div>
+<span class="tag">Exercices 1 &amp; 2</span>
+<h2>Les 7 questions + les 5 pourquoi</h2>
+<div class="rule-g"></div>
+<p class="exo-q"><strong>1.</strong> Quel masque je reconnais ?</p><div class="wlines"><div class="wline"><input type="text" placeholder="Mon Masque Jaune — peur de l'inconnu et de l'incertitude"></div></div><p class="exo-q"><strong>2.</strong> Quel déclencheur précis cette semaine ?</p><div class="wlines"><div class="wline"><input type="text" placeholder="La situation / décision / imprévu qui a déclenché la cascade"></div></div><p class="exo-q"><strong>3.</strong> Quel automatisme s'est mis en route ?</p><div class="wlines"><div class="wline"><input type="text" placeholder="J'ai planifié / vérifié / remis à plus tard / demandé une garantie..."></div></div><p class="exo-q"><strong>4.</strong> Quel scénario catastrophe mon masque a-t-il imaginé ?</p><div class="wlines"><div class="wline"><input type="text" placeholder="Et si je me trompais... et si ça tournait mal... et si..."></div></div><p class="exo-q"><strong>5.</strong> Quelle origine — même floue — je peux entrevoir ?</p><div class="wlines"><div class="wline"><input type="text" placeholder="Ex. : dans ma famille, l'imprévu signifiait... / J'ai appris que l'erreur..."></div></div><p class="exo-q"><strong>6.</strong> Quel besoin réel se cache derrière l'anxiété ?</p><div class="wlines"><div class="wline"><input type="text" placeholder="Sécurité, stabilité, prévisibilité, compétence, confiance en moi..."></div></div><p class="exo-q"><strong>7.</strong> Quelle valeur ce masque empêche-t-il de s'exprimer ?</p><div class="wlines"><div class="wline"><input type="text" placeholder="Confiance, aventure, spontanéité, engagement, liberté, présence..."></div></div>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl done">V</div><div class="pl done">A</div><div class="pl done">L</div><div class="pl act">E</div><div class="pl ">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 4 · Valeurs · Conflit</span><span class="pg-nb">36</span></div>
+<span class="tag">Exercices 3 &amp; 4</span>
+<h2>Valeurs et conflit intérieur</h2>
+<div class="rule-g"></div>
+<p class="exo-q" style="font-style:normal;font-family:'Jost',sans-serif;font-size:7.5pt;color:var(--inkm);margin-bottom:2mm">Entourez les valeurs qui résonnent — sans censure</p>
+<div style="display:flex;flex-wrap:wrap;gap:1.5mm 2mm;margin-bottom:4mm">
+<span onclick="togVal(this)" style="font-family:Jost,sans-serif;font-size:6.5pt;padding:.25em .65em;border:.4px solid var(--creamd);border-radius:1px;cursor:pointer;color:var(--inkm);transition:all .2s">Confiance</span><span onclick="togVal(this)" style="font-family:Jost,sans-serif;font-size:6.5pt;padding:.25em .65em;border:.4px solid var(--creamd);border-radius:1px;cursor:pointer;color:var(--inkm);transition:all .2s">Aventure</span><span onclick="togVal(this)" style="font-family:Jost,sans-serif;font-size:6.5pt;padding:.25em .65em;border:.4px solid var(--creamd);border-radius:1px;cursor:pointer;color:var(--inkm);transition:all .2s">Spontanéité</span><span onclick="togVal(this)" style="font-family:Jost,sans-serif;font-size:6.5pt;padding:.25em .65em;border:.4px solid var(--creamd);border-radius:1px;cursor:pointer;color:var(--inkm);transition:all .2s">Liberté</span><span onclick="togVal(this)" style="font-family:Jost,sans-serif;font-size:6.5pt;padding:.25em .65em;border:.4px solid var(--creamd);border-radius:1px;cursor:pointer;color:var(--inkm);transition:all .2s">Courage</span><span onclick="togVal(this)" style="font-family:Jost,sans-serif;font-size:6.5pt;padding:.25em .65em;border:.4px solid var(--creamd);border-radius:1px;cursor:pointer;color:var(--inkm);transition:all .2s">Engagement</span><span onclick="togVal(this)" style="font-family:Jost,sans-serif;font-size:6.5pt;padding:.25em .65em;border:.4px solid var(--creamd);border-radius:1px;cursor:pointer;color:var(--inkm);transition:all .2s">Présence</span><span onclick="togVal(this)" style="font-family:Jost,sans-serif;font-size:6.5pt;padding:.25em .65em;border:.4px solid var(--creamd);border-radius:1px;cursor:pointer;color:var(--inkm);transition:all .2s">Légèreté</span><span onclick="togVal(this)" style="font-family:Jost,sans-serif;font-size:6.5pt;padding:.25em .65em;border:.4px solid var(--creamd);border-radius:1px;cursor:pointer;color:var(--inkm);transition:all .2s">Curiosité</span><span onclick="togVal(this)" style="font-family:Jost,sans-serif;font-size:6.5pt;padding:.25em .65em;border:.4px solid var(--creamd);border-radius:1px;cursor:pointer;color:var(--inkm);transition:all .2s">Découverte</span><span onclick="togVal(this)" style="font-family:Jost,sans-serif;font-size:6.5pt;padding:.25em .65em;border:.4px solid var(--creamd);border-radius:1px;cursor:pointer;color:var(--inkm);transition:all .2s">Ouverture</span><span onclick="togVal(this)" style="font-family:Jost,sans-serif;font-size:6.5pt;padding:.25em .65em;border:.4px solid var(--creamd);border-radius:1px;cursor:pointer;color:var(--inkm);transition:all .2s">Croissance</span><span onclick="togVal(this)" style="font-family:Jost,sans-serif;font-size:6.5pt;padding:.25em .65em;border:.4px solid var(--creamd);border-radius:1px;cursor:pointer;color:var(--inkm);transition:all .2s">Adaptabilité</span><span onclick="togVal(this)" style="font-family:Jost,sans-serif;font-size:6.5pt;padding:.25em .65em;border:.4px solid var(--creamd);border-radius:1px;cursor:pointer;color:var(--inkm);transition:all .2s">Créativité</span><span onclick="togVal(this)" style="font-family:Jost,sans-serif;font-size:6.5pt;padding:.25em .65em;border:.4px solid var(--creamd);border-radius:1px;cursor:pointer;color:var(--inkm);transition:all .2s">Plaisir</span><span onclick="togVal(this)" style="font-family:Jost,sans-serif;font-size:6.5pt;padding:.25em .65em;border:.4px solid var(--creamd);border-radius:1px;cursor:pointer;color:var(--inkm);transition:all .2s">Joie</span><span onclick="togVal(this)" style="font-family:Jost,sans-serif;font-size:6.5pt;padding:.25em .65em;border:.4px solid var(--creamd);border-radius:1px;cursor:pointer;color:var(--inkm);transition:all .2s">Connexion</span><span onclick="togVal(this)" style="font-family:Jost,sans-serif;font-size:6.5pt;padding:.25em .65em;border:.4px solid var(--creamd);border-radius:1px;cursor:pointer;color:var(--inkm);transition:all .2s">Authenticité</span><span onclick="togVal(this)" style="font-family:Jost,sans-serif;font-size:6.5pt;padding:.25em .65em;border:.4px solid var(--creamd);border-radius:1px;cursor:pointer;color:var(--inkm);transition:all .2s">Accomplissement</span><span onclick="togVal(this)" style="font-family:Jost,sans-serif;font-size:6.5pt;padding:.25em .65em;border:.4px solid var(--creamd);border-radius:1px;cursor:pointer;color:var(--inkm);transition:all .2s">Sens</span><span onclick="togVal(this)" style="font-family:Jost,sans-serif;font-size:6.5pt;padding:.25em .65em;border:.4px solid var(--creamd);border-radius:1px;cursor:pointer;color:var(--inkm);transition:all .2s">Vitalité</span><span onclick="togVal(this)" style="font-family:Jost,sans-serif;font-size:6.5pt;padding:.25em .65em;border:.4px solid var(--creamd);border-radius:1px;cursor:pointer;color:var(--inkm);transition:all .2s">Équilibre</span><span onclick="togVal(this)" style="font-family:Jost,sans-serif;font-size:6.5pt;padding:.25em .65em;border:.4px solid var(--creamd);border-radius:1px;cursor:pointer;color:var(--inkm);transition:all .2s">Paix</span><span onclick="togVal(this)" style="font-family:Jost,sans-serif;font-size:6.5pt;padding:.25em .65em;border:.4px solid var(--creamd);border-radius:1px;cursor:pointer;color:var(--inkm);transition:all .2s">Simplicité</span>
+</div>
+<p class="exo-q">Mes 3 valeurs les plus importantes — celles que le besoin de contrôle empêche d'exprimer&nbsp;:</p>
+<div class="wlines"><div class="wline"><input type="text" placeholder=""></div><div class="wline"><input type="text" placeholder=""></div><div class="wline"><input type="text" placeholder=""></div></div>
+<h3 style="margin-top:3mm">Mon conflit en une phrase</h3>
+<div style="border:.5px solid var(--j300);background:rgba(80,72,0,.04);padding:3mm 4mm">
+<p class="exo-q" style="border-color:transparent;padding-left:0">Une part de moi contrôle tout pour se sentir en sécurité — ET une autre aspire à&nbsp;:</p>
+<div class="wlines"><div class="wline"><input type="text" placeholder=""></div></div>
+<p class="exo-q" style="border-color:transparent;padding-left:0">Cette tension me prive de&nbsp;:</p>
+<div class="wlines"><div class="wline"><input type="text" placeholder=""></div></div>
+</div>
+<h3 style="margin-top:3mm">Coûts-bénéfices</h3>
+<div class="g2">
+<div class="gcell"><span class="gc-lbl">Ce que le contrôle m'apporte</span><textarea class="wta" rows="2" placeholder=""></textarea></div>
+<div class="gcell"><span class="gc-lbl">Ce qu'il me coûte</span><textarea class="wta" rows="2" placeholder=""></textarea></div>
+</div>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl done">V</div><div class="pl done">A</div><div class="pl done">L</div><div class="pl act">E</div><div class="pl ">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 4 · Journal semaines 7–8</span><span class="pg-nb">37</span></div>
+<span class="tag">Journal de bord</span>
+<h2>Semaines 7–8 — Journal d'exploration</h2>
+<div class="rule-g"></div>
+<table class="jtable">
+<tr><th>Jour</th><th>Déclencheur</th><th>Ce que le masque a fait</th><th>Valeur bafouée</th><th>Ce que je voulais vraiment</th></tr>
+<tr><td><input type='text' placeholder='Lundi'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td></tr><tr><td><input type='text' placeholder='Mardi'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td></tr><tr><td><input type='text' placeholder='Mercredi'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td></tr><tr><td><input type='text' placeholder='Jeudi'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td></tr><tr><td><input type='text' placeholder='Vendredi'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td></tr><tr><td><input type='text' placeholder='Samedi'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td></tr><tr><td><input type='text' placeholder='Dimanche'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td></tr>
+</table>
+<p class="exo-q">Ce que ce journal me révèle&nbsp;:</p>
+<textarea class="wta" rows="2" placeholder=""></textarea>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl done">V</div><div class="pl done">A</div><div class="pl done">L</div><div class="pl act">E</div><div class="pl ">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 4 · Bilan EXPLORER</span><span class="pg-nb">38</span></div>
+<span class="tag">Bilan</span>
+<h2>Bilan des 2 semaines</h2>
+<p class="sub">Avant de passer à UNIFIER</p>
+<div class="rule-g"></div>
+<p class="exo-q"><strong>Question 1</strong> — Mon conflit en une phrase&nbsp;:</p>
+<textarea class="wta" rows="2" placeholder=""></textarea>
+<p class="exo-q"><strong>Question 2</strong> — La peur fondamentale au bout des 5 pourquoi&nbsp;:</p>
+<textarea class="wta" rows="2" placeholder=""></textarea>
+<p class="exo-q"><strong>Question 3</strong> — La valeur que mon masque empêche d'exprimer — et pourquoi elle compte&nbsp;:</p>
+<textarea class="wta" rows="2" placeholder=""></textarea>
+<div class="pq" style="margin-top:2mm"><p>«&nbsp;Vous avez nommé le combat. UNIFIER, c'est créer la paix — non pas en éliminant la prudence, mais en refusant qu'elle vole votre liberté d'agir.&nbsp;»</p><cite>Méthode V.A.L.E.U.R© — Module 5 · UNIFIER</cite></div>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl done">V</div><div class="pl done">A</div><div class="pl done">L</div><div class="pl done">E</div><div class="pl act">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-d" id="mod5">
+<div class="page-d-bg">U</div>
+<div class="pg-hd-d"><span class="pg-ch-d">Masque Jaune · Module 5</span><span class="pg-nb-d">39</span></div>
+<span class="tag-g">Étape 5 · Semaines 9 &amp; 10</span>
+<h1 class="lh" style="font-size:22pt;margin-bottom:1mm">UNIFIER</h1>
+<p class="sub lh">«&nbsp;Ce n'est pas la paix par la capitulation — c'est la paix par l'intelligence.&nbsp;»</p>
+<div class="rule-gl"></div>
+<p class="body lh">Réconcilier prudence et confiance · Les 3 questions d'unification<br>«&nbsp;Je ne sais pas ET j'agis&nbsp;» · La formule d'unification Jaune<br>La lettre au Masque Jaune · L'acte de fidélité à la confiance</p>
+<div class="pg-ft-d"><span class="pg-ft-td">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl done">V</div><div class="pl done">A</div><div class="pl done">L</div><div class="pl done">E</div><div class="pl act">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 5 · Fondation</span><span class="pg-nb">40</span></div>
+<span class="tag">Le masque n'est pas votre ennemi</span>
+<h2>Réconcilier prudence<br>et confiance en la vie</h2>
+<div class="rule-g"></div>
+<p class="body">Votre Masque Jaune n'est pas votre ennemi. Il a fait ce qu'il pouvait — anticiper, planifier, protéger. Probablement depuis longtemps. <strong>UNIFIER, c'est lui dire merci — et lui signifier qu'il peut se reposer.</strong></p>
+<div class="g2" style="margin:3mm 0">
+<div class="gcell" style="border-color:rgba(160,140,0,.2)"><span class="gc-lbl" style="color:rgba(140,120,0,.6)">Avant l'unification</span><span class="gc-txt">«&nbsp;Je dois tout savoir avant d'agir — sinon c'est irresponsable.&nbsp;»<br>Paralysie · plans infinis · vie en attente du moment parfait</span></div>
+<div class="gcell" style="border-color:rgba(80,72,0,.4)"><span class="gc-lbl" style="color:var(--j300)">Après l'unification</span><span class="gc-txt">«&nbsp;Je peux agir avec 70% des informations. Je fais confiance à ma capacité d'adaptation.&nbsp;»<br>Engagement · légèreté · liberté d'agir</span></div>
+</div>
+<div class="pq"><p>«&nbsp;Mon besoin de contrôle vient d'un désir légitime de sécurité. Mais la vie ne peut jamais être entièrement contrôlée — et c'est justement cette imprévisibilité qui rend l'existence riche.&nbsp;»</p><cite>Céline Bourbon — De la peur à la joie d'être soi · L'Harmattan</cite></div>
+<p class="exo-q">Ce que j'ai compris sur mon masque que je n'avais pas encore formulé&nbsp;:</p>
+<textarea class="wta" rows="2" placeholder=""></textarea>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl done">V</div><div class="pl done">A</div><div class="pl done">L</div><div class="pl done">E</div><div class="pl act">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 5 · Questions · Formule</span><span class="pg-nb">41</span></div>
+<span class="tag">Exercices 1 &amp; 2</span>
+<h2>Les 3 questions + «&nbsp;Je ne sais pas ET j'agis&nbsp;»</h2>
+<div class="rule-g"></div>
+<div class="step-n"><div class="step-nb">1</div><div class="step-b"><div class="step-t">Qu'est-ce que mon masque essaie vraiment de faire&nbsp;?</div><div class="step-tx">Protéger un besoin légitime de sécurité et de compétence. Le problème n'est pas ce besoin — c'est la stratégie de contrôle total qui ne peut jamais le satisfaire.</div></div></div>
+<p class="exo-q">Mon masque Jaune essaie de&nbsp;:</p>
+<textarea class="wta" rows="2" placeholder=""></textarea>
+<div class="step-n"><div class="step-nb">2</div><div class="step-b"><div class="step-t">Comment satisfaire ce besoin autrement&nbsp;?</div><div class="step-tx">Agir avec 70% des informations. Faire confiance à sa capacité d'adaptation. Prendre des risques calculés. Tolérer un certain niveau d'incertitude.</div></div></div>
+<div class="g2" style="margin-bottom:3mm">
+<div class="gcell"><span class="gc-lbl">Ancien automatisme</span><textarea class="wta" rows="2" placeholder=""></textarea></div>
+<div class="gcell"><span class="gc-lbl" style="color:var(--j300)">Nouvelle stratégie</span><textarea class="wta" rows="2" placeholder=""></textarea></div>
+</div>
+<h3>La formule d'unification — Masque Jaune</h3>
+<div style="border:.5px solid var(--j300);padding:3mm 4mm;background:rgba(80,72,0,.04)">
+<p class="body" style="font-size:8pt;font-style:italic;color:var(--inkl)">Je ne sais pas exactement comment ça va se passer ET je peux agir maintenant.<br>Il reste des inconnues ET c'est suffisant pour commencer.<br>Je pourrais me tromper ET j'apprendrai et m'adapterai.<br>L'imprévu peut arriver ET j'ai les ressources pour y faire face.</p>
+</div>
+<p class="exo-q" style="margin-top:2.5mm">Ma phrase d'unification personnelle — «&nbsp;Je ne sais pas... ET...&nbsp;»</p>
+<div class="wlines"><div class="wline"><input type="text" placeholder=""></div><div class="wline"><input type="text" placeholder=""></div></div>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl done">V</div><div class="pl done">A</div><div class="pl done">L</div><div class="pl done">E</div><div class="pl act">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 5 · Lettre au Masque Jaune</span><span class="pg-nb">42</span></div>
+<span class="tag">Exercice pivot</span>
+<h2>La lettre au Masque Jaune</h2>
+<p class="sub">Lettre à la part qui a appris que l'imprévu était dangereux</p>
+<div class="rule-g"></div>
+<p class="body" style="font-size:7pt;font-style:italic;color:var(--inkl)">Écrivez une lettre à votre masque. Non pour le condamner — mais pour comprendre, remercier, et lui signifier qu'il peut se reposer. Il n'a pas à tout prévoir pour que vous soyez en sécurité.</p>
+<p style="font-family:'Cormorant Garamond',serif;font-size:9pt;font-weight:500;font-style:italic;color:var(--ink);margin-bottom:3mm">Cher Masque Jaune,</p>
+<textarea class="wta" rows="5" placeholder="Commencez par reconnaître ce qu'il a fait pour vous — il a essayé de vous garder en sécurité..."></textarea>
+<textarea class="wta" rows="4" placeholder="Continuez par ce que vous comprenez maintenant — la certitude absolue n'existe pas..."></textarea>
+<textarea class="wta" rows="3" placeholder="Terminez par ce que vous choisissez maintenant — agir, faire confiance, vous engager..."></textarea>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl done">V</div><div class="pl done">A</div><div class="pl done">L</div><div class="pl done">E</div><div class="pl act">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 5 · Journal semaines 9–10</span><span class="pg-nb">43</span></div>
+<span class="tag">Journal de bord</span>
+<h2>Semaines 9–10 — Journal d'unification</h2>
+<p class="sub">Observer le choix conscient — agir malgré l'incertitude</p>
+<div class="rule-g"></div>
+<table class="jtable">
+<tr><th>Jour</th><th>Déclencheur</th><th>Réflexe du masque</th><th>Ma formule ET — choix posé</th></tr>
+<tr><td><input type='text' placeholder='Lundi'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td></tr><tr><td><input type='text' placeholder='Mardi'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td></tr><tr><td><input type='text' placeholder='Mercredi'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td></tr><tr><td><input type='text' placeholder='Jeudi'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td></tr><tr><td><input type='text' placeholder='Vendredi'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td></tr><tr><td><input type='text' placeholder='Samedi'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td></tr><tr><td><input type='text' placeholder='Dimanche'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td></tr>
+</table>
+<p class="exo-q">Mon engagement d'unification&nbsp;:</p>
+<div style="border:.5px solid var(--j300);padding:3mm 4mm;margin-bottom:2mm">
+<p style="font-family:'Jost',sans-serif;font-size:7.5pt;color:var(--inkm);margin-bottom:1mm">«&nbsp;Je choisis de faire confiance à ma capacité d'adaptation — même quand mon masque a peur. Je m'engage à&nbsp;:</p>
+<div class="wlines"><div class="wline"><input type="text" placeholder=""></div></div>
+</div>
+<p class="exo-q">Ce que ce journal me révèle — l'espace qui s'est ouvert&nbsp;:</p>
+<textarea class="wta" rows="2" placeholder=""></textarea>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl done">V</div><div class="pl done">A</div><div class="pl done">L</div><div class="pl done">E</div><div class="pl act">U</div><div class="pl ">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 5 · Bilan UNIFIER</span><span class="pg-nb">44</span></div>
+<span class="tag">Bilan</span>
+<h2>Bilan des 2 semaines</h2>
+<p class="sub">Avant de passer à RENFORCER</p>
+<div class="rule-g"></div>
+<p class="exo-q"><strong>Question 1</strong> — Le moment où j'ai agi malgré l'incertitude — ce que j'ai découvert&nbsp;:</p>
+<textarea class="wta" rows="3" placeholder=""></textarea>
+<p class="exo-q"><strong>Question 2</strong> — Ce que le masque comprend maintenant — ce que vous avez pu lui dire&nbsp;:</p>
+<textarea class="wta" rows="3" placeholder=""></textarea>
+<div class="pq" style="margin-top:2mm"><p>«&nbsp;Vous avez créé la paix entre la prudence et la confiance. Il reste à ancrer cette nouvelle façon d'agir — jusqu'à ce qu'elle remplace le réflexe de contrôle.&nbsp;»</p><cite>Méthode V.A.L.E.U.R© — Module 6 · RENFORCER</cite></div>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl done">V</div><div class="pl done">A</div><div class="pl done">L</div><div class="pl done">E</div><div class="pl done">U</div><div class="pl act">R</div></div></div>
+</div><div class="page page-d" id="mod6">
+<div class="page-d-bg">R</div>
+<div class="pg-hd-d"><span class="pg-ch-d">Masque Jaune · Module 6</span><span class="pg-nb-d">45</span></div>
+<span class="tag-g">Étape 6 · Semaines 11 &amp; 12</span>
+<h1 class="lh" style="font-size:22pt;margin-bottom:1mm">RENFORCER</h1>
+<p class="sub lh">«&nbsp;Répéter le nouveau choix — jusqu'à ce qu'il devienne votre nouvelle nature.&nbsp;»</p>
+<div class="rule-gl"></div>
+<p class="body lh">Plasticité cérébrale · La loi des 90 jours<br>Les 4 piliers du renforcement<br>16 défis d'exposition à l'incertitude<br>Bilan 12 semaines · Lettre au soi futur</p>
+<div class="pg-ft-d"><span class="pg-ft-td">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl done">V</div><div class="pl done">A</div><div class="pl done">L</div><div class="pl done">E</div><div class="pl done">U</div><div class="pl act">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 6 · Plasticité · 4 piliers</span><span class="pg-nb">46</span></div>
+<span class="tag">Remplacer une autoroute</span>
+<h2>Ce qui se passe dans votre cerveau<br>quand vous agissez malgré l'incertitude</h2>
+<div class="rule-g"></div>
+<p class="body">Le contrôle anxieux est une autoroute neuronale. <strong>Chaque fois que vous agissez sans toutes les garanties, vous creusez la nouvelle route.</strong> Votre cerveau apprend&nbsp;: l'incertitude ne détruit pas.</p>
+<div class="l90" style="margin:3mm 0">
+<div class="l90cell"><span class="l90n">1×</span><span class="l90t">Compréhension</span><span class="l90b">Vous comprenez que le contrôle total est impossible — mais le réflexe continue.</span></div>
+<div class="l90cell"><span class="l90n">30×</span><span class="l90t">Réflexe possible</span><span class="l90b">Agir avec 70% des informations devient accessible. La confiance commence à s'installer.</span></div>
+<div class="l90cell" style="border-color:rgba(80,72,0,.4)"><span class="l90n" style="color:var(--j300)">90×</span><span class="l90t" style="color:var(--j400)">Réflexe ancré</span><span class="l90b">Agir malgré l'incertitude est devenu naturel. La liberté remplace progressivement la paralysie.</span></div>
+</div>
+<h3>Les 4 piliers du renforcement</h3>
+<div class="step-n"><div class="step-nb">1</div><div class="step-b"><div class="step-t">Répétition intentionnelle</div><div class="step-tx">Chaque fois que l'incertitude arrive — refaites le choix d'agir sans toutes les garanties.</div></div></div>
+<div class="step-n"><div class="step-nb">2</div><div class="step-b"><div class="step-t">Journal de progression</div><div class="step-tx">Tracer les fois où vous avez agi malgré l'incertitude — et où rien de catastrophique n'est arrivé.</div></div></div>
+<div class="step-n"><div class="step-nb">3</div><div class="step-b"><div class="step-t">Célébrer chaque acte de confiance</div><div class="step-tx">Chaque décision prise avec 70% des informations — célébrez. Votre cerveau enregistre la réussite.</div></div></div>
+<div class="step-n"><div class="step-nb">4</div><div class="step-b"><div class="step-t">Progression graduelle</div><div class="step-tx">Commencez par les plus petites incertitudes. Augmentez progressivement l'exposition.</div></div></div>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl done">V</div><div class="pl done">A</div><div class="pl done">L</div><div class="pl done">E</div><div class="pl done">U</div><div class="pl act">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 6 · Défis progressifs 1</span><span class="pg-nb">47</span></div>
+<span class="tag">16 défis d'exposition à l'incertitude</span>
+<h2>Vos défis progressifs</h2>
+<p class="sub">Thérapie d'exposition graduée — cochez au moment de l'accomplissement</p>
+<div class="rule-g"></div>
+<h3>🗓 Routines et petits imprévus</h3>
+<div class="cb-row" onclick="togCb(this)"><div class="cb"></div><span class="cb-lbl"><strong>3/10</strong> — Modifier un petit élément de votre routine quotidienne — et observer l'inconfort sans le résoudre</span></div><div class="cb-row" onclick="togCb(this)"><div class="cb"></div><span class="cb-lbl"><strong>4/10</strong> — Prendre un chemin inconnu sans carte — et tolérer de ne pas savoir exactement où vous êtes</span></div><div class="cb-row" onclick="togCb(this)"><div class="cb"></div><span class="cb-lbl"><strong>4/10</strong> — Laisser un message ou un mail partir sans le relire une dernière fois</span></div><div class="cb-row" onclick="togCb(this)"><div class="cb"></div><span class="cb-lbl"><strong>5/10</strong> — Dire oui à une invitation spontanée avec moins de 2h de préavis</span></div><div class="cb-row" onclick="togCb(this)"><div class="cb"></div><span class="cb-lbl"><strong>5/10</strong> — Préparer un repas avec ce qu'il y a dans le réfrigérateur — sans planifier</span></div><div class="cb-row" onclick="togCb(this)"><div class="cb"></div><span class="cb-lbl"><strong>6/10</strong> — Partir en week-end avec seulement 30 minutes de préparation</span></div>
+<h3 style="margin-top:3mm">💼 Décisions et engagements</h3>
+<div class="cb-row" onclick="togCb(this)"><div class="cb"></div><span class="cb-lbl"><strong>5/10</strong> — Prendre une décision quotidienne avec 70% des informations — sans chercher les 30% restants</span></div><div class="cb-row" onclick="togCb(this)"><div class="cb"></div><span class="cb-lbl"><strong>6/10</strong> — S'inscrire à une activité nouvelle sans faire de recherches préalables</span></div>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl done">V</div><div class="pl done">A</div><div class="pl done">L</div><div class="pl done">E</div><div class="pl done">U</div><div class="pl act">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 6 · Défis progressifs 2</span><span class="pg-nb">48</span></div>
+<span class="tag">Défis — suite</span>
+<h2>Engagements et grandes décisions</h2>
+<p class="sub">Les défis qui transforment vraiment le rapport à l'incertitude</p>
+<div class="rule-g"></div>
+<h3>🎯 Lâcher prise sur le contrôle</h3>
+<div class="cb-row" onclick="togCb(this)"><div class="cb"></div><span class="cb-lbl"><strong>6/10</strong> — Déléguer entièrement une tâche à quelqu'un — sans vérifier comment il·elle la fait</span></div><div class="cb-row" onclick="togCb(this)"><div class="cb"></div><span class="cb-lbl"><strong>7/10</strong> — Laisser quelqu'un prendre une décision qui vous concerne — sans intervenir</span></div><div class="cb-row" onclick="togCb(this)"><div class="cb"></div><span class="cb-lbl"><strong>7/10</strong> — Commencer un projet important sans avoir toutes les étapes planifiées</span></div><div class="cb-row" onclick="togCb(this)"><div class="cb"></div><span class="cb-lbl"><strong>8/10</strong> — Prendre une décision significative (relation, travail, habitat) avec seulement 70% de certitude</span></div>
+<h3 style="margin-top:3mm">🌿 Confiance et présence</h3>
+<div class="cb-row" onclick="togCb(this)"><div class="cb"></div><span class="cb-lbl"><strong>5/10</strong> — Passer une journée entière sans faire de liste — et noter ce qui s'est passé</span></div><div class="cb-row" onclick="togCb(this)"><div class="cb"></div><span class="cb-lbl"><strong>6/10</strong> — Voyager dans une ville inconnue sans itinéraire préparé — juste se laisser guider</span></div><div class="cb-row" onclick="togCb(this)"><div class="cb"></div><span class="cb-lbl"><strong>7/10</strong> — S'engager dans une relation ou un projet qui comporte des inconnues majeures</span></div><div class="cb-row" onclick="togCb(this)"><div class="cb"></div><span class="cb-lbl"><strong>8/10</strong> — Prendre un risque professionnel ou personnel que vous reportez depuis longtemps par manque de garanties</span></div>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl done">V</div><div class="pl done">A</div><div class="pl done">L</div><div class="pl done">E</div><div class="pl done">U</div><div class="pl act">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 6 · Journal semaines 11–12</span><span class="pg-nb">49</span></div>
+<span class="tag">Journal de bord</span>
+<h2>Semaines 11–12 — Journal de renforcement</h2>
+<p class="sub">Chaque dimanche soir — tracer le chemin vers la confiance</p>
+<div class="rule-g"></div>
+<h3>Semaine 11</h3>
+<p class="exo-q">Défi tenté — et résultat&nbsp;:</p>
+<textarea class="wta" rows="2" placeholder=""></textarea>
+<p class="exo-q">Ce que je célèbre — même agir sans planifier entièrement compte&nbsp;!</p>
+<div class="wlines"><div class="wline"><input type="text" placeholder=""></div></div>
+<p class="exo-q">Ce que j'emporte dans la semaine suivante&nbsp;:</p>
+<div class="wlines"><div class="wline"><input type="text" placeholder=""></div></div>
+<h3 style="margin-top:2.5mm">Semaine 12 — La dernière</h3>
+<p class="exo-q">Le moment où j'ai senti que quelque chose avait vraiment changé — une décision prise, un engagement tenu malgré l'incertitude&nbsp;:</p>
+<textarea class="wta" rows="2" placeholder=""></textarea>
+<p class="exo-q">Ce que je célèbre — sans retenue&nbsp;:</p>
+<textarea class="wta" rows="2" placeholder=""></textarea>
+<p class="exo-q">Ce à quoi je m'engage pour continuer&nbsp;:</p>
+<div class="wlines"><div class="wline"><input type="text" placeholder=""></div><div class="wline"><input type="text" placeholder=""></div></div>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl done">V</div><div class="pl done">A</div><div class="pl done">L</div><div class="pl done">E</div><div class="pl done">U</div><div class="pl act">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 6 · Bilan 12 semaines</span><span class="pg-nb">50</span></div>
+<span class="tag">Grand bilan</span>
+<h2>Bilan — 12 semaines de transformation</h2>
+<p class="sub">Mesurer le chemin parcouru — pas ce qu'il reste à faire</p>
+<div class="rule-g"></div>
+<div class="g2" style="margin-bottom:3mm">
+<div class="gcell"><span class="gc-lbl">Au début — automatismes</span>
+<p class="body" style="font-size:7pt">→ Impossible d'agir sans toutes les garanties<br>→ Listes infinies et plans de secours<br>→ Procrastination par perfectionnisme<br>→ L'incertitude paralysait chaque décision</p></div>
+<div class="gcell" style="border-color:rgba(80,72,0,.4)"><span class="gc-lbl" style="color:var(--j300)">Aujourd'hui — choix</span>
+<p class="body" style="font-size:7pt">✓ Agir avec 70% des informations<br>✓ Faire confiance à ma capacité d'adaptation<br>✓ Commencer sans que tout soit parfait<br>✓ Vivre l'incertitude comme de l'espace, pas du danger</p></div>
+</div>
+<p class="exo-q">Au début, je décrivais mon Masque Jaune comme&nbsp;:</p>
+<div class="wlines"><div class="wline"><input type="text" placeholder=""></div><div class="wline"><input type="text" placeholder=""></div></div>
+<p class="exo-q">Le moment le plus transformateur de ces 12 semaines&nbsp;:</p>
+<textarea class="wta" rows="2" placeholder=""></textarea>
+<p class="exo-q">Ce que je veux continuer à pratiquer — et pourquoi&nbsp;:</p>
+<textarea class="wta" rows="2" placeholder=""></textarea>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl done">V</div><div class="pl done">A</div><div class="pl done">L</div><div class="pl done">E</div><div class="pl done">U</div><div class="pl act">R</div></div></div>
+</div><div class="page page-c">
+<div class="pg-hd"><span class="pg-ch">Module 6 · Lettre au soi futur</span><span class="pg-nb">51</span></div>
+<span class="tag">Exercice final</span>
+<h2>Lettre à la personne que vous serez dans 1 an</h2>
+<p class="sub">Ce que vous espérez vivre. Ce à quoi vous refusez de renoncer.</p>
+<div class="rule-g"></div>
+<p class="body" style="font-size:7pt;font-style:italic;color:var(--inkl);margin-bottom:3mm">Écrivez à la version de vous-même qui aura choisi, pendant un an, de faire confiance plutôt que de contrôler.</p>
+<p style="font-family:'Cormorant Garamond',serif;font-size:9pt;font-weight:500;font-style:italic;color:var(--ink);margin-bottom:3mm">À toi, dans un an.</p>
+<textarea class="wta" rows="4" placeholder="Dis-lui où tu en es aujourd'hui — ce que tu as commencé à faire sans garantie..."></textarea>
+<textarea class="wta" rows="4" placeholder="Dis-lui ce que tu espères pour elle — dans ses décisions, ses engagements, sa liberté..."></textarea>
+<textarea class="wta" rows="3" placeholder="Termine par ce à quoi tu refuses de renoncer — ta confiance, ton courage, ta présence à la vie..."></textarea>
+<div class="pg-ft"><span class="pg-ft-t">© Céline Bourbon · V.A.L.E.U.R©</span><div class="prog"><div class="pl0 ">0</div><div class="pl done">V</div><div class="pl done">A</div><div class="pl done">L</div><div class="pl done">E</div><div class="pl done">U</div><div class="pl done">R</div></div></div>
+</div><div class="end-page">
+<div class="end-bg" style="top:30mm;left:50%;transform:translateX(-50%)">VALEUR</div>
+<div class="end-inner">
+  <p class="end-small">Méthode V.A.L.E.U.R© · Masque Jaune · 12 semaines</p>
+  <h2 class="end-big">Vous avez fait<br><em>le chemin.</em></h2>
+  <div class="end-rule"></div>
+  <p class="end-pq" style="max-width:320px;margin:0 auto 6mm;text-align:center">Vous avez vu les cascades «&nbsp;et si...&nbsp;». Accueilli l'incertitude sans la résoudre. Localisé la tension dans le corps. Exploré ce que le contrôle protégeait. Unifié la prudence et la confiance. Et agi, semaine après semaine, malgré l'incertitude.</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2mm;margin-bottom:6mm;max-width:340px;margin-left:auto;margin-right:auto">
+    <span style="font-family:Jost,sans-serif;font-size:5.5pt;letter-spacing:.18em;text-transform:uppercase;color:rgba(240,216,64,.55);border:.4px solid rgba(240,216,64,.2);padding:.4em .8em;text-align:center">V · Vous voyez</span>
+    <span style="font-family:Jost,sans-serif;font-size:5.5pt;letter-spacing:.18em;text-transform:uppercase;color:rgba(240,216,64,.55);border:.4px solid rgba(240,216,64,.2);padding:.4em .8em;text-align:center">A · Vous accueillez</span>
+    <span style="font-family:Jost,sans-serif;font-size:5.5pt;letter-spacing:.18em;text-transform:uppercase;color:rgba(240,216,64,.55);border:.4px solid rgba(240,216,64,.2);padding:.4em .8em;text-align:center">L · Vous localisez</span>
+    <span style="font-family:Jost,sans-serif;font-size:5.5pt;letter-spacing:.18em;text-transform:uppercase;color:rgba(240,216,64,.55);border:.4px solid rgba(240,216,64,.2);padding:.4em .8em;text-align:center">E · Vous explorez</span>
+    <span style="font-family:Jost,sans-serif;font-size:5.5pt;letter-spacing:.18em;text-transform:uppercase;color:rgba(240,216,64,.55);border:.4px solid rgba(240,216,64,.2);padding:.4em .8em;text-align:center">U · Vous unifiez</span>
+    <span style="font-family:Jost,sans-serif;font-size:5.5pt;letter-spacing:.18em;text-transform:uppercase;color:rgba(240,216,64,.55);border:.4px solid rgba(240,216,64,.2);padding:.4em .8em;text-align:center">R · Vous renforcez</span>
+  </div>
+  <div class="end-rule"></div>
+  <p class="end-pq" style="max-width:320px;margin:0 auto 6mm;text-align:center">«&nbsp;Lorsque nous cessons de résister au flux naturel de l'existence, notre intelligence devient plus fluide, plus agile. Les situations qui nous paralysaient autrefois deviennent des terrains d'exploration.&nbsp;»</p>
+  <p class="end-cite">Céline Bourbon — Méthode V.A.L.E.U.R©<br>De la peur à la joie d'être soi · Éditions L'Harmattan</p>
+  <p style="font-family:Jost,sans-serif;font-size:5pt;letter-spacing:.15em;text-transform:uppercase;color:rgba(240,216,64,.25);margin-top:5mm">© Céline Bourbon · Tous droits réservés · Reproduction interdite</p>
+</div>
+</div>
+</div>
+
+<nav class="page-nav">
+  <span class="nav-brand">Masque Jaune · V.A.L.E.U.R©</span>
+  <div class="nav-mods">
+    <div class="nm cur" onclick="scrollTo('cover')" title="Couverture">◉</div>
+    <div class="nm" onclick="scrollTo('intro')" title="Introduction">·</div>
+    <div class="nm" onclick="scrollTo('mod0')" title="Comprendre">0</div>
+    <div class="nm" onclick="scrollTo('mod1')" title="Voir">V</div>
+    <div class="nm" onclick="scrollTo('mod2')" title="Accueillir">A</div>
+    <div class="nm" onclick="scrollTo('mod3')" title="Localiser">L</div>
+    <div class="nm" onclick="scrollTo('mod4')" title="Explorer">E</div>
+    <div class="nm" onclick="scrollTo('mod5')" title="Unifier">U</div>
+    <div class="nm" onclick="scrollTo('mod6')" title="Renforcer">R</div>
+  </div>
+  <button onclick="printLivret()" style="font-family:'Jost',sans-serif;font-size:.55rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);background:var(--gold);border:none;padding:.45em 1.1em;border-radius:1px;cursor:pointer;white-space:nowrap;transition:opacity .2s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">🖨 Imprimer / PDF</button>
+</nav>
+<div id="print-tip" style="display:none;position:fixed;bottom:62px;right:1.2rem;z-index:300;background:var(--j800);border:1px solid rgba(240,216,64,.3);padding:.75rem 1rem;border-radius:2px;max-width:270px;box-shadow:0 4px 20px rgba(0,0,0,.5)">
+  <p style="font-family:'Jost',sans-serif;font-size:.62rem;color:rgba(249,245,238,.82);line-height:1.65;margin-bottom:.5rem">Imprimez <strong style="color:var(--gold)">après avoir rempli vos réponses</strong> pour conserver une trace papier de votre parcours.</p>
+  <p style="font-family:'Jost',sans-serif;font-size:.58rem;color:rgba(240,216,64,.52);line-height:1.55">Format recommandé&nbsp;: A5 · Marges&nbsp;: aucune<br>Cocher «&nbsp;Graphiques d'arrière-plan&nbsp;»</p>
+</div>
+
+<script>
+function printLivret(){
+  const tip=document.getElementById('print-tip');
+  tip.style.display='block';
+  setTimeout(()=>{tip.style.display='none';window.print();},2200);
+}
+document.addEventListener('contextmenu',e=>e.preventDefault());
+document.addEventListener('copy',e=>e.preventDefault());
+document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&['c','u','s','a'].includes(e.key.toLowerCase()))e.preventDefault();});
+function selDot(el){el.closest('.scale-dots').querySelectorAll('.sd').forEach(d=>d.classList.remove('on'));el.classList.add('on');save();}
+function togCb(row){row.querySelector('.cb').classList.toggle('on');save();}
+function togVal(el){
+  el.style.background=el.style.background?'':'var(--j600)';
+  el.style.color=el.style.color==='var(--j100)'?'':'var(--j100)';
+  el.style.borderColor=el.style.borderColor==='var(--j400)'?'':'var(--j400)';
+  save();
+}
+function updateNav(){
+  const sections=['cover','intro','mod0','mod1','mod2','mod3','mod4','mod5','mod6'];
+  let active=0;
+  sections.forEach((id,i)=>{const el=document.getElementById(id);if(!el)return;if(el.getBoundingClientRect().top<=200)active=i;});
+  document.querySelectorAll('.nm').forEach((n,i)=>n.classList.toggle('cur',i===active));
+}
+window.addEventListener('scroll',updateNav);
+function scrollTo(id){const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth'});}
+const KEY='valeur_livret_jaune_v1';
+function save(){
+  const data={};
+  document.querySelectorAll('input[type=text]').forEach((el,i)=>data['i'+i]=el.value);
+  document.querySelectorAll('textarea').forEach((el,i)=>data['t'+i]=el.value);
+  document.querySelectorAll('.cb.on').forEach((el,i)=>{const idx=Array.from(document.querySelectorAll('.cb')).indexOf(el);data['cb'+idx]=1;});
+  try{localStorage.setItem(KEY,JSON.stringify(data));}catch(e){}
+}
+function load(){
+  try{
+    const data=JSON.parse(localStorage.getItem(KEY)||'{}');
+    document.querySelectorAll('input[type=text]').forEach((el,i)=>{if(data['i'+i])el.value=data['i'+i];});
+    document.querySelectorAll('textarea').forEach((el,i)=>{if(data['t'+i])el.value=data['t'+i];});
+    const cbs=document.querySelectorAll('.cb');
+    Object.keys(data).forEach(k=>{if(k.startsWith('cb')){const idx=parseInt(k.slice(2));if(cbs[idx])cbs[idx].classList.add('on');}});
+  }catch(e){}
+}
+document.querySelectorAll('input[type=text],textarea').forEach(el=>el.addEventListener('input',save));
+window.addEventListener('load',()=>{load();updateNav();});
+</script>
+</body>
+</html>

@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Collection V.A.L.E.U.R© — Les 7 Workbooks | Céline Bourbon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Jost:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════════════════════
+   VARIABLES & RESET
+══════════════════════════════════════════════════════════════ */
+:root {
+  --gold: #C9A84C;
+  --gold-l: #F0D080;
+  --gold-d: #8B6A1A;
+  --cream: #F9F5EE;
+  --ink: #0E0D0A;
+  --bg: #080807;
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: 'Jost', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  cursor: default;
+}
+/* Grain de papier permanent */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 9999;
+  background-image: var(--grain);
+  pointer-events: none;
+  opacity: .35;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   HERO — PLEINE PAGE D'ENTRÉE
+══════════════════════════════════════════════════════════════ */
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem 6rem;
+  position: relative;
+  overflow: hidden;
+}
+/* Lignes diagonales décoratives */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(135deg, transparent 49.8%, rgba(201,168,76,.04) 50%, transparent 50.2%),
+    linear-gradient(45deg,  transparent 49.8%, rgba(201,168,76,.03) 50%, transparent 50.2%);
+  background-size: 120px 120px;
+  pointer-events: none;
+}
+.hero-signal {
+  font-size: 6pt;
+  font-weight: 400;
+  letter-spacing: .65em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: .5;
+  margin-bottom: 3.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.hero-signal::before, .hero-signal::after {
+  content: '';
+  display: block;
+  width: 2.5rem;
+  height: .4px;
+  background: var(--gold);
+  opacity: .4;
+}
+.hero-kicker {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(9pt, 1.8vw, 13pt);
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(249,245,238,.3);
+  letter-spacing: .04em;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28pt, 7vw, 68pt);
+  font-weight: 600;
+  line-height: 1.05;
+  text-align: center;
+  color: var(--cream);
+  letter-spacing: -.01em;
+  max-width: 820px;
+  margin-bottom: 1.5rem;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--gold-l);
+  display: block;
+}
+.hero-rule {
+  width: 2.5rem;
+  height: .6px;
+  background: var(--gold);
+  opacity: .5;
+  margin: 2.5rem auto;
+}
+.hero-desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(10pt, 1.5vw, 13pt);
+  font-style: italic;
+  line-height: 1.75;
+  color: rgba(249,245,238,.42);
+  text-align: center;
+  max-width: 480px;
+  margin-bottom: 3.5rem;
+}
+.hero-meta {
+  font-size: 6.5pt;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: rgba(201,168,76,.38);
+  text-align: center;
+  line-height: 2.2;
+}
+.hero-meta strong {
+  color: rgba(201,168,76,.6);
+  font-weight: 500;
+}
+.hero-scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .6rem;
+  opacity: .3;
+  animation: breathe 2.5s ease-in-out infinite;
+}
+@keyframes breathe { 0%,100%{opacity:.3;transform:translateX(-50%) translateY(0)} 50%{opacity:.55;transform:translateX(-50%) translateY(4px)} }
+.hero-scroll span {
+  font-size: 5pt;
+  letter-spacing: .4em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.hero-scroll-line {
+  width: .4px;
+  height: 2.5rem;
+  background: linear-gradient(180deg, var(--gold), transparent);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   BANDE ÉDITORIALE
+══════════════════════════════════════════════════════════════ */
+.editorial-band {
+  border-top: .4px solid rgba(201,168,76,.12);
+  border-bottom: .4px solid rgba(201,168,76,.12);
+  padding: 1.4rem 0;
+  overflow: hidden;
+  position: relative;
+}
+.band-track {
+  display: flex;
+  gap: 4rem;
+  white-space: nowrap;
+  animation: marquee 28s linear infinite;
+  width: max-content;
+}
+@keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+.band-item {
+  font-size: 6pt;
+  font-weight: 400;
+  letter-spacing: .38em;
+  text-transform: uppercase;
+  color: rgba(201,168,76,.32);
+  flex-shrink: 0;
+}
+.band-dot {
+  display: inline-block;
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: rgba(201,168,76,.25);
+  vertical-align: middle;
+  margin: 0 .5rem;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SECTION CHAQUE MASQUE — pleine largeur, cinématique
+══════════════════════════════════════════════════════════════ */
+.mask-section {
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  position: relative;
+  overflow: hidden;
+  border-top: .4px solid rgba(255,255,255,.04);
+}
+.mask-section:nth-child(even) { direction: rtl; }
+.mask-section:nth-child(even) > * { direction: ltr; }
+
+/* Panneau couleur (moitié gauche/droite) */
+.mask-panel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 4rem;
+  min-height: 100svh;
+}
+.mask-panel-bg {
+  position: absolute; inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+.mask-panel-vignette {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 85% 85% at 50% 50%, transparent 20%, rgba(0,0,0,.5) 100%);
+}
+/* Mini-livre 3D */
+.book-3d-wrap {
+  position: relative; z-index: 2;
+  perspective: 800px;
+}
+.book-3d {
+  width: 220px;
+  aspect-ratio: 148/210;
+  position: relative;
+  transform: rotateY(-14deg) rotateX(3deg);
+  transform-style: preserve-3d;
+  box-shadow: 
+    12px 20px 60px rgba(0,0,0,.8),
+    4px 6px 18px rgba(0,0,0,.6);
+  transition: transform .6s cubic-bezier(.23,1,.32,1);
+}
+.book-3d:hover {
+  transform: rotateY(-4deg) rotateX(1deg) translateY(-8px);
+}
+.book-3d-cover {
+  position: absolute; inset: 0;
+  border-radius: 1px;
+  display: flex;
+  flex-direction: column;
+  padding: 1.4rem 1.2rem;
+  justify-content: space-between;
+  overflow: hidden;
+}
+/* Tranche du livre */
+.book-3d::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; left: -12px;
+  width: 12px;
+  background: linear-gradient(90deg, rgba(0,0,0,.6), rgba(0,0,0,.3));
+  transform: rotateY(90deg);
+  transform-origin: right center;
+  border-radius: 1px 0 0 1px;
+}
+/* Reflet */
+.book-3d::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 40%;
+  background: linear-gradient(180deg, rgba(255,255,255,.06) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 5;
+}
+.book-cover-inner {
+  position: absolute; inset: 0;
+  overflow: hidden;
+}
+.book-vignette {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 90% 90% at 50% 50%, transparent 30%, rgba(0,0,0,.55) 100%);
+  z-index: 1;
+}
+.book-rl {
+  position: absolute; left: 0; top: 8%; bottom: 8%;
+  width: 2px; z-index: 2;
+  background: linear-gradient(180deg, transparent, var(--gold), rgba(240,208,128,.6), var(--gold), transparent);
+  opacity: .45;
+}
+.book-content { position: relative; z-index: 3; height: 100%; display: flex; flex-direction: column; padding: .8rem .7rem; }
+.book-c-vol {
+  font-size: 4pt; letter-spacing: .45em; text-transform: uppercase;
+  color: var(--gold); opacity: .5;
+}
+.book-c-body { margin: auto 0; }
+.book-c-label {
+  font-size: 4pt; letter-spacing: .42em; text-transform: uppercase;
+  color: rgba(249,245,238,.32); display: block; margin-bottom: .35rem;
+}
+.book-c-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20pt; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+  line-height: 1; color: rgba(249,245,238,.92); display: block; margin-bottom: .4rem;
+}
+.book-c-rule { width: 10mm; height: .4px; background: var(--gold); opacity: .5; margin-bottom: .5rem; }
+.book-c-fear {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 7pt; font-style: italic; line-height: 1.4;
+  color: rgba(249,245,238,.55);
+}
+.book-c-foot {
+  display: flex; justify-content: space-between; align-items: flex-end; margin-top: auto;
+}
+.book-c-auth {
+  font-size: 4pt; letter-spacing: .06em; color: rgba(249,245,238,.22); line-height: 1.7;
+}
+.book-c-auth strong {
+  font-family: 'Cormorant Garamond', serif; font-size: 5.5pt;
+  color: rgba(249,245,238,.45); font-weight: 500; display: block;
+}
+.book-c-weeks {
+  text-align: right; font-family: 'Cormorant Garamond', serif;
+}
+.book-c-wn {
+  font-size: 14pt; font-weight: 300; color: var(--gold); opacity: .5; display: block; line-height: 1;
+}
+.book-c-wl { font-size: 4pt; font-style: italic; color: rgba(201,168,76,.3); }
+
+/* Panneau texte (moitié droite/gauche) */
+.mask-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5rem 5rem 5rem 4rem;
+  position: relative;
+  background: rgba(0,0,0,.55);
+}
+.mask-section:nth-child(even) .mask-info {
+  padding: 5rem 4rem 5rem 5rem;
+}
+.mask-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 72pt; font-weight: 700;
+  line-height: 1; letter-spacing: -.04em;
+  color: rgba(255,255,255,.04);
+  position: absolute;
+  top: 3.5rem; right: 3rem;
+  pointer-events: none;
+  user-select: none;
+}
+.mask-section:nth-child(even) .mask-num { right: auto; left: 3rem; }
+.mask-tag {
+  font-size: 5.5pt; font-weight: 600; letter-spacing: .38em; text-transform: uppercase;
+  color: var(--gold); opacity: .65;
+  margin-bottom: 2rem;
+  display: flex; align-items: center; gap: 1rem;
+}
+.mask-tag::before {
+  content: '';
+  display: block; width: 1.5rem; height: .4px;
+  background: var(--gold); opacity: .5;
+}
+.mask-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(24pt, 3.5vw, 38pt);
+  font-weight: 600; line-height: 1.1;
+  color: var(--cream);
+  margin-bottom: 1.2rem;
+  letter-spacing: -.01em;
+}
+.mask-fear {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(11pt, 1.6vw, 14pt);
+  font-style: italic;
+  line-height: 1.55;
+  color: rgba(249,245,238,.5);
+  margin-bottom: 2.5rem;
+  padding-left: 1.2rem;
+  border-left: 1.5px solid rgba(201,168,76,.25);
+}
+.mask-desc {
+  font-size: 8pt; line-height: 2;
+  color: rgba(249,245,238,.38);
+  max-width: 380px;
+  margin-bottom: 3rem;
+}
+.mask-modules {
+  display: flex; gap: .5rem; flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+.module-badge {
+  font-size: 5.5pt; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
+  padding: .3em .8em;
+  border: .4px solid rgba(201,168,76,.2);
+  color: rgba(201,168,76,.45);
+  border-radius: 1px;
+}
+.mask-actions { display: flex; gap: 1rem; align-items: center; }
+.btn-primary {
+  font-family: 'Jost', sans-serif;
+  font-size: 6.5pt; font-weight: 600; letter-spacing: .25em; text-transform: uppercase;
+  background: var(--gold); color: #0E0D0A;
+  border: none; cursor: pointer; border-radius: 1px;
+  padding: .85em 2em;
+  text-decoration: none; display: inline-block;
+  transition: all .25s;
+}
+.btn-primary:hover { background: var(--gold-l); transform: translateY(-2px); }
+.btn-ghost {
+  font-family: 'Jost', sans-serif;
+  font-size: 6.5pt; font-weight: 400; letter-spacing: .22em; text-transform: uppercase;
+  background: transparent; color: rgba(249,245,238,.4);
+  border: .4px solid rgba(249,245,238,.18);
+  cursor: pointer; border-radius: 1px;
+  padding: .85em 1.8em;
+  text-decoration: none; display: inline-block;
+  transition: all .25s;
+}
+.btn-ghost:hover { border-color: rgba(201,168,76,.4); color: var(--gold); }
+
+/* ══════════════════════════════════════════════════════════════
+   SECTION CITATION DE COLLECTION
+══════════════════════════════════════════════════════════════ */
+.quote-section {
+  padding: 7rem 2rem;
+  text-align: center;
+  position: relative;
+  border-top: .4px solid rgba(201,168,76,.08);
+  border-bottom: .4px solid rgba(201,168,76,.08);
+  background: rgba(201,168,76,.02);
+}
+.quote-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 60pt; font-weight: 300;
+  color: var(--gold); opacity: .15;
+  line-height: .7;
+  display: block; margin-bottom: -1rem;
+}
+.quote-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(14pt, 2.5vw, 22pt);
+  font-style: italic; font-weight: 400;
+  line-height: 1.6;
+  color: rgba(249,245,238,.6);
+  max-width: 680px; margin: 0 auto 2rem;
+}
+.quote-author {
+  font-size: 6pt; letter-spacing: .45em; text-transform: uppercase;
+  color: rgba(201,168,76,.4);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SECTION COLLECTION HORIZONTALE (miniatures)
+══════════════════════════════════════════════════════════════ */
+.collection-strip {
+  padding: 5rem 0 4rem;
+  overflow: hidden;
+  border-bottom: .4px solid rgba(201,168,76,.08);
+}
+.collection-strip-title {
+  font-size: 6pt; letter-spacing: .5em; text-transform: uppercase;
+  color: rgba(201,168,76,.35);
+  text-align: center; margin-bottom: 3rem;
+}
+.strip-scroll {
+  display: flex; gap: 2rem;
+  padding: 0 3rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.strip-scroll::-webkit-scrollbar { display: none; }
+.strip-book {
+  flex-shrink: 0;
+  width: 110px;
+  text-decoration: none;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 1rem;
+  transition: transform .3s;
+}
+.strip-book:hover { transform: translateY(-6px); }
+.strip-cover {
+  width: 110px; aspect-ratio: 148/210;
+  border-radius: 1px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 4px 8px 28px rgba(0,0,0,.7);
+}
+.strip-cover::before {
+  content: '';
+  position: absolute; left: 0; top: 10%; bottom: 10%;
+  width: 1.5px;
+  background: linear-gradient(180deg, transparent, var(--gold), transparent);
+  opacity: .45; z-index: 2;
+}
+.strip-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 8pt; font-weight: 600; letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(249,245,238,.5); text-align: center;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════════════════════════ */
+.site-footer {
+  padding: 4rem 2rem;
+  text-align: center;
+  border-top: .4px solid rgba(201,168,76,.1);
+}
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 10pt; letter-spacing: .45em; text-transform: uppercase;
+  color: rgba(201,168,76,.35); margin-bottom: 1.5rem; display: block;
+}
+.footer-text {
+  font-size: 6pt; letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(249,245,238,.18); line-height: 2.5;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MODAL APERÇU
+══════════════════════════════════════════════════════════════ */
+.modal-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,.92); z-index: 10000;
+  align-items: center; justify-content: center;
+  padding: 1.5rem; backdrop-filter: blur(8px);
+}
+.modal-overlay.open { display: flex; }
+.modal-box {
+  width: 100%; max-width: 700px; max-height: 92vh;
+  background: #111; border: .5px solid rgba(201,168,76,.2);
+  border-radius: 2px; overflow: hidden; display: flex; flex-direction: column;
+  box-shadow: 0 40px 120px rgba(0,0,0,.9);
+  position: relative;
+}
+.modal-header {
+  padding: 1.2rem 1.5rem 1rem;
+  border-bottom: .4px solid rgba(201,168,76,.1);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.modal-mask-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13pt; font-weight: 600; color: var(--cream);
+}
+.modal-mask-vol {
+  font-size: 6pt; letter-spacing: .3em; text-transform: uppercase;
+  color: rgba(201,168,76,.45); margin-top: .25rem;
+}
+.modal-close-btn {
+  background: none; border: none; cursor: pointer;
+  font-size: 1rem; color: rgba(249,245,238,.35);
+  padding: .25rem; transition: color .2s;
+}
+.modal-close-btn:hover { color: var(--gold); }
+.modal-iframe {
+  flex: 1; border: none; min-height: 500px;
+  pointer-events: none; background: #f9f5ee;
+}
+.modal-footer {
+  padding: 1rem 1.5rem;
+  border-top: .4px solid rgba(201,168,76,.1);
+  display: flex; gap: .75rem; align-items: center;
+}
+.modal-btn {
+  font-family: 'Jost', sans-serif;
+  font-size: 6pt; font-weight: 600; letter-spacing: .25em; text-transform: uppercase;
+  padding: .7em 1.6em; border-radius: 1px;
+  text-decoration: none; display: inline-block;
+  cursor: pointer; transition: all .2s;
+}
+.modal-btn-gold { background: var(--gold); color: #0E0D0A; border: none; }
+.modal-btn-gold:hover { background: var(--gold-l); }
+.modal-btn-ghost { background: transparent; color: rgba(249,245,238,.4); border: .4px solid rgba(249,245,238,.18); }
+.modal-btn-ghost:hover { border-color: rgba(201,168,76,.4); color: var(--gold); }
+
+/* ══════════════════════════════════════════════════════════════
+   ANIMATIONS D'ENTRÉE
+══════════════════════════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .8s cubic-bezier(.23,1,.32,1), transform .8s cubic-bezier(.23,1,.32,1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ══════════════════════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════════════════════ */
+@media (max-width: 820px) {
+  .mask-section { grid-template-columns: 1fr; min-height: auto; }
+  .mask-section:nth-child(even) { direction: ltr; }
+  .mask-panel { min-height: 55vw; padding: 3rem 2rem; }
+  .mask-info { padding: 3rem 2rem; }
+  .mask-num { display: none; }
+  .book-3d { width: 150px; }
+  .hero-title { font-size: 22pt; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-signal">Collection</div>
+  <p class="hero-kicker">De la peur à la joie d'être soi</p>
+  <h1 class="hero-title">
+    Les 7 Workbooks<br>
+    <em>de transformation</em>
+  </h1>
+  <div class="hero-rule"></div>
+  <p class="hero-desc">7 peurs universelles. 7 masques de défense. 7 workbooks de 12 semaines pour vous libérer de ce qui vous empêche d'être vous-même.</p>
+  <div class="hero-meta">
+    <strong>Céline Bourbon</strong><br>
+    Psychologue · Méthode V.A.L.E.U.R© · Auteure<br>
+    <em style="font-style:italic;font-family:'Cormorant Garamond',serif;font-size:8pt">De la peur à la joie d'être soi · Éditions L'Harmattan</em>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span>Découvrir</span>
+  </div>
+</section>
+
+<!-- ══ BANDE ══════════════════════════════════════════════════════ -->
+<div class="editorial-band">
+  <div class="band-track">
+    <span class="band-item">V.A.L.E.U.R©</span><span class="band-dot"></span>
+    <span class="band-item">7 masques de défense</span><span class="band-dot"></span>
+    <span class="band-item">Méthode clinique</span><span class="band-dot"></span>
+    <span class="band-item">12 semaines par livret</span><span class="band-dot"></span>
+    <span class="band-item">Céline Bourbon</span><span class="band-dot"></span>
+    <span class="band-item">Workbooks premium</span><span class="band-dot"></span>
+    <span class="band-item">Remplissable & imprimable</span><span class="band-dot"></span>
+    <!-- doublon pour boucle infinie -->
+    <span class="band-item">V.A.L.E.U.R©</span><span class="band-dot"></span>
+    <span class="band-item">7 masques de défense</span><span class="band-dot"></span>
+    <span class="band-item">Méthode clinique</span><span class="band-dot"></span>
+    <span class="band-item">12 semaines par livret</span><span class="band-dot"></span>
+    <span class="band-item">Céline Bourbon</span><span class="band-dot"></span>
+    <span class="band-item">Workbooks premium</span><span class="band-dot"></span>
+    <span class="band-item">Remplissable & imprimable</span><span class="band-dot"></span>
+  </div>
+</div>
+
+<!-- ══ ROUGE ══════════════════════════════════════════════════════ -->
+<section class="mask-section reveal" id="rouge">
+  <div class="mask-panel">
+    <div class="mask-panel-bg" style="background:linear-gradient(135deg,#6b1010 0%,#3d0808 50%,#1c0404 100%)"></div>
+    <div class="mask-panel-vignette"></div>
+    <div class="book-3d-wrap">
+      <div class="book-3d">
+        <div class="book-cover-inner" style="background:linear-gradient(168deg,#6b1010 0%,#3d0808 55%,#1c0404 100%)">
+          <div class="book-vignette"></div>
+          <div class="book-rl"></div>
+          <div class="book-content">
+            <span class="book-c-vol">Volume I · 12 semaines</span>
+            <div class="book-c-body">
+              <span class="book-c-label">Masque</span>
+              <span class="book-c-name">Rouge</span>
+              <div class="book-c-rule"></div>
+              <span class="book-c-fear">La peur de la mort<br>et de la maladie</span>
+            </div>
+            <div class="book-c-foot">
+              <div class="book-c-auth"><strong>Céline Bourbon</strong>Psychologue</div>
+              <div class="book-c-weeks"><span class="book-c-wn">12</span><span class="book-c-wl">sem.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mask-info">
+    <div class="mask-num">I</div>
+    <div class="mask-tag" style="color:#c04040;">Masque Rouge · Volume I</div>
+    <h2 class="mask-title">La peur de la mort<br>et de la maladie</h2>
+    <p class="mask-fear">«&nbsp;Je surveille mon corps comme on surveille un ennemi. Et pourtant, tout ce que je veux, c'est vivre — vraiment vivre.&nbsp;»</p>
+    <p class="mask-desc">12 semaines pour transformer l'hypervigilance somatique en conscience aiguë de la préciosité de la vie. De la vérification compulsive à la présence totale.</p>
+    <div class="mask-modules">
+      <span class="module-badge">VOIR</span><span class="module-badge">ACCUEILLIR</span>
+      <span class="module-badge">LOCALISER</span><span class="module-badge">EXPLORER</span>
+      <span class="module-badge">UNIFIER</span><span class="module-badge">RENFORCER</span>
+    </div>
+    <div class="mask-actions">
+      <a class="btn-primary" href="livret_masque_rouge_COMPLET.html" target="_blank">Ouvrir le livret</a>
+      <button class="btn-ghost" onclick="openModal('rouge','Masque Rouge — Volume I','livret_masque_rouge_COMPLET.html')">Aperçu</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ORANGE ══════════════════════════════════════════════════════ -->
+<section class="mask-section reveal" id="orange">
+  <div class="mask-panel">
+    <div class="mask-panel-bg" style="background:linear-gradient(135deg,#7a2e00 0%,#3d1600 50%,#1e0800 100%)"></div>
+    <div class="mask-panel-vignette"></div>
+    <div class="book-3d-wrap">
+      <div class="book-3d">
+        <div class="book-cover-inner" style="background:linear-gradient(168deg,#7a2e00 0%,#3d1600 55%,#1e0800 100%)">
+          <div class="book-vignette"></div>
+          <div class="book-rl"></div>
+          <div class="book-content">
+            <span class="book-c-vol">Volume II · 12 semaines</span>
+            <div class="book-c-body">
+              <span class="book-c-label">Masque</span>
+              <span class="book-c-name">Orange</span>
+              <div class="book-c-rule"></div>
+              <span class="book-c-fear">La peur de la souffrance<br>psychique</span>
+            </div>
+            <div class="book-c-foot">
+              <div class="book-c-auth"><strong>Céline Bourbon</strong>Psychologue</div>
+              <div class="book-c-weeks"><span class="book-c-wn">12</span><span class="book-c-wl">sem.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mask-info">
+    <div class="mask-num">II</div>
+    <div class="mask-tag" style="color:#c46800;">Masque Orange · Volume II</div>
+    <h2 class="mask-title">La peur de la souffrance<br>psychique</h2>
+    <p class="mask-fear">«&nbsp;Je souris. Je change de sujet. Je gère. Mais sous le vernis du "tout va bien", quelque chose attend d'être entendu.&nbsp;»</p>
+    <p class="mask-desc">12 semaines pour traverser les émotions difficiles sans les fuir — et libérer la créativité et la profondeur longtemps muselées par l'évitement.</p>
+    <div class="mask-modules">
+      <span class="module-badge">VOIR</span><span class="module-badge">ACCUEILLIR</span>
+      <span class="module-badge">LOCALISER</span><span class="module-badge">EXPLORER</span>
+      <span class="module-badge">UNIFIER</span><span class="module-badge">RENFORCER</span>
+    </div>
+    <div class="mask-actions">
+      <a class="btn-primary" href="livret_masque_orange_COMPLET.html" target="_blank">Ouvrir le livret</a>
+      <button class="btn-ghost" onclick="openModal('orange','Masque Orange — Volume II','livret_masque_orange_COMPLET.html')">Aperçu</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ JAUNE ══════════════════════════════════════════════════════ -->
+<section class="mask-section reveal" id="jaune">
+  <div class="mask-panel">
+    <div class="mask-panel-bg" style="background:linear-gradient(135deg,#5a5000 0%,#2e2800 50%,#181600 100%)"></div>
+    <div class="mask-panel-vignette"></div>
+    <div class="book-3d-wrap">
+      <div class="book-3d">
+        <div class="book-cover-inner" style="background:linear-gradient(168deg,#5a5000 0%,#2e2800 55%,#181600 100%)">
+          <div class="book-vignette"></div>
+          <div class="book-rl"></div>
+          <div class="book-content">
+            <span class="book-c-vol">Volume III · 12 semaines</span>
+            <div class="book-c-body">
+              <span class="book-c-label">Masque</span>
+              <span class="book-c-name">Jaune</span>
+              <div class="book-c-rule"></div>
+              <span class="book-c-fear">La peur de l'inconnu<br>et de l'incertitude</span>
+            </div>
+            <div class="book-c-foot">
+              <div class="book-c-auth"><strong>Céline Bourbon</strong>Psychologue</div>
+              <div class="book-c-weeks"><span class="book-c-wn">12</span><span class="book-c-wl">sem.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mask-info">
+    <div class="mask-num">III</div>
+    <div class="mask-tag" style="color:#b89a00;">Masque Jaune · Volume III</div>
+    <h2 class="mask-title">La peur de l'inconnu<br>et de l'incertitude</h2>
+    <p class="mask-fear">«&nbsp;J'ai un plan pour tout. Et pourtant, je n'ai jamais vraiment l'impression d'être en sécurité.&nbsp;»</p>
+    <p class="mask-desc">12 semaines pour passer de la paralysie de l'incertitude à la confiance dans votre capacité d'adaptation — et agir avec 70% des informations.</p>
+    <div class="mask-modules">
+      <span class="module-badge">VOIR</span><span class="module-badge">ACCUEILLIR</span>
+      <span class="module-badge">LOCALISER</span><span class="module-badge">EXPLORER</span>
+      <span class="module-badge">UNIFIER</span><span class="module-badge">RENFORCER</span>
+    </div>
+    <div class="mask-actions">
+      <a class="btn-primary" href="livret_masque_jaune_COMPLET.html" target="_blank">Ouvrir le livret</a>
+      <button class="btn-ghost" onclick="openModal('jaune','Masque Jaune — Volume III','livret_masque_jaune_COMPLET.html')">Aperçu</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ VERT ══════════════════════════════════════════════════════ -->
+<section class="mask-section reveal" id="vert">
+  <div class="mask-panel">
+    <div class="mask-panel-bg" style="background:linear-gradient(135deg,#1a4a20 0%,#0d2410 50%,#040c06 100%)"></div>
+    <div class="mask-panel-vignette"></div>
+    <div class="book-3d-wrap">
+      <div class="book-3d">
+        <div class="book-cover-inner" style="background:linear-gradient(168deg,#1a4a20 0%,#0d2410 55%,#040c06 100%)">
+          <div class="book-vignette"></div>
+          <div class="book-rl"></div>
+          <div class="book-content">
+            <span class="book-c-vol">Volume IV · 12 semaines</span>
+            <div class="book-c-body">
+              <span class="book-c-label">Masque</span>
+              <span class="book-c-name">Vert</span>
+              <div class="book-c-rule"></div>
+              <span class="book-c-fear">La peur du rejet<br>ou de l'abandon</span>
+            </div>
+            <div class="book-c-foot">
+              <div class="book-c-auth"><strong>Céline Bourbon</strong>Psychologue</div>
+              <div class="book-c-weeks"><span class="book-c-wn">12</span><span class="book-c-wl">sem.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mask-info">
+    <div class="mask-num">IV</div>
+    <div class="mask-tag" style="color:#3d8a42;">Masque Vert · Volume IV</div>
+    <h2 class="mask-title">La peur du rejet<br>ou de l'abandon</h2>
+    <p class="mask-fear">«&nbsp;Je m'oublie pour que l'autre reste. J'ai appris à taire mes besoins pour mériter d'être aimé·e.&nbsp;»</p>
+    <p class="mask-desc">12 semaines pour être enfin aimé·e pour qui vous êtes — et non pour ce que vous faites. De l'effacement à l'expression authentique.</p>
+    <div class="mask-modules">
+      <span class="module-badge">VOIR</span><span class="module-badge">ACCUEILLIR</span>
+      <span class="module-badge">LOCALISER</span><span class="module-badge">EXPLORER</span>
+      <span class="module-badge">UNIFIER</span><span class="module-badge">RENFORCER</span>
+    </div>
+    <div class="mask-actions">
+      <a class="btn-primary" href="livret_masque_vert_COMPLET.html" target="_blank">Ouvrir le livret</a>
+      <button class="btn-ghost" onclick="openModal('vert','Masque Vert — Volume IV','livret_masque_vert_COMPLET.html')">Aperçu</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BLEU ══════════════════════════════════════════════════════ -->
+<section class="mask-section reveal" id="bleu">
+  <div class="mask-panel">
+    <div class="mask-panel-bg" style="background:linear-gradient(135deg,#0c2868 0%,#06163a 50%,#020c1e 100%)"></div>
+    <div class="mask-panel-vignette"></div>
+    <div class="book-3d-wrap">
+      <div class="book-3d">
+        <div class="book-cover-inner" style="background:linear-gradient(168deg,#0c2868 0%,#06163a 55%,#020c1e 100%)">
+          <div class="book-vignette"></div>
+          <div class="book-rl"></div>
+          <div class="book-content">
+            <span class="book-c-vol">Volume V · 12 semaines</span>
+            <div class="book-c-body">
+              <span class="book-c-label">Masque</span>
+              <span class="book-c-name">Bleu</span>
+              <div class="book-c-rule"></div>
+              <span class="book-c-fear">La peur de l'impuissance<br>et de perdre le contrôle</span>
+            </div>
+            <div class="book-c-foot">
+              <div class="book-c-auth"><strong>Céline Bourbon</strong>Psychologue</div>
+              <div class="book-c-weeks"><span class="book-c-wn">12</span><span class="book-c-wl">sem.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mask-info">
+    <div class="mask-num">V</div>
+    <div class="mask-tag" style="color:#2e72d8;">Masque Bleu · Volume V</div>
+    <h2 class="mask-title">La peur de l'impuissance<br>et de perdre le contrôle</h2>
+    <p class="mask-fear">«&nbsp;Je porte tout. Je contrôle tout. Et je suis épuisé·e — parce que lâcher prise me terrifierait encore plus.&nbsp;»</p>
+    <p class="mask-desc">12 semaines pour influencer sans dominer, déléguer vraiment, et récupérer l'énergie colossale dépensée à tout maîtriser.</p>
+    <div class="mask-modules">
+      <span class="module-badge">VOIR</span><span class="module-badge">ACCUEILLIR</span>
+      <span class="module-badge">LOCALISER</span><span class="module-badge">EXPLORER</span>
+      <span class="module-badge">UNIFIER</span><span class="module-badge">RENFORCER</span>
+    </div>
+    <div class="mask-actions">
+      <a class="btn-primary" href="livret_masque_bleu_COMPLET.html" target="_blank">Ouvrir le livret</a>
+      <button class="btn-ghost" onclick="openModal('bleu','Masque Bleu — Volume V','livret_masque_bleu_COMPLET.html')">Aperçu</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ INDIGO ══════════════════════════════════════════════════════ -->
+<section class="mask-section reveal" id="indigo">
+  <div class="mask-panel">
+    <div class="mask-panel-bg" style="background:linear-gradient(135deg,#2a1080 0%,#140840 50%,#080220 100%)"></div>
+    <div class="mask-panel-vignette"></div>
+    <div class="book-3d-wrap">
+      <div class="book-3d">
+        <div class="book-cover-inner" style="background:linear-gradient(168deg,#2a1080 0%,#140840 55%,#080220 100%)">
+          <div class="book-vignette"></div>
+          <div class="book-rl"></div>
+          <div class="book-content">
+            <span class="book-c-vol">Volume VI · 12 semaines</span>
+            <div class="book-c-body">
+              <span class="book-c-label">Masque</span>
+              <span class="book-c-name">Indigo</span>
+              <div class="book-c-rule"></div>
+              <span class="book-c-fear">La peur de l'échec<br>et de l'inadéquation</span>
+            </div>
+            <div class="book-c-foot">
+              <div class="book-c-auth"><strong>Céline Bourbon</strong>Psychologue</div>
+              <div class="book-c-weeks"><span class="book-c-wn">12</span><span class="book-c-wl">sem.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mask-info">
+    <div class="mask-num">VI</div>
+    <div class="mask-tag" style="color:#6a5ada;">Masque Indigo · Volume VI</div>
+    <h2 class="mask-title">La peur de l'échec<br>et de l'inadéquation</h2>
+    <p class="mask-fear">«&nbsp;Je sais exactement ce que je devrais faire. Et je ne le fais pas — parce que si j'essaie et que j'échoue, tout s'effondre.&nbsp;»</p>
+    <p class="mask-desc">12 semaines pour agir depuis votre valeur — et découvrir que votre valeur ne dépend pas de vos résultats. Du perfectionnisme paralysant à la création courageuse.</p>
+    <div class="mask-modules">
+      <span class="module-badge">VOIR</span><span class="module-badge">ACCUEILLIR</span>
+      <span class="module-badge">LOCALISER</span><span class="module-badge">EXPLORER</span>
+      <span class="module-badge">UNIFIER</span><span class="module-badge">RENFORCER</span>
+    </div>
+    <div class="mask-actions">
+      <a class="btn-primary" href="livret_masque_indigo_COMPLET.html" target="_blank">Ouvrir le livret</a>
+      <button class="btn-ghost" onclick="openModal('indigo','Masque Indigo — Volume VI','livret_masque_indigo_COMPLET.html')">Aperçu</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ VIOLET ══════════════════════════════════════════════════════ -->
+<section class="mask-section reveal" id="violet">
+  <div class="mask-panel">
+    <div class="mask-panel-bg" style="background:linear-gradient(135deg,#5a1090 0%,#2a0850 50%,#140020 100%)"></div>
+    <div class="mask-panel-vignette"></div>
+    <div class="book-3d-wrap">
+      <div class="book-3d">
+        <div class="book-cover-inner" style="background:linear-gradient(168deg,#5a1090 0%,#2a0850 55%,#140020 100%)">
+          <div class="book-vignette"></div>
+          <div class="book-rl"></div>
+          <div class="book-content">
+            <span class="book-c-vol">Volume VII · 12 semaines</span>
+            <div class="book-c-body">
+              <span class="book-c-label">Masque</span>
+              <span class="book-c-name">Violet</span>
+              <div class="book-c-rule"></div>
+              <span class="book-c-fear">La peur de perdre<br>son identité</span>
+            </div>
+            <div class="book-c-foot">
+              <div class="book-c-auth"><strong>Céline Bourbon</strong>Psychologue</div>
+              <div class="book-c-weeks"><span class="book-c-wn">12</span><span class="book-c-wl">sem.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mask-info">
+    <div class="mask-num">VII</div>
+    <div class="mask-tag" style="color:#9030d0;">Masque Violet · Volume VII</div>
+    <h2 class="mask-title">La peur de perdre<br>son identité</h2>
+    <p class="mask-fear">«&nbsp;Je joue si bien tous les rôles que j'ai fini par oublier lequel était moi.&nbsp;»</p>
+    <p class="mask-desc">Le masque des masques. 12 semaines pour enlever, couche après couche, ce qui n'est pas vous — et retrouver ce qui a toujours été là, en dessous.</p>
+    <div class="mask-modules">
+      <span class="module-badge">VOIR</span><span class="module-badge">ACCUEILLIR</span>
+      <span class="module-badge">LOCALISER</span><span class="module-badge">EXPLORER</span>
+      <span class="module-badge">UNIFIER</span><span class="module-badge">RENFORCER</span>
+    </div>
+    <div class="mask-actions">
+      <a class="btn-primary" href="livret_masque_violet_COMPLET.html" target="_blank">Ouvrir le livret</a>
+      <button class="btn-ghost" onclick="openModal('violet','Masque Violet — Volume VII','livret_masque_violet_COMPLET.html')">Aperçu</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CITATION ══════════════════════════════════════════════════ -->
+<section class="quote-section reveal">
+  <span class="quote-mark">"</span>
+  <p class="quote-text">Ce n'est pas une pathologie. Ce n'est pas un trait de caractère. C'est une stratégie de survie — apprise, automatique, et depuis longtemps devenue inutile.</p>
+  <span class="quote-author">Céline Bourbon — De la peur à la joie d'être soi · Éditions L'Harmattan</span>
+</section>
+
+<!-- ══ STRIP COLLECTION ════════════════════════════════════════════ -->
+<section class="collection-strip reveal">
+  <p class="collection-strip-title">La collection complète — 7 volumes</p>
+  <div class="strip-scroll">
+    <a class="strip-book" href="livret_masque_rouge_COMPLET.html" target="_blank">
+      <div class="strip-cover" style="background:linear-gradient(168deg,#6b1010,#1c0404)"></div>
+      <span class="strip-name">Rouge</span>
+    </a>
+    <a class="strip-book" href="livret_masque_orange_COMPLET.html" target="_blank">
+      <div class="strip-cover" style="background:linear-gradient(168deg,#7a2e00,#1e0800)"></div>
+      <span class="strip-name">Orange</span>
+    </a>
+    <a class="strip-book" href="livret_masque_jaune_COMPLET.html" target="_blank">
+      <div class="strip-cover" style="background:linear-gradient(168deg,#5a5000,#181600)"></div>
+      <span class="strip-name">Jaune</span>
+    </a>
+    <a class="strip-book" href="livret_masque_vert_COMPLET.html" target="_blank">
+      <div class="strip-cover" style="background:linear-gradient(168deg,#1a4a20,#040c06)"></div>
+      <span class="strip-name">Vert</span>
+    </a>
+    <a class="strip-book" href="livret_masque_bleu_COMPLET.html" target="_blank">
+      <div class="strip-cover" style="background:linear-gradient(168deg,#0c2868,#020c1e)"></div>
+      <span class="strip-name">Bleu</span>
+    </a>
+    <a class="strip-book" href="livret_masque_indigo_COMPLET.html" target="_blank">
+      <div class="strip-cover" style="background:linear-gradient(168deg,#2a1080,#080220)"></div>
+      <span class="strip-name">Indigo</span>
+    </a>
+    <a class="strip-book" href="livret_masque_violet_COMPLET.html" target="_blank">
+      <div class="strip-cover" style="background:linear-gradient(168deg,#5a1090,#140020)"></div>
+      <span class="strip-name">Violet</span>
+    </a>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══════════════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <span class="footer-logo">V.A.L.E.U.R©</span>
+  <p class="footer-text">
+    © Céline Bourbon · Méthode V.A.L.E.U.R© · Tous droits réservés<br>
+    De la peur à la joie d'être soi · Éditions L'Harmattan<br>
+    Collection des 7 Workbooks · Volumes I à VII
+  </p>
+</footer>
+
+<!-- ══ MODAL ══════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="modal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div>
+        <div class="modal-mask-name" id="modal-name">—</div>
+        <div class="modal-mask-vol" id="modal-vol">Aperçu du livret</div>
+      </div>
+      <button class="modal-close-btn" onclick="closeModal()">✕</button>
+    </div>
+    <iframe class="modal-iframe" id="modal-frame" src="" title="Aperçu"></iframe>
+    <div class="modal-footer">
+      <a class="modal-btn modal-btn-gold" id="modal-open" href="#" target="_blank">Ouvrir &amp; Imprimer</a>
+      <button class="modal-btn modal-btn-ghost" onclick="closeModal()">Fermer</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ── Reveal on scroll ─────────────────────────────────────────── */
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revealObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+/* ── Staggered book animation ─────────────────────────────────── */
+const sectionObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const book = e.target.querySelector('.book-3d');
+      const info = e.target.querySelector('.mask-info');
+      if (book) { book.style.opacity='0'; book.style.transform='rotateY(-14deg) rotateX(3deg) translateX(-30px)'; setTimeout(()=>{ book.style.transition='opacity .9s cubic-bezier(.23,1,.32,1), transform .9s cubic-bezier(.23,1,.32,1)'; book.style.opacity='1'; book.style.transform='rotateY(-14deg) rotateX(3deg)'; },100); }
+      if (info) { info.style.opacity='0'; info.style.transform='translateX(20px)'; setTimeout(()=>{ info.style.transition='opacity .8s .2s cubic-bezier(.23,1,.32,1), transform .8s .2s cubic-bezier(.23,1,.32,1)'; info.style.opacity='1'; info.style.transform='translateX(0)'; },100); }
+      sectionObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.mask-section').forEach(el => sectionObs.observe(el));
+
+/* ── Modal ────────────────────────────────────────────────────── */
+function openModal(key, name, file) {
+  document.getElementById('modal-name').textContent = name;
+  document.getElementById('modal-vol').textContent = 'Workbook complet · 12 semaines · Méthode V.A.L.E.U.R©';
+  document.getElementById('modal-frame').src = file;
+  document.getElementById('modal-open').href = file;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  document.getElementById('modal-frame').src = '';
+  document.body.style.overflow = '';
+}
+document.getElementById('modal').addEventListener('click', e => { if (e.target === document.getElementById('modal')) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+/* ── Hero scroll indicator ────────────────────────────────────── */
+window.addEventListener('scroll', () => {
+  const hero = document.querySelector('.hero-scroll');
+  if (hero) hero.style.opacity = window.scrollY > 80 ? '0' : '';
+});
+</script>
+</body>
+</html>
