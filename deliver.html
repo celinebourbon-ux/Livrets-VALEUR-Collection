@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>V.A.L.E.U.R© — Votre accès est prêt</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#060C18;--n2:#0D1526;
+  --gold:#C9A84C;--gold2:#F0D080;
+  --text:#F0EAE1;--muted:#9BB0C8;
+  --MC:#C9A84C;
+  --font-d:'Cormorant Garamond',serif;--font-b:'Jost',sans-serif;
+  --r:16px;
+}
+body{background:var(--navy);color:var(--text);font-family:var(--font-b);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;-webkit-font-smoothing:antialiased}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes goldPulse{0%,100%{box-shadow:0 8px 40px rgba(201,168,76,.4)}50%{box-shadow:0 8px 50px rgba(201,168,76,.65)}}
+@keyframes pulse-dot{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:1;transform:scale(1.4)}}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.wrap{max-width:580px;width:100%;animation:fadeUp .9s ease}
+.logo{text-align:center;margin-bottom:32px;font-family:var(--font-d);font-size:18px;font-weight:700;letter-spacing:4px;color:var(--gold)}
+.card{background:rgba(255,255,255,.032);border:1px solid rgba(255,255,255,.07);border-radius:var(--r);padding:40px 36px;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--MC),var(--gold2),var(--MC))}
+.badge{display:inline-flex;align-items:center;gap:7px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);border-radius:20px;padding:5px 16px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:20px}
+.badge .dot{width:6px;height:6px;border-radius:50%;background:var(--MC);animation:pulse-dot 2s infinite}
+h1{font-family:var(--font-d);font-size:clamp(28px,6vw,40px);font-weight:600;line-height:1.1;margin-bottom:10px}
+h1 em{font-style:italic;color:var(--MC)}
+.subtitle{font-size:15px;color:var(--muted);line-height:1.75;margin-bottom:28px}
+.divider{height:1px;background:rgba(255,255,255,.06);margin:24px 0}
+.form-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;display:block;font-weight:600}
+.form-input{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:14px 18px;font-family:var(--font-b);font-size:15px;color:var(--text);outline:none;transition:border-color .25s;margin-bottom:16px}
+.form-input:focus{border-color:rgba(201,168,76,.5)}
+.form-input::placeholder{color:rgba(155,176,200,.4)}
+.btn-gold{width:100%;padding:17px;background:linear-gradient(135deg,#C9A84C 0%,#F0D080 50%,#C9A84C 100%);background-size:200% 100%;color:#06090F;font-family:var(--font-b);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border:none;border-radius:2px;cursor:pointer;animation:goldPulse 3s ease infinite;transition:all .3s;position:relative;overflow:hidden}
+.btn-gold::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent 30%,rgba(255,255,255,.25) 50%,transparent 70%);background-size:200% 100%;animation:shimmer 3s ease infinite}
+.btn-gold:hover{transform:translateY(-2px)}
+.btn-gold:disabled{opacity:.5;animation:none;cursor:not-allowed;transform:none}
+.include-list{list-style:none;margin-bottom:24px}
+.include-list li{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:14px;color:rgba(240,234,225,.78);line-height:1.5}
+.include-list li:last-child{border-bottom:none}
+.check{width:18px;height:18px;border-radius:50%;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;color:var(--gold);font-size:10px}
+.msg{padding:12px 16px;border-radius:8px;font-size:13px;margin-top:12px;line-height:1.6;display:none}
+.msg.ok{background:rgba(56,161,105,.1);border:1px solid rgba(56,161,105,.25);color:#68D391}
+.msg.err{background:rgba(229,62,62,.1);border:1px solid rgba(229,62,62,.25);color:#FC8181}
+.access-btns{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.btn-access{display:block;width:100%;padding:16px;text-align:center;font-family:var(--font-b);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-radius:2px;text-decoration:none;cursor:pointer;border:none;transition:all .3s}
+.btn-access.primary{background:linear-gradient(135deg,#C9A84C,#F0D080);color:#06090F}
+.btn-access.primary:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(201,168,76,.35)}
+.btn-access.secondary{background:transparent;border:1px solid rgba(201,168,76,.3);color:var(--gold)}
+.btn-access.secondary:hover{background:rgba(201,168,76,.08)}
+.masque-select{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px}
+.masque-btn{padding:10px 6px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:8px;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all .2s;color:var(--muted);font-family:var(--font-b)}
+.masque-btn:hover,.masque-btn.active{border-color:currentColor;background:rgba(255,255,255,.06)}
+.masque-btn[data-m=rouge]{color:#E53E3E}
+.masque-btn[data-m=orange]{color:#ED8936}
+.masque-btn[data-m=jaune]{color:#D69E2E}
+.masque-btn[data-m=vert]{color:#38A169}
+.masque-btn[data-m=bleu]{color:#3182CE}
+.masque-btn[data-m=indigo]{color:#6B46C1}
+.masque-btn[data-m=violet]{color:#9F7AEA}
+.copyright{text-align:center;font-size:10px;color:rgba(155,176,200,.3);margin-top:20px;letter-spacing:.5px}
+#screen-recovery{display:none}
+#screen-main{display:none}
+#screen-done{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="logo">V.A.L.E.U.R<sup style="font-size:10px">©</sup></div>
+
+  <!-- SCREEN MAIN: pending trouvé dans localStorage -->
+  <div id="screen-main" class="card">
+    <span class="badge"><span class="dot"></span>Accès confirmé</span>
+    <h1>Bienvenue dans votre<br><em id="sm-masque-name">parcours</em></h1>
+    <p class="subtitle" id="sm-subtitle">Votre accès est prêt. Entrez votre email pour recevoir votre lien d'accès permanent — et accéder à votre contenu maintenant.</p>
+    <div class="divider"></div>
+    <div id="sm-includes"></div>
+    <label class="form-label">Votre email</label>
+    <input type="email" id="sm-email" class="form-input" placeholder="votre@email.com">
+    <button class="btn-gold" id="sm-btn" onclick="submitMain()">Accéder à mon contenu →</button>
+    <div class="msg" id="sm-msg"></div>
+    <div class="access-btns" id="sm-access-btns" style="display:none"></div>
+  </div>
+
+  <!-- SCREEN RECOVERY: pas de pending -->
+  <div id="screen-recovery" class="card">
+    <span class="badge"><span class="dot"></span>Récupérer mon accès</span>
+    <h1>Retrouvez votre<br><em>contenu</em></h1>
+    <p class="subtitle">Entrez l'email utilisé lors de votre achat et sélectionnez votre masque dominant pour accéder à votre contenu.</p>
+    <div class="divider"></div>
+    <label class="form-label">Votre email d'achat</label>
+    <input type="email" id="rc-email" class="form-input" placeholder="votre@email.com">
+    <label class="form-label">Votre masque dominant</label>
+    <div class="masque-select">
+      <button class="masque-btn" data-m="rouge" onclick="selectMasque('rouge')">Rouge</button>
+      <button class="masque-btn" data-m="orange" onclick="selectMasque('orange')">Orange</button>
+      <button class="masque-btn" data-m="jaune" onclick="selectMasque('jaune')">Jaune</button>
+      <button class="masque-btn" data-m="vert" onclick="selectMasque('vert')">Vert</button>
+      <button class="masque-btn" data-m="bleu" onclick="selectMasque('bleu')">Bleu</button>
+      <button class="masque-btn" data-m="indigo" onclick="selectMasque('indigo')">Indigo</button>
+      <button class="masque-btn" data-m="violet" onclick="selectMasque('violet')">Violet</button>
+    </div>
+    <label class="form-label">Votre pack</label>
+    <select id="rc-pack" class="form-input">
+      <option value="1">Pack 1 · Offre Découverte (39€)</option>
+      <option value="2">Pack 2 · Guide Masque Dominant (97€)</option>
+      <option value="3">Pack 3 · Premium (147€)</option>
+    </select>
+    <button class="btn-gold" id="rc-btn" onclick="submitRecovery()">Accéder à mon contenu →</button>
+    <div class="msg" id="rc-msg"></div>
+    <div class="access-btns" id="rc-access-btns" style="display:none"></div>
+  </div>
+
+  <!-- SCREEN DONE -->
+  <div id="screen-done" class="card" style="text-align:center">
+    <div style="font-size:48px;margin-bottom:20px">✦</div>
+    <h1 style="margin-bottom:12px">Email envoyé !</h1>
+    <p class="subtitle">Vérifiez votre boîte mail — votre lien d'accès permanent vient d'être envoyé. Vous pouvez maintenant accéder à votre contenu.</p>
+    <div class="access-btns" id="done-btns"></div>
+  </div>
+
+  <p class="copyright">© 2026 Céline Bourbon · Méthode V.A.L.E.U.R© · Tous droits réservés</p>
+</div>
+
+<script>
+var EJSPK='Qamyb35cCRJ5Pulqs';
+var EJSSVC='Questionnaire VALEUR';
+var EJSTPL='template_inscription';
+emailjs.init(EJSPK);
+
+var MASQUES={
+  rouge:{label:'Rouge',color:'#E53E3E',peur:'la peur de la maladie et de la mort'},
+  orange:{label:'Orange',color:'#ED8936',peur:'la peur de la souffrance émotionnelle'},
+  jaune:{label:'Jaune',color:'#D69E2E',peur:"la peur de l'incertitude"},
+  vert:{label:'Vert',color:'#38A169',peur:"la peur du rejet et de l'abandon"},
+  bleu:{label:'Bleu',color:'#3182CE',"peur":"la peur de l'impuissance"},
+  indigo:{label:'Indigo',color:'#6B46C1',"peur":"la peur de l'échec"},
+  violet:{label:'Violet',color:'#9F7AEA',"peur":"la peur de la perte d'identité"}
+};
+
+var PACK_INCLUDES={
+  1:['Rapport personnalisé complet','Masque dominant + dyades/triades','Score de Présence Authentique','Portrait en 3 scènes'],
+  2:['Tout le Pack 1 (rapport complet)','Livret Masque Dominant — 7 modules','Fiche personnalisée — 21 jours','Exercices guidés · Accès à vie'],
+  3:['Tout le Pack 2 (rapport + livret + fiche)','Séance visio 60 min avec Céline','Plan d\'action personnalisé 30 jours','Compte-rendu écrit sous 48h']
+};
+
+var LIVRET_URLS={
+  rouge:'https://celinebourbon-ux.github.io/Livrets-VALEUR-Collection/livret_masque_rouge_COMPLET.html',
+  orange:'https://celinebourbon-ux.github.io/Livrets-VALEUR-Collection/livret_masque_orange_COMPLET.html',
+  jaune:'https://celinebourbon-ux.github.io/Livrets-VALEUR-Collection/livret_masque_jaune_COMPLET.html',
+  vert:'https://celinebourbon-ux.github.io/Livrets-VALEUR-Collection/livret_masque_vert_COMPLET.html',
+  bleu:'https://celinebourbon-ux.github.io/Livrets-VALEUR-Collection/livret_masque_bleu_COMPLET.html',
+  indigo:'https://celinebourbon-ux.github.io/Livrets-VALEUR-Collection/livret_masque_indigo_COMPLET.html',
+  violet:'https://celinebourbon-ux.github.io/Livrets-VALEUR-Collection/livret_masque_violet_COMPLET.html'
+};
+
+var RESULTATS_URL='https://celinebourbon-ux.github.io/QuestionnaireVALEUR/resultats.html';
+var FICHE_URL='https://celinebourbon-ux.github.io/Livrets-VALEUR-Collection/fiche_masque_dominant.html';
+var DOCTOLIB='https://www.doctolib.fr/psychologue/bordeaux/celine-bourbon';
+
+var rcMasque=null;
+
+function selectMasque(m){
+  rcMasque=m;
+  document.querySelectorAll('.masque-btn').forEach(function(b){b.classList.remove('active')});
+  document.querySelector('[data-m='+m+']').classList.add('active');
+}
+
+function makeAccessToken(email,pack,masque){
+  var d={email:email,pack:pack,masque:masque,ts:Date.now()};
+  return btoa(unescape(encodeURIComponent(JSON.stringify(d))));
+}
+
+function buildAccessBtns(pack,masque,container){
+  var btns='';
+  if(pack>=1){
+    btns+='<a href="'+RESULTATS_URL+'" class="btn-access primary">Voir mon rapport complet →</a>';
+  }
+  if(pack>=2){
+    btns+='<a href="'+FICHE_URL+'" class="btn-access secondary" style="margin-top:2px">Ma Fiche 21 jours →</a>';
+    if(LIVRET_URLS[masque]){
+      btns+='<a href="'+LIVRET_URLS[masque]+'" class="btn-access secondary" style="margin-top:2px">Mon Livret Masque '+MASQUES[masque].label+' →</a>';
+    }
+  }
+  if(pack>=3){
+    btns+='<a href="'+DOCTOLIB+'" target="_blank" class="btn-access secondary" style="margin-top:2px;border-color:rgba(159,122,234,.4);color:#9F7AEA">Réserver ma séance avec Céline →</a>';
+  }
+  document.getElementById(container).innerHTML=btns;
+  document.getElementById(container).style.display='flex';
+  document.getElementById(container).style.flexDirection='column';
+  document.getElementById(container).style.gap='8px';
+}
+
+function grantAccess(pack,masque,email){
+  var acces={pack:pack,masque:masque,email:email,date:new Date().toISOString()};
+  localStorage.setItem('valeur_acces',JSON.stringify(acces));
+  localStorage.removeItem('valeur_pending');
+}
+
+function sendEmail(email,pack,masque,token){
+  var m=MASQUES[masque]||MASQUES.vert;
+  var accessLink=RESULTATS_URL+'?access='+token;
+  var livretLink=LIVRET_URLS[masque]||'';
+  var params={
+    to_email:email,
+    prenom:email.split('@')[0],
+    masque_dominant:'Masque '+m.label,
+    descriptor:m.peur,
+    type_profil:'Pack '+pack,
+    peur_centrale:m.peur,
+    scores_resume:'Pack '+pack+' · Masque '+m.label,
+    score_spa:'',
+    niveau_spa:'',
+    lien_resultats:accessLink,
+    date_passation:new Date().toLocaleDateString('fr-FR')
+  };
+  return emailjs.send(EJSSVC,EJSTPL,params);
+}
+
+function showMsg(id,txt,type){
+  var el=document.getElementById(id);
+  el.textContent=txt;el.className='msg '+type;el.style.display='block';
+}
+
+function submitMain(){
+  var email=document.getElementById('sm-email').value.trim();
+  if(!email||!email.includes('@')){showMsg('sm-msg','Veuillez entrer un email valide.','err');return;}
+  var btn=document.getElementById('sm-btn');btn.disabled=true;btn.textContent='Envoi en cours…';
+  var pending=null;
+  try{pending=JSON.parse(localStorage.getItem('valeur_pending'))}catch(e){}
+  var pack=pending&&pending.pack?pending.pack:1;
+  var masque=pending&&pending.masque?pending.masque:'vert';
+  grantAccess(pack,masque,email);
+  var token=makeAccessToken(email,pack,masque);
+  sendEmail(email,pack,masque,token).then(function(){
+    document.getElementById('screen-main').style.display='none';
+    document.getElementById('screen-done').style.display='block';
+    buildAccessBtns(pack,masque,'done-btns');
+  }).catch(function(){
+    // Even if email fails, grant access
+    document.getElementById('screen-main').style.display='none';
+    document.getElementById('screen-done').style.display='block';
+    buildAccessBtns(pack,masque,'done-btns');
+  });
+}
+
+function submitRecovery(){
+  var email=document.getElementById('rc-email').value.trim();
+  var pack=parseInt(document.getElementById('rc-pack').value);
+  if(!email||!email.includes('@')){showMsg('rc-msg','Veuillez entrer un email valide.','err');return;}
+  if(!rcMasque){showMsg('rc-msg','Veuillez sélectionner votre masque dominant.','err');return;}
+  var btn=document.getElementById('rc-btn');btn.disabled=true;btn.textContent='Envoi en cours…';
+  grantAccess(pack,rcMasque,email);
+  var token=makeAccessToken(email,pack,rcMasque);
+  sendEmail(email,pack,rcMasque,token).then(function(){
+    document.getElementById('screen-recovery').style.display='none';
+    document.getElementById('screen-done').style.display='block';
+    buildAccessBtns(pack,rcMasque,'done-btns');
+  }).catch(function(){
+    document.getElementById('screen-recovery').style.display='none';
+    document.getElementById('screen-done').style.display='block';
+    buildAccessBtns(pack,rcMasque,'done-btns');
+  });
+}
+
+function checkURLAccess(){
+  var params=new URLSearchParams(window.location.search);
+  var token=params.get('access');
+  if(token){
+    try{
+      var d=JSON.parse(decodeURIComponent(escape(atob(token))));
+      if(d&&d.pack&&d.masque&&d.email){
+        grantAccess(d.pack,d.masque,d.email);
+        document.getElementById('screen-done').style.display='block';
+        buildAccessBtns(d.pack,d.masque,'done-btns');
+        return true;
+      }
+    }catch(e){}
+  }
+  return false;
+}
+
+function init(){
+  // Check URL token first (email link)
+  if(checkURLAccess()) return;
+
+  // Check localStorage pending
+  var pending=null;
+  try{pending=JSON.parse(localStorage.getItem('valeur_pending'))}catch(e){}
+
+  if(pending&&pending.masque&&pending.pack){
+    var masque=pending.masque;
+    var pack=pending.pack;
+    var m=MASQUES[masque]||MASQUES.vert;
+
+    // Colorise
+    document.documentElement.style.setProperty('--MC',m.color);
+
+    // Fill main screen
+    document.getElementById('sm-masque-name').textContent='Masque '+m.label;
+    document.getElementById('sm-masque-name').style.color=m.color;
+    document.getElementById('sm-subtitle').textContent='Votre Pack '+pack+' est confirmé. Entrez votre email pour recevoir votre lien d\'accès permanent et accéder à votre contenu.';
+
+    var inc=PACK_INCLUDES[pack]||PACK_INCLUDES[1];
+    var html='<ul class="include-list">';
+    inc.forEach(function(item){html+='<li><span class="check">✓</span>'+item+'</li>';});
+    html+='</ul>';
+    document.getElementById('sm-includes').innerHTML=html;
+
+    // Pre-fill email if known
+    var prenom=localStorage.getItem('valeur_prenom')||'';
+    var existingAcces=null;
+    try{existingAcces=JSON.parse(localStorage.getItem('valeur_acces'))}catch(e){}
+    if(existingAcces&&existingAcces.email) document.getElementById('sm-email').value=existingAcces.email;
+
+    document.getElementById('screen-main').style.display='block';
+  } else {
+    // Check existing access
+    var acces=null;
+    try{acces=JSON.parse(localStorage.getItem('valeur_acces'))}catch(e){}
+    if(acces&&acces.pack){
+      document.getElementById('screen-done').style.display='block';
+      buildAccessBtns(acces.pack,acces.masque,'done-btns');
+    } else {
+      document.getElementById('screen-recovery').style.display='block';
+    }
+  }
+}
+
+init();
+</script>
+</body>
+</html>
