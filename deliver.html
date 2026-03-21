@@ -4,134 +4,224 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>V.A.L.E.U.R© — Votre accès est prêt</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:#F7F4EE;color:#1A1814;min-height:100vh;-webkit-font-smoothing:antialiased}
 :root{
-  --navy:#060C18;--n2:#0D1526;
-  --gold:#C9A84C;--gold2:#F0D080;
-  --text:#F0EAE1;--muted:#9BB0C8;
-  --MC:#C9A84C;
-  --font-d:'Cormorant Garamond',serif;--font-b:'Jost',sans-serif;
-  --r:16px;
+  --ivory:#F7F4EE;--ivory2:#F0EBE1;--ivory3:#E8E1D4;
+  --ink:#1A1814;--ink2:#2C2820;--ink3:#5A534A;--ink4:#8C8278;--ink5:#B8B0A5;
+  --gold:#A8873A;--gold2:#C9A84C;--gold3:#D4B96A;--goldl:#F0E4C4;
+  --line:rgba(26,24,20,.1);--line2:rgba(26,24,20,.06);
+  --rouge:#B5312A;--orange:#C4581F;--jaune:#B8930A;
+  --vert:#2D7A4F;--bleu:#1D5F8A;--indigo:#5C3280;--violet:#7A3594;
 }
-body{background:var(--navy);color:var(--text);font-family:var(--font-b);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;-webkit-font-smoothing:antialiased}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
-@keyframes goldPulse{0%,100%{box-shadow:0 8px 40px rgba(201,168,76,.4)}50%{box-shadow:0 8px 50px rgba(201,168,76,.65)}}
-@keyframes pulse-dot{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:1;transform:scale(1.4)}}
-@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
-.wrap{max-width:580px;width:100%;animation:fadeUp .9s ease}
-.logo{text-align:center;margin-bottom:32px;font-family:var(--font-d);font-size:18px;font-weight:700;letter-spacing:4px;color:var(--gold)}
-.card{background:rgba(255,255,255,.032);border:1px solid rgba(255,255,255,.07);border-radius:var(--r);padding:40px 36px;position:relative;overflow:hidden}
-.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--MC),var(--gold2),var(--MC))}
-.badge{display:inline-flex;align-items:center;gap:7px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);border-radius:20px;padding:5px 16px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:20px}
-.badge .dot{width:6px;height:6px;border-radius:50%;background:var(--MC);animation:pulse-dot 2s infinite}
-h1{font-family:var(--font-d);font-size:clamp(28px,6vw,40px);font-weight:600;line-height:1.1;margin-bottom:10px}
-h1 em{font-style:italic;color:var(--MC)}
-.subtitle{font-size:15px;color:var(--muted);line-height:1.75;margin-bottom:28px}
-.divider{height:1px;background:rgba(255,255,255,.06);margin:24px 0}
-.form-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;display:block;font-weight:600}
-.form-input{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:14px 18px;font-family:var(--font-b);font-size:15px;color:var(--text);outline:none;transition:border-color .25s;margin-bottom:16px}
-.form-input:focus{border-color:rgba(201,168,76,.5)}
-.form-input::placeholder{color:rgba(155,176,200,.4)}
-.btn-gold{width:100%;padding:17px;background:linear-gradient(135deg,#C9A84C 0%,#F0D080 50%,#C9A84C 100%);background-size:200% 100%;color:#06090F;font-family:var(--font-b);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border:none;border-radius:2px;cursor:pointer;animation:goldPulse 3s ease infinite;transition:all .3s;position:relative;overflow:hidden}
-.btn-gold::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent 30%,rgba(255,255,255,.25) 50%,transparent 70%);background-size:200% 100%;animation:shimmer 3s ease infinite}
-.btn-gold:hover{transform:translateY(-2px)}
-.btn-gold:disabled{opacity:.5;animation:none;cursor:not-allowed;transform:none}
-.include-list{list-style:none;margin-bottom:24px}
-.include-list li{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:14px;color:rgba(240,234,225,.78);line-height:1.5}
-.include-list li:last-child{border-bottom:none}
-.check{width:18px;height:18px;border-radius:50%;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;color:var(--gold);font-size:10px}
-.msg{padding:12px 16px;border-radius:8px;font-size:13px;margin-top:12px;line-height:1.6;display:none}
-.msg.ok{background:rgba(56,161,105,.1);border:1px solid rgba(56,161,105,.25);color:#68D391}
-.msg.err{background:rgba(229,62,62,.1);border:1px solid rgba(229,62,62,.25);color:#FC8181}
+@keyframes pulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:1;transform:scale(1.3)}}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:990;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 56px;background:rgba(247,244,238,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;color:var(--ink);letter-spacing:5px;text-transform:uppercase}
+.nav-logo sup{font-size:10px;vertical-align:super}
+.nav-status{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:400;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold)}
+.nav-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
+
+/* HERO BAND */
+.hero-band{margin-top:64px;height:4px;background:linear-gradient(90deg,var(--rouge),var(--orange),var(--jaune),var(--vert),var(--bleu),var(--indigo),var(--violet))}
+
+/* MAIN */
+.main{min-height:calc(100vh - 68px);display:flex;align-items:center;justify-content:center;padding:60px 24px}
+.wrap{width:100%;max-width:520px;animation:fadeUp .8s ease}
+
+/* CARD */
+.card{background:var(--ivory);border:1px solid var(--line);border-radius:3px;padding:52px 48px;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold3),var(--gold2),var(--gold3))}
+.card-eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:32px}
+.eyebrow-line{width:24px;height:1px;background:var(--gold)}
+.eyebrow-txt{font-size:10px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--gold)}
+.card-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,38px);font-weight:300;line-height:1.15;color:var(--ink);margin-bottom:10px}
+.card-title em{font-style:italic;color:var(--gold)}
+.card-sub{font-size:14px;font-weight:300;line-height:1.85;color:var(--ink4);margin-bottom:32px}
+.divider{height:1px;background:var(--line);margin:28px 0}
+
+/* INCLUDES */
+.includes{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.include-item{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid var(--line2);font-size:13px;font-weight:300;color:var(--ink3);line-height:1.5}
+.include-item:last-child{border-bottom:none}
+.include-item::before{content:'✓';color:var(--gold);font-size:11px;flex-shrink:0;margin-top:1px}
+
+/* FORM */
+.form-label{display:block;font-size:10px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink4);margin-bottom:8px}
+.form-input{width:100%;background:var(--ivory2);border:1px solid var(--line);border-radius:2px;padding:13px 18px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:300;color:var(--ink);outline:none;transition:border-color .2s;margin-bottom:6px}
+.form-input:focus{border-color:var(--gold)}
+.form-input::placeholder{color:var(--ink5);font-size:13px}
+.form-hint{font-size:11px;font-weight:300;color:var(--vert);margin-bottom:16px;display:none;letter-spacing:.3px}
+.form-hint.visible{display:block}
+
+/* ALERT */
+.alert{background:rgba(168,135,58,.06);border:1px solid rgba(168,135,58,.2);border-radius:2px;padding:12px 16px;margin-bottom:20px;font-size:12px;font-weight:300;color:var(--ink3);line-height:1.7}
+.alert strong{font-weight:500;color:var(--ink2)}
+.alert-info{background:var(--ivory2);border-color:var(--line);color:var(--ink4)}
+
+/* BUTTON */
+.btn-primary{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;background:var(--ink);color:var(--ivory);border:1px solid var(--ink);border-radius:2px;padding:15px 36px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .25s;margin-top:20px}
+.btn-primary:hover{background:var(--ink2)}
+.btn-primary:disabled{opacity:.5;cursor:not-allowed}
+.btn-ghost{width:100%;display:flex;align-items:center;justify-content:center;gap:8px;background:none;border:1px solid var(--line);border-radius:2px;padding:13px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:400;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink4);cursor:pointer;transition:all .25s;margin-top:10px;text-decoration:none}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+
+/* MSG */
+.msg{padding:10px 14px;border-radius:2px;font-size:12px;font-weight:300;line-height:1.6;margin-top:12px;display:none}
+.msg.ok{background:rgba(45,122,79,.06);border:1px solid rgba(45,122,79,.2);color:var(--vert)}
+.msg.err{background:rgba(181,49,42,.05);border:1px solid rgba(181,49,42,.2);color:var(--rouge)}
+
+/* ACCESS BUTTONS */
 .access-btns{display:flex;flex-direction:column;gap:10px;margin-top:20px}
-.btn-access{display:block;width:100%;padding:16px;text-align:center;font-family:var(--font-b);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-radius:2px;text-decoration:none;cursor:pointer;border:none;transition:all .3s}
-.btn-access.primary{background:linear-gradient(135deg,#C9A84C,#F0D080);color:#06090F}
-.btn-access.primary:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(201,168,76,.35)}
-.btn-access.secondary{background:transparent;border:1px solid rgba(201,168,76,.3);color:var(--gold)}
-.btn-access.secondary:hover{background:rgba(201,168,76,.08)}
-.masque-select{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px}
-.masque-btn{padding:10px 6px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:8px;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all .2s;color:var(--muted);font-family:var(--font-b)}
-.masque-btn:hover,.masque-btn.active{border-color:currentColor;background:rgba(255,255,255,.06)}
-.masque-btn[data-m=rouge]{color:#E53E3E}
-.masque-btn[data-m=orange]{color:#ED8936}
-.masque-btn[data-m=jaune]{color:#D69E2E}
-.masque-btn[data-m=vert]{color:#38A169}
-.masque-btn[data-m=bleu]{color:#3182CE}
-.masque-btn[data-m=indigo]{color:#6B46C1}
-.masque-btn[data-m=violet]{color:#9F7AEA}
-.copyright{text-align:center;font-size:10px;color:rgba(155,176,200,.3);margin-top:20px;letter-spacing:.5px}
+.access-btn{display:block;width:100%;padding:14px;text-align:center;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;border-radius:2px;text-decoration:none;cursor:pointer;border:none;transition:all .25s}
+.access-btn.primary{background:var(--ink);color:var(--ivory)}
+.access-btn.primary:hover{background:var(--ink2)}
+.access-btn.gold{background:var(--ivory2);border:1px solid rgba(168,135,58,.35);color:var(--gold)}
+.access-btn.gold:hover{border-color:var(--gold);background:var(--goldl)}
+.access-btn.violet{background:var(--ivory2);border:1px solid rgba(122,53,148,.25);color:var(--violet)}
+.access-btn.violet:hover{border-color:var(--violet)}
+
+/* MASQUE SELECTOR */
+.masque-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:16px}
+.masque-btn{padding:10px 6px;background:var(--ivory2);border:1px solid var(--line);border-radius:2px;font-family:'DM Sans',sans-serif;font-size:10px;font-weight:500;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all .2s;color:var(--ink4)}
+.masque-btn:hover,.masque-btn.active{background:var(--ivory);color:var(--ink)}
+.masque-btn[data-m=rouge]{border-top:2px solid var(--rouge)}
+.masque-btn[data-m=rouge].active{color:var(--rouge)}
+.masque-btn[data-m=orange]{border-top:2px solid var(--orange)}
+.masque-btn[data-m=orange].active{color:var(--orange)}
+.masque-btn[data-m=jaune]{border-top:2px solid var(--jaune)}
+.masque-btn[data-m=jaune].active{color:var(--jaune)}
+.masque-btn[data-m=vert]{border-top:2px solid var(--vert)}
+.masque-btn[data-m=vert].active{color:var(--vert)}
+.masque-btn[data-m=bleu]{border-top:2px solid var(--bleu)}
+.masque-btn[data-m=bleu].active{color:var(--bleu)}
+.masque-btn[data-m=indigo]{border-top:2px solid var(--indigo)}
+.masque-btn[data-m=indigo].active{color:var(--indigo)}
+.masque-btn[data-m=violet]{border-top:2px solid var(--violet)}
+.masque-btn[data-m=violet].active{color:var(--violet)}
+
+/* SUCCESS */
+.success-icon{font-family:'Cormorant Garamond',serif;font-size:60px;font-weight:300;color:var(--gold);text-align:center;margin-bottom:20px;line-height:1}
+
+/* SELECT */
+select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238C8278' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px}
+
+/* FOOTER */
+.footer{text-align:center;padding:40px 24px;font-size:11px;font-weight:300;color:var(--ink5);letter-spacing:.5px;line-height:1.9}
+.footer a{color:var(--gold);text-decoration:none}
+
+/* SCREENS */
 #screen-recovery{display:none}
 #screen-main{display:none}
 #screen-done{display:none}
+
+@media(max-width:560px){
+  .card{padding:36px 24px}
+  nav{padding:0 24px}
+}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="logo">V.A.L.E.U.R<sup style="font-size:10px">©</sup></div>
 
-  <!-- SCREEN MAIN: pending trouvé dans localStorage -->
-  <div id="screen-main" class="card">
-    <span class="badge"><span class="dot"></span>Accès confirmé</span>
-    <h1>Bienvenue dans votre<br><em id="sm-masque-name">parcours</em></h1>
-    <p class="subtitle" id="sm-subtitle">Votre accès est prêt. Entrez votre email pour recevoir votre lien d'accès permanent — et accéder à votre contenu maintenant.</p>
-    <div class="divider"></div>
-    <div id="sm-includes"></div>
-    <div style="background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.25);border-radius:8px;padding:12px 16px;margin-bottom:16px;display:flex;align-items:flex-start;gap:10px">
-      <span style="font-size:16px;flex-shrink:0">⚠️</span>
-      <p style="font-size:12px;color:rgba(201,168,76,.85);line-height:1.65"><strong style="font-weight:600">Email requis pour accéder.</strong> Votre lien d'accès permanent sera envoyé à cette adresse. Conservez-le — il vous permet de retrouver votre contenu depuis n'importe quel appareil.</p>
+<nav>
+  <div class="nav-logo">V.A.L.E.U.R<sup>©</sup></div>
+  <div class="nav-status"><div class="nav-dot"></div>Accès sécurisé</div>
+</nav>
+
+<div class="hero-band"></div>
+
+<div class="main">
+  <div class="wrap">
+
+    <!-- SCREEN MAIN -->
+    <div id="screen-main" class="card">
+      <div class="card-eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-txt">Accès confirmé</span></div>
+      <h1 class="card-title">Bienvenue dans votre<br>parcours <em id="sm-masque-name">V.A.L.E.U.R©</em></h1>
+      <p class="card-sub" id="sm-subtitle">Votre achat est confirmé. Entrez votre email pour recevoir votre lien d'accès permanent — valable à vie, sur tous vos appareils.</p>
+
+      <div id="sm-includes"></div>
+
+      <div class="divider"></div>
+
+      <div class="alert">
+        <strong>Email requis.</strong> Votre lien d'accès permanent sera envoyé à cette adresse. Il vous permet de retrouver votre contenu depuis n'importe quel appareil.
+      </div>
+
+      <label class="form-label">Votre email</label>
+      <input type="email" id="sm-email" class="form-input" placeholder="votre@email.com">
+      <p id="sm-email-hint" class="form-hint">✓ Email pré-rempli depuis votre questionnaire</p>
+
+      <button class="btn-primary" id="sm-btn" onclick="submitMain()">
+        Accéder à mon contenu →
+      </button>
+      <div class="msg" id="sm-msg"></div>
+      <div class="access-btns" id="sm-access-btns" style="display:none"></div>
     </div>
-    <label class="form-label">Votre email</label>
-    <input type="email" id="sm-email" class="form-input" placeholder="votre@email.com">
-    <p id="sm-email-hint" style="font-size:11px;color:rgba(56,161,105,.7);margin:-10px 0 14px;display:none">✓ Email pré-rempli depuis votre questionnaire</p>
-    <button class="btn-gold" id="sm-btn" onclick="submitMain()">Accéder à mon contenu →</button>
-    <div class="msg" id="sm-msg"></div>
-    <div class="access-btns" id="sm-access-btns" style="display:none"></div>
-  </div>
 
-  <!-- SCREEN RECOVERY: pas de pending -->
-  <div id="screen-recovery" class="card">
-    <span class="badge"><span class="dot"></span>Récupérer mon accès</span>
-    <h1>Retrouvez votre<br><em>contenu</em></h1>
-    <p class="subtitle">Entrez l'email utilisé lors de votre achat et sélectionnez votre masque dominant pour accéder à votre contenu.</p>
-    <div class="divider"></div>
-    <label class="form-label">Votre email d'achat</label>
-    <input type="email" id="rc-email" class="form-input" placeholder="votre@email.com">
-    <div style="background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2);border-radius:8px;padding:10px 14px;margin-bottom:14px;font-size:11px;color:rgba(201,168,76,.75);line-height:1.6">
-      ℹ️ Un lien d'accès sera envoyé à cet email — vérifiez vos spams si vous ne le recevez pas sous 2 minutes.
+    <!-- SCREEN RECOVERY -->
+    <div id="screen-recovery" class="card">
+      <div class="card-eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-txt">Récupérer mon accès</span></div>
+      <h1 class="card-title">Retrouvez votre<br><em>contenu</em></h1>
+      <p class="card-sub">Entrez l'email utilisé lors de votre achat pour retrouver votre accès.</p>
+
+      <div class="divider"></div>
+
+      <label class="form-label">Votre email d'achat</label>
+      <input type="email" id="rc-email" class="form-input" placeholder="votre@email.com">
+
+      <div class="alert alert-info" style="margin-bottom:16px">
+        Un lien d'accès vous sera envoyé — vérifiez vos spams si vous ne le recevez pas dans les 2 minutes.
+      </div>
+
+      <label class="form-label">Votre masque dominant</label>
+      <div class="masque-grid">
+        <button class="masque-btn" data-m="rouge" onclick="selectMasque('rouge')">Rouge</button>
+        <button class="masque-btn" data-m="orange" onclick="selectMasque('orange')">Orange</button>
+        <button class="masque-btn" data-m="jaune" onclick="selectMasque('jaune')">Jaune</button>
+        <button class="masque-btn" data-m="vert" onclick="selectMasque('vert')">Vert</button>
+        <button class="masque-btn" data-m="bleu" onclick="selectMasque('bleu')">Bleu</button>
+        <button class="masque-btn" data-m="indigo" onclick="selectMasque('indigo')">Indigo</button>
+        <button class="masque-btn" data-m="violet" onclick="selectMasque('violet')">Violet</button>
+      </div>
+
+      <label class="form-label">Votre pack</label>
+      <select id="rc-pack" class="form-input">
+        <option value="1">Pack 1 — Offre Découverte (39€)</option>
+        <option value="2">Pack 2 — Diag + Guide (97€)</option>
+        <option value="3">Pack 3 — Premium (147€)</option>
+      </select>
+
+      <button class="btn-primary" id="rc-btn" onclick="submitRecovery()">
+        Retrouver mon accès →
+      </button>
+      <div class="msg" id="rc-msg"></div>
+      <div class="access-btns" id="rc-access-btns" style="display:none"></div>
     </div>
-    <label class="form-label">Votre masque dominant</label>
-    <div class="masque-select">
-      <button class="masque-btn" data-m="rouge" onclick="selectMasque('rouge')">Rouge</button>
-      <button class="masque-btn" data-m="orange" onclick="selectMasque('orange')">Orange</button>
-      <button class="masque-btn" data-m="jaune" onclick="selectMasque('jaune')">Jaune</button>
-      <button class="masque-btn" data-m="vert" onclick="selectMasque('vert')">Vert</button>
-      <button class="masque-btn" data-m="bleu" onclick="selectMasque('bleu')">Bleu</button>
-      <button class="masque-btn" data-m="indigo" onclick="selectMasque('indigo')">Indigo</button>
-      <button class="masque-btn" data-m="violet" onclick="selectMasque('violet')">Violet</button>
+
+    <!-- SCREEN DONE -->
+    <div id="screen-done" class="card" style="text-align:center">
+      <div class="card-eyebrow" style="justify-content:center"><div class="eyebrow-line"></div><span class="eyebrow-txt">Accès activé</span><div class="eyebrow-line"></div></div>
+      <div class="success-icon">✦</div>
+      <h1 class="card-title" style="text-align:center">Votre accès<br>est <em>prêt</em></h1>
+      <p class="card-sub">Un lien permanent vient d'être envoyé à votre email — conservez-le pour accéder à votre contenu depuis n'importe quel appareil.</p>
+      <div class="divider"></div>
+      <div class="access-btns" id="done-btns"></div>
     </div>
-    <label class="form-label">Votre pack</label>
-    <select id="rc-pack" class="form-input">
-      <option value="1">Pack 1 · Offre Découverte (39€)</option>
-      <option value="2">Pack 2 · Guide Masque Dominant (97€)</option>
-      <option value="3">Pack 3 · Premium (147€)</option>
-    </select>
-    <button class="btn-gold" id="rc-btn" onclick="submitRecovery()">Accéder à mon contenu →</button>
-    <div class="msg" id="rc-msg"></div>
-    <div class="access-btns" id="rc-access-btns" style="display:none"></div>
-  </div>
 
-  <!-- SCREEN DONE -->
-  <div id="screen-done" class="card" style="text-align:center">
-    <div style="font-size:48px;margin-bottom:20px">✦</div>
-    <h1 style="margin-bottom:12px">Email envoyé !</h1>
-    <p class="subtitle">Vérifiez votre boîte mail — votre lien d'accès permanent vient d'être envoyé. Vous pouvez maintenant accéder à votre contenu.</p>
-    <div class="access-btns" id="done-btns"></div>
   </div>
+</div>
 
-  <p class="copyright">© 2026 Céline Bourbon · Méthode V.A.L.E.U.R© · Tous droits réservés</p>
+<div class="footer">
+  Méthode V.A.L.E.U.R© · <em style="color:var(--gold);font-style:normal">Céline Bourbon, Psychologue</em><br>
+  <em>"De la peur à la joie d'être soi"</em> · Éditions L'Harmattan<br>
+  © 2026 · Tous droits réservés · <a href="https://valeur.psyh.fr">valeur.psyh.fr</a>
 </div>
 
 <script>
@@ -186,16 +276,16 @@ function makeAccessToken(email,pack,masque){
 function buildAccessBtns(pack,masque,container){
   var btns='';
   if(pack>=1){
-    btns+='<a href="'+RESULTATS_URL+'" class="btn-access primary">Voir mon rapport complet →</a>';
+    btns+='<a href="'+RESULTATS_URL+'" class="access-btn primary">Voir mon rapport complet →</a>';
   }
   if(pack>=2){
-    btns+='<a href="'+FICHE_URL+'" class="btn-access secondary" style="margin-top:2px">Ma Fiche 21 jours →</a>';
+    btns+='<a href="'+FICHE_URL+'" class="access-btn gold" style="margin-top:2px">Ma Fiche 21 jours →</a>';
     if(LIVRET_URLS[masque]){
-      btns+='<a href="'+LIVRET_URLS[masque]+'" class="btn-access secondary" style="margin-top:2px">Mon Livret Masque '+MASQUES[masque].label+' →</a>';
+      btns+='<a href="'+LIVRET_URLS[masque]+'" class="access-btn gold" style="margin-top:2px">Mon Livret Masque '+MASQUES[masque].label+' →</a>';
     }
   }
   if(pack>=3){
-    btns+='<a href="'+DOCTOLIB+'" target="_blank" class="btn-access secondary" style="margin-top:2px;border-color:rgba(159,122,234,.4);color:#9F7AEA">Réserver ma séance avec Céline →</a>';
+    btns+='<a href="'+DOCTOLIB+'" target="_blank" class="access-btn gold" class="access-btn violet">Réserver ma séance avec Céline →</a>';
   }
   document.getElementById(container).innerHTML=btns;
   document.getElementById(container).style.display='flex';
@@ -234,45 +324,75 @@ function showMsg(id,txt,type){
   el.textContent=txt;el.className='msg '+type;el.style.display='block';
 }
 
+var VERCEL_API='https://valeur-backend-api.vercel.app/api';
+
 function submitMain(){
   var email=document.getElementById('sm-email').value.trim();
   if(!email||!email.includes('@')){showMsg('sm-msg','Veuillez entrer un email valide.','err');return;}
-  var btn=document.getElementById('sm-btn');btn.disabled=true;btn.textContent='Envoi en cours…';
+  var btn=document.getElementById('sm-btn');btn.disabled=true;btn.textContent='Vérification en cours…';
+  
   var pending=null;
   try{pending=JSON.parse(localStorage.getItem('valeur_pending'))}catch(e){}
-  var pack=pending&&pending.pack?pending.pack:1;
-  var masque=pending&&pending.masque?pending.masque:'vert';
-  grantAccess(pack,masque,email);
-  var token=makeAccessToken(email,pack,masque);
-  sendEmail(email,pack,masque,token).then(function(){
-    document.getElementById('screen-main').style.display='none';
-    document.getElementById('screen-done').style.display='block';
-    buildAccessBtns(pack,masque,'done-btns');
-  }).catch(function(){
-    // Even if email fails, grant access
-    document.getElementById('screen-main').style.display='none';
-    document.getElementById('screen-done').style.display='block';
-    buildAccessBtns(pack,masque,'done-btns');
-  });
+  var packLocal=pending&&pending.pack?pending.pack:1;
+  var masqueLocal=pending&&pending.masque&&pending.masque!=='pending'?pending.masque:'vert';
+
+  // Vérifier en base Neon via Vercel
+  fetch(VERCEL_API+'/check-access?email='+encodeURIComponent(email))
+    .then(function(r){return r.json()})
+    .then(function(data){
+      var pack=data.access?data.pack:packLocal;
+      var masque=data.access&&data.masque&&data.masque!=='pending'?data.masque:masqueLocal;
+      
+      if(!data.access && packLocal<=0){
+        showMsg('sm-msg','Aucun achat trouvé pour cet email. Vérifiez l\'email utilisé lors du paiement.','err');
+        btn.disabled=false;btn.textContent='Accéder à mon contenu →';
+        return;
+      }
+      
+      grantAccess(pack,masque,email);
+      var token=makeAccessToken(email,pack,masque);
+      sendEmail(email,pack,masque,token);
+      document.getElementById('screen-main').style.display='none';
+      document.getElementById('screen-done').style.display='block';
+      buildAccessBtns(pack,masque,'done-btns');
+    })
+    .catch(function(){
+      // Si la DB est inaccessible, on se base sur localStorage (fallback)
+      grantAccess(packLocal,masqueLocal,email);
+      var token=makeAccessToken(email,packLocal,masqueLocal);
+      sendEmail(email,packLocal,masqueLocal,token);
+      document.getElementById('screen-main').style.display='none';
+      document.getElementById('screen-done').style.display='block';
+      buildAccessBtns(packLocal,masqueLocal,'done-btns');
+    });
 }
 
 function submitRecovery(){
   var email=document.getElementById('rc-email').value.trim();
-  var pack=parseInt(document.getElementById('rc-pack').value);
   if(!email||!email.includes('@')){showMsg('rc-msg','Veuillez entrer un email valide.','err');return;}
-  if(!rcMasque){showMsg('rc-msg','Veuillez sélectionner votre masque dominant.','err');return;}
-  var btn=document.getElementById('rc-btn');btn.disabled=true;btn.textContent='Envoi en cours…';
-  grantAccess(pack,rcMasque,email);
-  var token=makeAccessToken(email,pack,rcMasque);
-  sendEmail(email,pack,rcMasque,token).then(function(){
-    document.getElementById('screen-recovery').style.display='none';
-    document.getElementById('screen-done').style.display='block';
-    buildAccessBtns(pack,rcMasque,'done-btns');
-  }).catch(function(){
-    document.getElementById('screen-recovery').style.display='none';
-    document.getElementById('screen-done').style.display='block';
-    buildAccessBtns(pack,rcMasque,'done-btns');
-  });
+  var btn=document.getElementById('rc-btn');btn.disabled=true;btn.textContent='Vérification en cours…';
+
+  fetch(VERCEL_API+'/check-access?email='+encodeURIComponent(email))
+    .then(function(r){return r.json()})
+    .then(function(data){
+      if(!data.access){
+        showMsg('rc-msg','Aucun achat trouvé pour cet email. Vérifiez l\'adresse utilisée lors du paiement.','err');
+        btn.disabled=false;btn.textContent='Accéder à mon contenu →';
+        return;
+      }
+      var pack=data.pack;
+      var masque=data.masque&&data.masque!=='pending'?data.masque:(rcMasque||'vert');
+      grantAccess(pack,masque,email);
+      var token=makeAccessToken(email,pack,masque);
+      sendEmail(email,pack,masque,token);
+      document.getElementById('screen-recovery').style.display='none';
+      document.getElementById('screen-done').style.display='block';
+      buildAccessBtns(pack,masque,'done-btns');
+    })
+    .catch(function(){
+      showMsg('rc-msg','Erreur de connexion. Réessayez dans quelques instants.','err');
+      btn.disabled=false;btn.textContent='Accéder à mon contenu →';
+    });
 }
 
 function checkURLAccess(){
