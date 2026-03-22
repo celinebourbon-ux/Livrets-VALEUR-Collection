@@ -343,24 +343,20 @@ ul.il li strong{color:var(--ink);font-weight:600}
   .book { padding: .8rem .3rem 6rem; gap: 32px; max-width: 100%; }
   .page { width: 100%; }
 }
+
+/* ── BARRE ZOOM ── */
+#zoom-bar{position:fixed;bottom:24px;right:24px;z-index:9998;display:flex;align-items:center;gap:0;background:rgba(26,24,20,.88);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.08);border-radius:6px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.3)}
+.zb-btn{width:36px;height:36px;background:none;border:none;color:rgba(247,244,238,.7);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0}
+.zb-btn:hover{background:rgba(255,255,255,.08);color:#F7F4EE}
+.zb-pct{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;color:rgba(247,244,238,.5);min-width:38px;text-align:center;letter-spacing:.5px;cursor:pointer;padding:0 2px}
+.zb-pct:hover{color:rgba(247,244,238,.85)}
+.zb-sep{width:1px;height:20px;background:rgba(255,255,255,.08);flex-shrink:0}
+#zoom-fs{font-size:14px}
+@media(max-width:600px){#zoom-bar{display:none}}
+
 </style>
 </head>
 <body>
-<!-- ══ TOKEN GATE ══ -->
-<div id="token-gate" style="position:fixed;inset:0;background:#0a0a0a;z-index:99999;display:flex;align-items:center;justify-content:center;padding:24px">
-  <div style="width:100%;max-width:380px;text-align:center;padding:48px 36px;background:#111;border:1px solid rgba(201,168,76,.2);border-radius:8px">
-    <div style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;letter-spacing:5px;color:#C9A84C;margin-bottom:32px">V.A.L.E.U.R©</div>
-    <span style="font-size:40px;margin-bottom:16px;display:block;opacity:.5">🔐</span>
-    <h2 style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;color:#F7F4EE;margin-bottom:10px">Vérification de l'accès</h2>
-    <p style="font-size:13px;font-weight:300;color:rgba(247,244,238,.5);line-height:1.7;margin-bottom:28px">Ce livret est réservé aux acheteurs du Pack 2.<br>Vérification en cours…</p>
-    <div style="width:100%;height:2px;background:rgba(255,255,255,.06);border-radius:1px;overflow:hidden;margin-bottom:12px">
-      <div style="height:100%;background:linear-gradient(90deg,#A8873A,#C9A84C);border-radius:1px;animation:tgf 2s ease-in-out infinite"></div>
-    </div>
-    <style>@keyframes tgf{0%{width:0%;opacity:1}70%{width:100%;opacity:1}100%{width:100%;opacity:0}}</style>
-    <p style="font-size:11px;color:rgba(247,244,238,.25)">Utilisez le lien reçu par email après votre achat.</p>
-  </div>
-</div>
-
 <!-- WATERMARK ACHETEUR -->
 <div id="wm">
   <span id="wm-nom">Document personnel</span><br>
@@ -1205,57 +1201,6 @@ Je m'engage à agir, progressivement, <em>avant</em> d'avoir la garantie de réu
   <p style="font-family:'Jost',sans-serif;font-size:.58rem;color:#4a40d885;line-height:1.55">Format recommandé&nbsp;: A5 · Marges&nbsp;: aucune<br>Cocher «&nbsp;Graphiques d'arrière-plan&nbsp;»</p>
 </div>
 <script>
-/* ══ TOKEN GATE JS ══ */
-(function(){
-  function hideGate(){
-    var g=document.getElementById('token-gate');
-    if(g) g.style.display='none';
-  }
-  function showDenied(){
-    var g=document.getElementById('token-gate');
-    if(!g) return;
-    g.innerHTML='<div style="width:100%;max-width:380px;text-align:center;padding:48px 36px;background:#111;border:1px solid rgba(201,168,76,.2);border-radius:8px">'+
-      '<div style="font-family:\'Cormorant Garamond\',serif;font-size:20px;font-weight:600;letter-spacing:5px;color:#C9A84C;margin-bottom:24px">V.A.L.E.U.R©</div>'+
-      '<span style="font-size:36px;display:block;margin-bottom:16px;opacity:.4">🔒</span>'+
-      '<h2 style="font-family:\'Cormorant Garamond\',serif;font-size:22px;font-weight:300;color:#F7F4EE;margin-bottom:10px">Accès non autorisé</h2>'+
-      '<p style="font-size:13px;color:rgba(247,244,238,.5);line-height:1.7;margin-bottom:24px">Ce livret est inclus dans le Pack 2.<br>Si vous avez acheté, utilisez le lien reçu par email.</p>'+
-      '<a href="https://celinebourbon-ux.github.io/Livrets-VALEUR-Collection/collection.html" style="display:inline-block;padding:12px 28px;background:#A8873A;color:#fff;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;border-radius:4px">Voir les offres →</a>'+
-      '</div>';
-  }
-
-  var params=new URLSearchParams(window.location.search);
-
-  /* 1. Bypass admin */
-  if(params.get('admin')==='VALEUR-ADMIN-2025'){
-    hideGate();
-    window.history.replaceState({},'',window.location.pathname);
-    return;
-  }
-
-  /* 2. Token URL */
-  var tok=params.get('access');
-  if(tok){
-    try{
-      var d=JSON.parse(decodeURIComponent(escape(atob(tok))));
-      if(d&&d.pack>=2&&d.email){
-        localStorage.setItem('valeur_livret_acces',JSON.stringify({pack:d.pack,email:d.email,date:new Date().toISOString()}));
-        hideGate();
-        window.history.replaceState({},'',window.location.pathname);
-        return;
-      }
-    }catch(e){}
-  }
-
-  /* 3. localStorage */
-  try{
-    var ls=JSON.parse(localStorage.getItem('valeur_livret_acces')||localStorage.getItem('valeur_acces')||'{}');
-    if(ls&&ls.pack>=2){ hideGate(); return; }
-  }catch(e){}
-
-  /* 4. Accès refusé après 2s */
-  setTimeout(showDenied, 2000);
-})();
-
 function printLivret(){
   const tip=document.getElementById('print-tip');
   tip.style.display='block';
@@ -1314,6 +1259,51 @@ function load(){
 }
 document.querySelectorAll('input[type=text],textarea').forEach(el=>el.addEventListener('input',save));
 window.addEventListener('load',()=>{load();updateNav();});
+</script>
+
+<!-- ── BARRE ZOOM ── -->
+<div id="zoom-bar">
+  <button class="zb-btn" onclick="zoomOut()" title="Réduire">−</button>
+  <span class="zb-pct" id="zb-pct" onclick="zoomReset()" title="Réinitialiser">100%</span>
+  <button class="zb-btn" onclick="zoomIn()" title="Agrandir">+</button>
+  <div class="zb-sep"></div>
+  <button class="zb-btn" id="zoom-fs" onclick="toggleFS()" title="Plein écran">⛶</button>
+</div>
+
+<script>
+/* ── ZOOM ── */
+(function(){
+  const STEPS=[70,85,100,115,130,150];
+  const KEY='valeur_zoom_'+location.pathname.split('/').pop();
+  let idx=STEPS.indexOf(parseInt(localStorage.getItem(KEY)||'100'));
+  if(idx<0)idx=2;
+  const wrap=document.body;
+  function apply(){
+    const pct=STEPS[idx];
+    wrap.style.zoom=pct+'%';
+    const el=document.getElementById('zb-pct');
+    if(el)el.textContent=pct+'%';
+    localStorage.setItem(KEY,pct);
+  }
+  window.zoomIn=function(){if(idx<STEPS.length-1){idx++;apply();}};
+  window.zoomOut=function(){if(idx>0){idx--;apply();}};
+  window.zoomReset=function(){idx=2;apply();};
+  window.toggleFS=function(){
+    const btn=document.getElementById('zoom-fs');
+    if(!document.fullscreenElement){
+      document.documentElement.requestFullscreen();
+      if(btn)btn.textContent='✕';
+    } else {
+      document.exitFullscreen();
+      if(btn)btn.textContent='⛶';
+    }
+  };
+  document.addEventListener('fullscreenchange',function(){
+    const btn=document.getElementById('zoom-fs');
+    if(btn)btn.textContent=document.fullscreenElement?'✕':'⛶';
+  });
+  apply();
+})();
 </script>
 </body>
 </html>
