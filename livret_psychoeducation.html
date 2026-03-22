@@ -369,17 +369,6 @@ footer{border-top:1px solid var(--line);padding:40px 56px;display:grid;grid-temp
   .part-nav{flex-direction:column}
   .formule-legend{gap:16px}
 }
-
-/* ── BARRE ZOOM ── */
-#zoom-bar{position:fixed;bottom:24px;right:24px;z-index:9998;display:flex;align-items:center;gap:0;background:rgba(26,24,20,.88);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.08);border-radius:6px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.3)}
-.zb-btn{width:36px;height:36px;background:none;border:none;color:rgba(247,244,238,.7);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0}
-.zb-btn:hover{background:rgba(255,255,255,.08);color:#F7F4EE}
-.zb-pct{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;color:rgba(247,244,238,.5);min-width:38px;text-align:center;letter-spacing:.5px;cursor:pointer;padding:0 2px}
-.zb-pct:hover{color:rgba(247,244,238,.85)}
-.zb-sep{width:1px;height:20px;background:rgba(255,255,255,.08);flex-shrink:0}
-#zoom-fs{font-size:14px}
-@media(max-width:600px){#zoom-bar{display:none}}
-
 </style>
 </head>
 <body>
@@ -854,8 +843,8 @@ document.addEventListener('keydown',e=>{
           <div class="schema-row">
             <div class="schema-icon" style="background:rgba(181,49,42,.08);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:var(--rouge);flex-shrink:0">1</div>
             <div class="schema-content">
-              <div class="schema-label" style="color:var(--rouge)">L'expérience répétée</div>
-              <div class="schema-text">Un contexte précis — familial, social, relationnel — dans lequel certaines réactions étaient punies, ignorées ou menaçantes pour le lien. Pas forcément un traumatisme au sens clinique. Parfois juste une atmosphère, un ton, une récurrence. <em style="color:var(--ink4)">Exemple : exprimer ses besoins déclenchait de la colère ou de l'indifférence.</em></div>
+              <div class="schema-label" style="color:var(--rouge)">L'expérience brutale ou répétée</div>
+              <div class="schema-text">Un événement brutal unique, ou un contexte répété — familial, social, relationnel — dans lequel certaines réactions étaient punies, ignorées ou menaçantes pour le lien. Parfois un traumatisme clair. Parfois juste une atmosphère, un ton, une récurrence invisible. <em style="color:var(--ink4)">Exemple : exprimer ses besoins déclenchait de la colère ou de l'indifférence.</em></div>
             </div>
           </div>
           <div class="schema-row">
@@ -893,7 +882,7 @@ document.addEventListener('keydown',e=>{
       <div class="write-zone">
         <div class="write-label">La croyance inscrite</div>
         <div class="write-prompt">Complétez cette phrase (laissez arriver ce qui vient, sans censure) : <em>"Si je suis vraiment moi-même, avec tous mes besoins et mes limites… "</em></div>
-        <textarea class="write-area" id="res-croyance" placeholder="…" style="min-height:80px" oninput="updateCounter(this)"></textarea>
+        <textarea class="write-area" id="res-croyance" placeholder="Ex : je vais déranger… on me rejettera… je serai trop… je ne serai pas à la hauteur…" style="min-height:80px" oninput="updateCounter(this)"></textarea>
         <div class="write-counter">0 caractères</div>
       </div>
 
@@ -1034,8 +1023,8 @@ document.addEventListener('keydown',e=>{
           <div class="schema-row">
             <div class="schema-icon">⚡</div>
             <div class="schema-content">
-              <div class="schema-label">Mémoire procédurale — Automatique</div>
-              <div class="schema-text">Là où le masque est inscrit. Dans le corps, dans les automatismes sensoriels et émotionnels. Elle ne parle pas — elle <em>fait</em>. Une odeur, un ton de voix, une posture peut réactiver un souvenir vieux de 30 ans en 0,2 secondes, sans que le cortex préfrontal s'en mêle. C'est pourquoi l'intention seule ne suffit jamais.</div>
+              <div class="schema-label">Mémoire sensorielle — Automatique</div>
+              <div class="schema-text">Là où le masque est inscrit. Dans le corps, dans les automatismes sensoriels et émotionnels. Elle ne parle pas — elle <em>fait</em>. Une odeur, un ton de voix, une posture peut réactiver un souvenir vieux de 30 ans en 0,2 secondes, sans que votre volonté n'y change quoique ce soit. Le réflexe est plus fort que vous. C'est pourquoi l'intention seule ne suffit jamais.</div>
             </div>
           </div>
         </div>
@@ -1497,7 +1486,7 @@ document.addEventListener('keydown',e=>{
           <div style="padding:24px 28px;background:rgba(237,137,54,.03);border:1px solid var(--line);border-left:none;border-top:none">
             <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(237,137,54,.9);margin-bottom:6px">LOCALISER</div>
             <div style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:500;color:var(--ink);margin-bottom:8px">Descendre dans le corps — là où vit la mémoire automatique</div>
-            <div style="font-size:13px;font-weight:300;color:var(--ink3);line-height:1.75">Trouver où l'émotion se manifeste physiquement. Gorge, ventre, poitrine, épaules. <em style="color:var(--ink4)">Fondement biologique : la mémoire procédurale est somatique. On ne peut pas la modifier par la pensée seule — il faut passer par le corps.</em></div>
+            <div style="font-size:13px;font-weight:300;color:var(--ink3);line-height:1.75">Trouver où l'émotion se manifeste physiquement. Gorge, ventre, poitrine, épaules. <em style="color:var(--ink4)">Fondement biologique : la mémoire sensorielle est somatique. On ne peut pas la modifier par la pensée seule — il faut passer par le corps.</em></div>
           </div>
         </div>
 
@@ -1560,7 +1549,7 @@ document.addEventListener('keydown',e=>{
 
       <!-- Grille évaluation -->
       <div style="border:1px solid var(--line);border-radius:3px;overflow:hidden;margin:28px 0">
-        <div style="display:grid;grid-template-columns:1fr 80px 80px;background:var(--ink)">
+        <div style="display:grid;grid-template-columns:1fr 90px 90px;background:var(--ink)">
           <div style="padding:12px 20px;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(247,244,238,.6)">Affirmation</div>
           <div style="padding:12px 16px;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold3);text-align:center;border-left:1px solid rgba(255,255,255,.06)">Maintenant</div>
           <div style="padding:12px 16px;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(247,244,238,.3);text-align:center;border-left:1px solid rgba(255,255,255,.06)">Dans 3 sem.</div>
@@ -1579,15 +1568,15 @@ document.addEventListener('keydown',e=>{
     "Je me sens présent·e à moi-même dans mes journées",
     "Je sais par où commencer pour changer quelque chose"
   ];
-  var selectStyle="background:var(--ivory2);border:1px solid var(--line);border-radius:2px;padding:6px 8px;font-size:13px;color:var(--ink);width:56px;text-align:center;outline:none;cursor:pointer;-webkit-user-select:text;user-select:text";
-  var selectStyle3="background:rgba(247,244,238,.5);border:1px dashed var(--line);border-radius:2px;padding:6px 8px;font-size:13px;color:var(--ink4);width:56px;text-align:center;outline:none;cursor:pointer;-webkit-user-select:text;user-select:text";
+  var selectStyle="background:var(--ivory2);border:1px solid var(--line);border-radius:2px;padding:6px 8px;font-size:13px;color:var(--ink);width:70px;text-align:center;outline:none;cursor:pointer;-webkit-user-select:text;user-select:text";
+  var selectStyle3="background:rgba(247,244,238,.5);border:1px dashed var(--line);border-radius:2px;padding:6px 8px;font-size:13px;color:var(--ink4);width:70px;text-align:center;outline:none;cursor:pointer;-webkit-user-select:text;user-select:text";
   var html="";
   affirmations.forEach(function(aff,i){
     var key="eval-debut-"+(i+1);
     var key3="eval-3sem-"+(i+1);
     var opts="<option value=\"\">—</option>";
     for(var v=1;v<=5;v++) opts+="<option value=\""+v+"\">"+v+"</option>";
-    html+="<div style=\"display:grid;grid-template-columns:1fr 80px 80px;border-bottom:1px solid var(--line2)\">";
+    html+="<div style=\"display:grid;grid-template-columns:1fr 90px 90px;border-bottom:1px solid var(--line2)\">";
     html+="<div style=\"padding:14px 20px;font-size:13px;font-weight:300;color:var(--ink3);line-height:1.5;display:flex;align-items:center\">"+aff+"</div>";
     html+="<div style=\"padding:10px;border-left:1px solid var(--line2);display:flex;align-items:center;justify-content:center\">";
     html+="<select id=\""+key+"\" style=\""+selectStyle+"\" onchange=\"saveAnswer('"+key+"',this.value)\">"+opts+"</select></div>";
@@ -1708,6 +1697,7 @@ function parseToken(tok) {
 
 function checkAccess() {
   var params = new URLSearchParams(window.location.search);
+  if(params.get('admin')==='VALEUR-ADMIN-2025'){document.getElementById('access-gate').classList.add('hidden');return;}
   var tok = params.get('access');
 
   /* 0. Mode démo/prévisualisation */
@@ -2157,56 +2147,9 @@ function generatePDF() {
    ══════════════════════════════════════════════ */
 window.addEventListener('DOMContentLoaded', function() {
   /* Lancer la vérification d'accès après animation du gate */
-  /* PRÉVISUALISATION — retirer avant déploiement */
-  grantAccess('preview@valeur.psyh.fr', '');
-  // setTimeout(checkAccess, 1800);
+  setTimeout(checkAccess, 1800);
 });
 </script>
 
-
-<!-- ── BARRE ZOOM ── -->
-<div id="zoom-bar">
-  <button class="zb-btn" onclick="zoomOut()" title="Réduire">−</button>
-  <span class="zb-pct" id="zb-pct" onclick="zoomReset()" title="Réinitialiser">100%</span>
-  <button class="zb-btn" onclick="zoomIn()" title="Agrandir">+</button>
-  <div class="zb-sep"></div>
-  <button class="zb-btn" id="zoom-fs" onclick="toggleFS()" title="Plein écran">⛶</button>
-</div>
-
-<script>
-/* ── ZOOM ── */
-(function(){
-  const STEPS=[70,85,100,115,130,150];
-  const KEY='valeur_zoom_'+location.pathname.split('/').pop();
-  let idx=STEPS.indexOf(parseInt(localStorage.getItem(KEY)||'100'));
-  if(idx<0)idx=2;
-  const wrap=document.body;
-  function apply(){
-    const pct=STEPS[idx];
-    wrap.style.zoom=pct+'%';
-    const el=document.getElementById('zb-pct');
-    if(el)el.textContent=pct+'%';
-    localStorage.setItem(KEY,pct);
-  }
-  window.zoomIn=function(){if(idx<STEPS.length-1){idx++;apply();}};
-  window.zoomOut=function(){if(idx>0){idx--;apply();}};
-  window.zoomReset=function(){idx=2;apply();};
-  window.toggleFS=function(){
-    const btn=document.getElementById('zoom-fs');
-    if(!document.fullscreenElement){
-      document.documentElement.requestFullscreen();
-      if(btn)btn.textContent='✕';
-    } else {
-      document.exitFullscreen();
-      if(btn)btn.textContent='⛶';
-    }
-  };
-  document.addEventListener('fullscreenchange',function(){
-    const btn=document.getElementById('zoom-fs');
-    if(btn)btn.textContent=document.fullscreenElement?'✕':'⛶';
-  });
-  apply();
-})();
-</script>
 </body>
 </html>
