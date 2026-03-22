@@ -369,6 +369,13 @@ footer{border-top:1px solid var(--line);padding:40px 56px;display:grid;grid-temp
   .part-nav{flex-direction:column}
   .formule-legend{gap:16px}
 }
+
+#zoom-bar{position:fixed;bottom:24px;right:24px;z-index:9998;display:flex;align-items:center;gap:0;background:rgba(26,24,20,.88);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.08);border-radius:6px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.3)}
+.zb-btn{width:36px;height:36px;background:none;border:none;color:rgba(247,244,238,.7);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.zb-btn:hover{background:rgba(255,255,255,.08);color:#F7F4EE}
+.zb-pct{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;color:rgba(247,244,238,.5);min-width:38px;text-align:center;letter-spacing:.5px;cursor:pointer;padding:0 2px}
+.zb-sep{width:1px;height:20px;background:rgba(255,255,255,.08);flex-shrink:0}
+@media(max-width:600px){#zoom-bar{display:none}}
 </style>
 </head>
 <body>
@@ -2153,3 +2160,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 </body>
 </html>
+
+<div id="zoom-bar"><button class="zb-btn" onclick="zoomOut()">−</button><span class="zb-pct" id="zb-pct" onclick="zoomReset()">100%</span><button class="zb-btn" onclick="zoomIn()">+</button><div class="zb-sep"></div><button class="zb-btn" onclick="toggleFS()">⛶</button></div>
+<script>(function(){var S=[70,85,100,115,130,150],K="valeur_zoom_psychoed",i=S.indexOf(parseInt(localStorage.getItem(K)||"100"));if(i<0)i=2;function a(){document.body.style.zoom=S[i]+"%";var e=document.getElementById("zb-pct");if(e)e.textContent=S[i]+"%";localStorage.setItem(K,S[i]);}window.zoomIn=function(){if(i<S.length-1){i++;a();}};window.zoomOut=function(){if(i>0){i--;a();}};window.zoomReset=function(){i=2;a();};window.toggleFS=function(){var b=document.getElementById("zoom-fs");if(!document.fullscreenElement){document.documentElement.requestFullscreen();}else{document.exitFullscreen();}};a();})();
+</script>
