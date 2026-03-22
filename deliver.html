@@ -258,6 +258,7 @@ var LIVRET_URLS={
 
 var RESULTATS_URL='https://celinebourbon-ux.github.io/QuestionnaireVALEUR/resultats.html';
 var FICHE_URL='https://celinebourbon-ux.github.io/Livrets-VALEUR-Collection/fiche_masque_dominant.html';
+var PSYCHOED_URL='https://celinebourbon-ux.github.io/Livrets-VALEUR-Collection/livret_psychoeducation.html';
 var DOCTOLIB='https://www.doctolib.fr/psychologue/bordeaux/celine-bourbon';
 
 var rcMasque=null;
@@ -283,9 +284,7 @@ function buildAccessBtns(pack,masque,container){
     if(LIVRET_URLS[masque]){
       btns+='<a href="'+LIVRET_URLS[masque]+'" class="access-btn gold" style="margin-top:2px">Mon Livret Masque '+MASQUES[masque].label+' →</a>';
     }
-  }
-  if(pack>=3){
-    btns+='<a href="'+DOCTOLIB+'" target="_blank" class="access-btn gold" class="access-btn violet">Réserver ma séance avec Céline →</a>';
+    btns+='<a href="'+PSYCHOED_URL+'" class="access-btn gold" style="margin-top:2px">Mon Livret Psychoéducation →</a>';
   }
   document.getElementById(container).innerHTML=btns;
   document.getElementById(container).style.display='flex';
@@ -314,6 +313,9 @@ function sendEmail(email,pack,masque,token){
     score_spa:'',
     niveau_spa:'',
     lien_resultats:accessLink,
+    lien_livret:livretLink||'',
+    lien_psychoed:pack>=2?PSYCHOED_URL:'',
+    lien_fiche:pack>=2?FICHE_URL:'',
     date_passation:new Date().toLocaleDateString('fr-FR')
   };
   return emailjs.send(EJSSVC,EJSTPL,params);
