@@ -1,0 +1,2154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fondations — Comprendre votre monde intérieur · Méthode V.A.L.E.U.R©</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+/* ══════════════════════════════════════════════════════════
+   RESET & ROOT — palette identique à valeur.psyh.fr
+   ══════════════════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'DM Sans',sans-serif;background:#F7F4EE;color:#1A1814;overflow-x:hidden;-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-font-smoothing:antialiased}
+img{pointer-events:none;-webkit-user-drag:none}
+
+:root{
+  --ivory:#F7F4EE;--ivory2:#F0EBE1;--ivory3:#E8E1D4;
+  --ink:#1A1814;--ink2:#2C2820;--ink3:#5A534A;--ink4:#8C8278;--ink5:#B8B0A5;
+  --gold:#A8873A;--gold2:#C9A84C;--gold3:#D4B96A;--goldl:#F0E4C4;
+  --line:rgba(26,24,20,.1);--line2:rgba(26,24,20,.06);
+  --rouge:#B5312A;--orange:#C4581F;--jaune:#B8930A;
+  --vert:#2D7A4F;--bleu:#1D5F8A;--indigo:#5C3280;--violet:#7A3594;
+  --ink-dark:#0E1420;--ink-dark2:#141f35;
+}
+
+/* ══════════════════════════════════════════════════════════
+   ÉCRAN D'ACCÈS — Token gate
+   ══════════════════════════════════════════════════════════ */
+#access-gate{position:fixed;inset:0;background:var(--ivory);z-index:9999;display:flex;align-items:center;justify-content:center;padding:24px}
+#access-gate.hidden{display:none}
+.gate-box{width:100%;max-width:420px;text-align:center}
+.gate-logo{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:var(--ink);margin-bottom:4px}
+.gate-logo sup{font-size:10px;vertical-align:super}
+.gate-sub{font-size:11px;font-weight:300;letter-spacing:2px;text-transform:uppercase;color:var(--ink4);margin-bottom:48px}
+.gate-icon{font-size:48px;margin-bottom:20px;display:block;opacity:.3}
+.gate-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;color:var(--ink);margin-bottom:10px}
+.gate-desc{font-size:13px;font-weight:300;color:var(--ink4);line-height:1.7;margin-bottom:28px}
+.gate-bar{width:100%;height:2px;background:var(--line);border-radius:1px;overflow:hidden;margin-bottom:16px}
+.gate-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:1px;animation:gf 2.5s ease-in-out infinite}
+@keyframes gf{0%{width:0%;opacity:1}70%{width:100%;opacity:1}100%{width:100%;opacity:0}}
+
+/* ══════════════════════════════════════════════════════════
+   NAV — identique valeur.psyh.fr
+   ══════════════════════════════════════════════════════════ */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 56px;background:rgba(247,244,238,.93);backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}
+.nav-logo-wrap{display:flex;align-items:center;gap:11px;text-decoration:none}
+.nav-logo-img{width:32px;height:32px;object-fit:cover;border-radius:50%;border:1.5px solid rgba(168,135,58,.3);flex-shrink:0}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:var(--ink);letter-spacing:4px;text-transform:uppercase}
+.nav-logo sup{font-size:9px;vertical-align:super}
+.nav-center{position:absolute;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:8px}
+.nav-doc-badge{font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:400;color:var(--ink3);font-style:italic}
+.nav-doc-sep{font-size:11px;color:var(--ink5)}
+.nav-watermark-display{font-size:11px;font-weight:300;letter-spacing:1px;color:var(--gold);max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-progress-wrap{display:flex;align-items:center;gap:10px}
+.nav-progress-lbl{font-size:10px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink4)}
+.nav-progress-bar{width:80px;height:3px;background:var(--line);border-radius:2px;overflow:hidden}
+.nav-progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:2px;transition:width .6s ease;width:0%}
+.nav-export-btn{background:var(--ink);color:var(--ivory);border:none;border-radius:2px;padding:9px 20px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .25s;white-space:nowrap}
+.nav-export-btn:hover{background:var(--ink2)}
+@media(max-width:900px){.nav-center{display:none}nav{padding:0 24px}}
+
+/* ══════════════════════════════════════════════════════════
+   BANDE CHROMATIQUE
+   ══════════════════════════════════════════════════════════ */
+.chroma{display:flex;height:3px;width:100%;margin-top:64px}
+.cs{flex:1}
+
+/* ══════════════════════════════════════════════════════════
+   BARRE DE PROGRESSION GLOBALE
+   ══════════════════════════════════════════════════════════ */
+.progress-global{position:sticky;top:64px;z-index:400;background:rgba(247,244,238,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:10px 56px;display:flex;align-items:center;gap:24px}
+.pg-parts{display:flex;gap:4px;flex:1}
+.pg-part{flex:1;height:4px;background:var(--line);border-radius:2px;overflow:hidden;cursor:pointer;transition:opacity .2s}
+.pg-part:hover{opacity:.7}
+.pg-part-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:2px;width:0%;transition:width .5s ease}
+.pg-label{font-size:10px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink4);white-space:nowrap}
+.pg-pct{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:var(--gold);white-space:nowrap}
+@media(max-width:700px){.progress-global{padding:10px 20px}.pg-label{display:none}}
+
+/* ══════════════════════════════════════════════════════════
+   FILIGRANE — diagonal sur tout le contenu
+   ══════════════════════════════════════════════════════════ */
+.watermark-overlay{position:fixed;inset:0;pointer-events:none;z-index:300;overflow:hidden}
+.watermark-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-35deg);font-family:'DM Sans',sans-serif;font-size:11px;font-weight:300;letter-spacing:2px;color:rgba(168,135,58,.06);white-space:nowrap;user-select:none;width:200%;text-align:center;line-height:4.5}
+
+/* ══════════════════════════════════════════════════════════
+   MAIN CONTENT WRAPPER
+   ══════════════════════════════════════════════════════════ */
+main{padding-bottom:120px}
+
+/* ══════════════════════════════════════════════════════════
+   SECTIONS DE CONTENU
+   ══════════════════════════════════════════════════════════ */
+.section{padding:80px 0}
+.section-inner{max-width:860px;margin:0 auto;padding:0 56px}
+@media(max-width:700px){.section-inner{padding:0 24px}.section{padding:56px 0}}
+
+/* ── SECTION SOMBRE (navy) ── */
+.section-dark{background:var(--ink-dark);padding:80px 0}
+.section-dark .section-inner{max-width:860px;margin:0 auto;padding:0 56px}
+
+/* ── SECTION CRÈME FONCÉE ── */
+.section-cream{background:var(--ivory2);padding:80px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+/* ══════════════════════════════════════════════════════════
+   EYEBROW & TITRES DE SECTION
+   ══════════════════════════════════════════════════════════ */
+.sec-eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.sec-eyebrow-line{width:28px;height:1px;background:var(--gold);opacity:.7}
+.sec-eyebrow-txt{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold)}
+.sec-eyebrow-dark .sec-eyebrow-line{background:var(--gold3);opacity:.6}
+.sec-eyebrow-dark .sec-eyebrow-txt{color:var(--gold3)}
+
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4.5vw,52px);font-weight:300;color:var(--ink);line-height:1.1;margin-bottom:16px}
+.sec-title em{font-style:italic;color:var(--gold)}
+.sec-title-dark{color:#F7F4EE}
+.sec-title-dark em{color:var(--gold3)}
+
+.sec-intro{font-size:16px;font-weight:300;line-height:1.9;color:var(--ink3);max-width:640px;margin-bottom:48px}
+.sec-intro-dark{color:rgba(247,244,238,.72)}
+
+/* ══════════════════════════════════════════════════════════
+   PARTIE HEADER (séparateurs de parties)
+   ══════════════════════════════════════════════════════════ */
+.partie-header{background:var(--ink);padding:56px;border-top:3px solid linear-gradient(90deg,var(--rouge),var(--violet));position:relative;overflow:hidden}
+.partie-header::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#B5312A,#C4581F,#B8930A,#2D7A4F,#1D5F8A,#5C3280,#7A3594)}
+.partie-num{font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:300;color:rgba(247,244,238,.05);line-height:1;position:absolute;right:56px;bottom:20px}
+.partie-label{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold3);margin-bottom:14px}
+.partie-title{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4vw,42px);font-weight:300;color:#F7F4EE;line-height:1.2;margin-bottom:10px}
+.partie-title em{color:var(--gold3);font-style:italic}
+.partie-desc{font-size:14px;font-weight:300;color:rgba(247,244,238,.6);line-height:1.75;max-width:560px}
+@media(max-width:700px){.partie-header{padding:36px 24px}.partie-num{display:none}}
+
+/* ══════════════════════════════════════════════════════════
+   HERO LIVRET
+   ══════════════════════════════════════════════════════════ */
+.livret-hero{min-height:calc(100vh - 67px);display:flex;flex-direction:column;justify-content:center;background:var(--ivory);padding:80px 56px;position:relative;overflow:hidden}
+.livret-hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 79px,rgba(26,24,20,.03) 79px,rgba(26,24,20,.03) 80px),repeating-linear-gradient(90deg,transparent,transparent 79px,rgba(26,24,20,.03) 79px,rgba(26,24,20,.03) 80px);pointer-events:none}
+.livret-hero-inner{max-width:860px;margin:0 auto;width:100%;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:12px;border:1px solid rgba(168,135,58,.25);border-radius:2px;padding:6px 18px;margin-bottom:40px;font-size:10px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--gold)}
+.hero-badge::before,.hero-badge::after{content:'';width:16px;height:1px;background:var(--gold);opacity:.5}
+.hero-q{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,5.5vw,68px);font-weight:300;color:var(--ink3);line-height:1.1;font-style:italic;margin-bottom:0}
+.hero-rule{display:flex;align-items:center;gap:16px;margin:32px 0}
+.hero-rule-line{flex:1;height:1px;background:linear-gradient(90deg,var(--gold),transparent);max-width:200px}
+.hero-rule-diamond{width:6px;height:6px;border:1px solid var(--gold);transform:rotate(45deg);opacity:.6;flex-shrink:0}
+.hero-answer{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,48px);font-weight:500;color:var(--ink);line-height:1.15;margin-bottom:36px}
+.hero-answer em{font-weight:300;font-style:italic;color:var(--gold)}
+.hero-meta{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-bottom:56px}
+.hero-meta-item{font-size:12px;font-weight:300;color:var(--ink4);display:flex;align-items:center;gap:6px}
+.hero-meta-item::before{content:'✦';color:var(--gold);font-size:10px}
+.hero-start-btn{display:inline-flex;align-items:center;gap:12px;background:var(--ink);color:var(--ivory);border:none;border-radius:2px;padding:16px 40px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .25s}
+.hero-start-btn:hover{background:var(--ink2);gap:18px}
+.hero-author{margin-top:64px;padding-top:28px;border-top:1px solid var(--line);display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.hero-author-txt strong{display:block;font-size:13px;font-weight:500;color:var(--ink2);letter-spacing:.5px}
+.hero-author-txt span{font-size:12px;font-weight:300;color:var(--ink4)}
+.hero-author-txt em{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold)}
+@media(max-width:700px){.livret-hero{padding:60px 24px}}
+
+/* ══════════════════════════════════════════════════════════
+   SOMMAIRE
+   ══════════════════════════════════════════════════════════ */
+.sommaire-grid{display:flex;flex-direction:column;gap:2px;margin-top:40px}
+.sommaire-item{display:flex;align-items:flex-start;gap:20px;padding:18px 24px;background:var(--ivory);border:1px solid var(--line);transition:all .2s;cursor:pointer;text-decoration:none;color:var(--ink)}
+.sommaire-item:hover{background:var(--ivory2);border-color:rgba(168,135,58,.3);transform:translateX(4px)}
+.sommaire-item.active{border-color:var(--gold);background:rgba(168,135,58,.04)}
+.sommaire-num{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--gold);opacity:.5;line-height:1;flex-shrink:0;width:36px}
+.sommaire-body{}
+.sommaire-lbl{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--ink4);margin-bottom:3px}
+.sommaire-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;color:var(--ink);margin-bottom:2px}
+.sommaire-desc{font-size:12px;font-weight:300;color:var(--ink4);line-height:1.5}
+.sommaire-check{margin-left:auto;width:20px;height:20px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:10px;color:var(--gold);opacity:0;transition:opacity .3s}
+.sommaire-item.done .sommaire-check{opacity:1;background:rgba(168,135,58,.08);border-color:rgba(168,135,58,.3)}
+
+/* ══════════════════════════════════════════════════════════
+   COMPOSANTS PÉDAGOGIQUES
+   ══════════════════════════════════════════════════════════ */
+
+/* Encadré concept */
+.concept-box{background:var(--ivory2);border:1px solid var(--line);border-radius:3px;padding:32px 36px;margin:32px 0;position:relative}
+.concept-box::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--gold),var(--gold2));border-radius:3px 0 0 3px}
+.concept-label{font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.concept-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:500;color:var(--ink);margin-bottom:12px}
+.concept-body{font-size:14px;font-weight:300;color:var(--ink3);line-height:1.85}
+
+/* Encadré foncé */
+.dark-box{background:var(--ink);border-radius:3px;padding:32px 36px;margin:32px 0;position:relative;overflow:hidden}
+.dark-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold))}
+.dark-box .concept-label{color:var(--gold3)}
+.dark-box .concept-title{color:#F7F4EE}
+.dark-box .concept-body{color:rgba(247,244,238,.72)}
+
+/* Citation */
+.citation{padding:24px 32px;border-left:2px solid var(--gold);margin:28px 0;background:rgba(168,135,58,.04)}
+.citation-text{font-family:'Cormorant Garamond',serif;font-size:clamp(17px,2.5vw,22px);font-style:italic;font-weight:300;color:var(--ink2);line-height:1.7;margin-bottom:10px}
+.citation-sig{font-size:11px;font-weight:400;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);opacity:.7}
+.citation-dark{border-left-color:var(--gold3);background:rgba(201,168,76,.05)}
+.citation-dark .citation-text{color:rgba(247,244,238,.85)}
+.citation-dark .citation-sig{color:var(--gold3)}
+
+/* Schéma / tableau pédagogique */
+.schema-wrap{margin:32px 0;border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.schema-header{background:var(--ink);padding:14px 24px;display:flex;align-items:center;gap:10px}
+.schema-header-txt{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(247,244,238,.7)}
+.schema-body{background:var(--ivory2);padding:24px}
+.schema-row{display:flex;align-items:flex-start;gap:16px;padding:14px 0;border-bottom:1px solid var(--line2)}
+.schema-row:last-child{border-bottom:none}
+.schema-icon{font-size:18px;flex-shrink:0;width:28px;text-align:center;margin-top:2px}
+.schema-content{}
+.schema-label{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--ink3);margin-bottom:3px}
+.schema-text{font-size:14px;font-weight:300;color:var(--ink3);line-height:1.7}
+
+/* 3 colonnes SNA */
+.tri-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border:1px solid var(--line);border-radius:3px;overflow:hidden;margin:28px 0}
+@media(max-width:600px){.tri-grid{grid-template-columns:1fr}}
+.tri-col{padding:24px 20px;border-right:1px solid var(--line)}
+.tri-col:last-child{border-right:none}
+.tri-label{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.tri-value{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--ink);margin-bottom:6px}
+.tri-desc{font-size:12px;font-weight:300;color:var(--ink4);line-height:1.6}
+
+/* Formule D=e×r² */
+.formule-wrap{text-align:center;padding:40px;margin:32px 0;background:var(--ink);border-radius:3px;position:relative;overflow:hidden}
+.formule-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.formule-main{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,6vw,64px);font-weight:300;color:#F7F4EE;letter-spacing:.08em;margin-bottom:16px}
+.formule-main sup{font-size:0.55em;vertical-align:super}
+.formule-main em{color:var(--gold3);font-style:italic}
+.formule-legend{display:flex;justify-content:center;gap:32px;flex-wrap:wrap}
+.fl-item{text-align:center}
+.fl-letter{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;color:var(--gold3);display:block}
+.fl-desc{font-size:11px;font-weight:300;color:rgba(247,244,238,.55);letter-spacing:.5px}
+
+/* Fenêtre de tolérance — schéma visuel */
+.tolerance-visual{margin:32px 0;border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.tol-zone{padding:20px 28px;text-align:center}
+.tol-zone.high{background:rgba(181,49,42,.06);border-bottom:1px solid var(--line)}
+.tol-zone.ok{background:rgba(45,122,79,.05);border-bottom:1px solid var(--line);border-top:2px solid var(--vert);border-bottom-width:2px;border-bottom-color:var(--vert)}
+.tol-zone.low{background:rgba(29,95,138,.05)}
+.tol-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px}
+.tol-zone.high .tol-label{color:var(--rouge)}
+.tol-zone.ok .tol-label{color:var(--vert)}
+.tol-zone.low .tol-label{color:var(--bleu)}
+.tol-desc{font-size:13px;font-weight:300;color:var(--ink3);line-height:1.6}
+.tol-symptoms{font-size:11px;color:var(--ink4);margin-top:6px;font-style:italic}
+
+/* Cohérence cardiaque — animation */
+.coherence-card{background:var(--ivory2);border:1px solid var(--line);border-radius:3px;padding:40px;text-align:center;margin:32px 0}
+.coherence-circle-wrap{width:140px;height:140px;margin:0 auto 24px;position:relative;display:flex;align-items:center;justify-content:center}
+.coherence-circle{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,rgba(168,135,58,.2),rgba(168,135,58,.08));border:2px solid rgba(168,135,58,.3);transition:all 5s ease-in-out;position:absolute}
+.coherence-ring{width:110px;height:110px;border-radius:50%;border:1px solid rgba(168,135,58,.15);position:absolute;transition:all 5s ease-in-out}
+.coherence-txt{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:400;color:var(--ink);z-index:1;position:relative}
+.coherence-phase{font-size:13px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.coherence-timer{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--ink);margin-bottom:4px}
+.coherence-desc{font-size:12px;font-weight:300;color:var(--ink4);margin-bottom:20px;line-height:1.6}
+.coherence-btn{background:var(--ink);color:var(--ivory);border:none;border-radius:2px;padding:12px 28px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .25s}
+.coherence-btn:hover{background:var(--ink2)}
+.coherence-btn.active{background:var(--rouge)}
+.coherence-protocol{margin-top:20px;font-size:12px;font-weight:300;color:var(--ink4);line-height:1.7}
+
+/* Zone d'écriture interactive */
+.write-zone{margin:24px 0}
+.write-label{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--ink4);margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.write-label::after{content:'';flex:1;height:1px;background:var(--line)}
+.write-prompt{font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:var(--ink2);line-height:1.65;margin-bottom:12px}
+.write-area{width:100%;min-height:120px;background:#FDFAF6;border:1px solid var(--line);border-bottom:2px solid rgba(168,135,58,.2);border-radius:2px;padding:16px 20px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:300;color:var(--ink);line-height:1.7;resize:vertical;outline:none;transition:border-color .2s;-webkit-user-select:text;-moz-user-select:text;user-select:text}
+.write-area:focus{border-color:rgba(168,135,58,.4);background:#FEFCF8}
+.write-area::placeholder{color:var(--ink5);font-style:italic;font-size:13px}
+.write-counter{font-size:11px;color:var(--ink5);text-align:right;margin-top:4px}
+
+/* Slider / curseur */
+.slider-wrap{margin:24px 0}
+.slider-label{font-size:13px;font-weight:400;color:var(--ink2);margin-bottom:10px}
+.slider-row{display:flex;align-items:center;gap:16px}
+.slider-input{flex:1;-webkit-appearance:none;appearance:none;height:4px;background:var(--line);border-radius:2px;outline:none;cursor:pointer}
+.slider-input::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--gold);border:2px solid var(--ivory);box-shadow:0 2px 6px rgba(168,135,58,.3);cursor:pointer}
+.slider-val{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;color:var(--gold);width:36px;text-align:center}
+.slider-poles{display:flex;justify-content:space-between;font-size:11px;color:var(--ink4);margin-top:4px;padding:0 10px}
+
+/* Cases à cocher */
+.check-group{display:flex;flex-direction:column;gap:10px;margin:20px 0}
+.check-item{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;background:var(--ivory2);border:1px solid var(--line);border-radius:2px;cursor:pointer;transition:all .2s;-webkit-user-select:none;user-select:none}
+.check-item:hover{border-color:rgba(168,135,58,.3);background:rgba(168,135,58,.03)}
+.check-item.checked{border-color:rgba(168,135,58,.4);background:rgba(168,135,58,.05)}
+.check-box{width:18px;height:18px;border:1px solid var(--line);border-radius:2px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:10px;color:transparent;transition:all .2s}
+.check-item.checked .check-box{background:var(--gold);border-color:var(--gold);color:var(--ivory)}
+.check-text{font-size:13px;font-weight:300;color:var(--ink3);line-height:1.6}
+
+/* Tableau émotion/besoin */
+.emo-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:13px}
+.emo-table th{background:var(--ink);color:rgba(247,244,238,.8);font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:12px 16px;text-align:left;border:none}
+.emo-table td{padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink3);font-weight:300;line-height:1.6}
+.emo-table tr:nth-child(even) td{background:var(--ivory2)}
+.emo-table tr:last-child td{border-bottom:none}
+.emo-tag{display:inline-block;padding:2px 10px;border-radius:20px;font-size:10px;font-weight:500;letter-spacing:.5px}
+
+/* Auto-évaluation */
+.eval-grid{display:grid;grid-template-columns:1fr auto auto;gap:0;border:1px solid var(--line);border-radius:3px;overflow:hidden;margin:24px 0}
+.eval-header{background:var(--ink);padding:10px 16px;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(247,244,238,.6)}
+.eval-row{display:contents}
+.eval-row > div{padding:14px 16px;border-bottom:1px solid var(--line2);display:flex;align-items:center;font-size:13px;font-weight:300;color:var(--ink3)}
+.eval-row:last-child > div{border-bottom:none}
+.eval-row > div:nth-child(2),.eval-row > div:nth-child(3){justify-content:center;border-left:1px solid var(--line2)}
+.eval-score{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--gold)}
+
+/* Séparateur section */
+.sec-divider{height:1px;background:var(--line);margin:48px 0}
+.sec-divider-gold{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:48px 0;opacity:.3}
+
+/* Navigation entre parties */
+.part-nav{display:flex;gap:12px;margin-top:48px;flex-wrap:wrap}
+.part-nav-btn{flex:1;min-width:140px;padding:14px 20px;border:1px solid var(--line);border-radius:2px;background:var(--ivory2);color:var(--ink3);font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .25s;text-align:center}
+.part-nav-btn:hover{border-color:var(--gold);color:var(--gold);background:rgba(168,135,58,.04)}
+.part-nav-btn.primary{background:var(--ink);color:var(--ivory);border-color:var(--ink)}
+.part-nav-btn.primary:hover{background:var(--ink2)}
+
+/* Bloc synthèse finale */
+.synthese-item{padding:16px 20px;border-bottom:1px solid var(--line2);display:flex;gap:14px}
+.synthese-item:last-child{border-bottom:none}
+.synthese-q{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--ink4);margin-bottom:4px}
+.synthese-r{font-size:14px;font-weight:300;color:var(--ink3);line-height:1.6;font-style:italic}
+.synthese-empty{font-size:12px;color:var(--ink5);font-style:italic}
+
+/* ══════════════════════════════════════════════════════════
+   FOOTER
+   ══════════════════════════════════════════════════════════ */
+footer{border-top:1px solid var(--line);padding:40px 56px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:28px;background:var(--ivory)}
+.ft-logo{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--ink)}
+.ft-copy{font-size:11px;color:var(--ink5);line-height:1.9;text-align:center}
+.ft-copy em{color:var(--gold);font-style:normal}
+.ft-right{font-size:11px;color:var(--ink5);text-align:right}
+@media(max-width:700px){footer{grid-template-columns:1fr;text-align:center;padding:32px 24px}.ft-right{text-align:center}}
+
+/* ══════════════════════════════════════════════════════════
+   EXPORT MODAL
+   ══════════════════════════════════════════════════════════ */
+.export-modal-bg{display:none;position:fixed;inset:0;background:rgba(26,24,20,.5);backdrop-filter:blur(14px);z-index:9998;align-items:center;justify-content:center;padding:24px}
+.export-modal-bg.open{display:flex}
+.export-modal{background:var(--ivory);border:1px solid var(--line);border-radius:3px;padding:48px 44px;max-width:440px;width:100%;position:relative;animation:fadeUp .3s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.export-modal::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold))}
+.export-close{position:absolute;top:14px;right:16px;background:none;border:none;color:var(--ink4);font-size:18px;cursor:pointer}
+.export-modal-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;color:var(--ink);margin-bottom:10px}
+.export-modal-desc{font-size:13px;font-weight:300;color:var(--ink3);line-height:1.75;margin-bottom:24px}
+.export-progress{margin-bottom:20px}
+.export-bar{width:100%;height:4px;background:var(--line);border-radius:2px;overflow:hidden;margin-bottom:6px}
+.export-bar-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:2px;width:0%;transition:width .4s ease}
+.export-pct{font-size:11px;font-weight:300;color:var(--ink4)}
+.export-cta{width:100%;padding:14px;background:var(--ink);color:var(--ivory);border:none;border-radius:2px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .25s;display:flex;align-items:center;justify-content:center;gap:10px}
+.export-cta:hover{background:var(--ink2)}
+.export-cta:disabled{opacity:.5;cursor:not-allowed}
+
+/* ══════════════════════════════════════════════════════════
+   PROTECT — impression bloquée sauf export officiel
+   ══════════════════════════════════════════════════════════ */
+@media print{body>*{display:none!important}#print-allowed{display:block!important}}
+#print-allowed{display:none}
+
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════════════════════════ */
+@media(max-width:700px){
+  .tri-grid{grid-template-columns:1fr}
+  .eval-grid{grid-template-columns:1fr}
+  .eval-header:nth-child(n+2){display:none}
+  .part-nav{flex-direction:column}
+  .formule-legend{gap:16px}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ PROTECTION ANTI-COPIE ══ -->
+<script>
+document.addEventListener('contextmenu',e=>e.preventDefault());
+['selectstart','copy','cut','dragstart'].forEach(ev=>document.addEventListener(ev,e=>{
+  if(e.target.tagName==='TEXTAREA'||e.target.tagName==='INPUT')return;
+  e.preventDefault();
+}));
+document.addEventListener('keydown',e=>{
+  if(e.target.tagName==='TEXTAREA'||e.target.tagName==='INPUT')return;
+  if((e.ctrlKey||e.metaKey)&&'sacupxy'.indexOf(e.key.toLowerCase())>=0)e.preventDefault();
+  if(e.key==='F12'||((e.ctrlKey||e.metaKey)&&e.shiftKey&&'ijc'.indexOf(e.key.toLowerCase())>=0))e.preventDefault();
+  if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='p'){e.preventDefault();showExportModal();}
+});
+</script>
+
+<!-- ══ ACCÈS GATE ══ -->
+<div id="access-gate">
+  <div class="gate-box">
+    <div class="gate-logo">V.A.L.E.U.R<sup>©</sup></div>
+    <div class="gate-sub">Livret de Psychoéducation</div>
+    <span class="gate-icon">🔐</span>
+    <h2 class="gate-title">Vérification de l'accès</h2>
+    <p class="gate-desc">Ce livret est réservé aux acheteurs du Pack 2.<br>Vérification de votre accès en cours…</p>
+    <div class="gate-bar"><div class="gate-fill"></div></div>
+    <p style="font-size:11px;color:var(--ink5)">Si vous êtes bloqué·e, vérifiez que vous avez utilisé le lien reçu par email.</p>
+  </div>
+</div>
+
+<!-- ══ FILIGRANE ══ -->
+<div class="watermark-overlay" id="watermark-overlay" aria-hidden="true">
+  <div class="watermark-text" id="watermark-text"></div>
+</div>
+
+<!-- ══ EXPORT MODAL ══ -->
+<div class="export-modal-bg" id="export-modal-bg" onclick="if(event.target===this)closeExportModal()">
+  <div class="export-modal">
+    <button class="export-close" onclick="closeExportModal()">✕</button>
+    <h3 class="export-modal-title">Exporter mon livret</h3>
+    <p class="export-modal-desc">Vos réponses seront compilées dans un PDF personnel, avec votre email en filigrane. Ce document est votre trace de parcours — conservez-le.</p>
+    <div class="export-progress" id="export-progress" style="display:none">
+      <div class="export-bar"><div class="export-bar-fill" id="export-bar-fill"></div></div>
+      <div class="export-pct" id="export-pct">Génération en cours…</div>
+    </div>
+    <button class="export-cta" id="export-cta-btn" onclick="generatePDF()">
+      ✦ Générer mon PDF personnalisé
+    </button>
+  </div>
+</div>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <a href="https://valeur.psyh.fr" class="nav-logo-wrap">
+    <img class="nav-logo-img" src="https://celinebourbon-ux.github.io/Livrets-VALEUR-Collection/Masque%20VALEUR%20M%C3%A9thode%20Transformationnelle.png" alt="">
+    <span class="nav-logo">V.A.L.E.U.R<sup>©</sup></span>
+  </a>
+  <div class="nav-center">
+    <span class="nav-doc-badge">Fondations</span>
+    <span class="nav-doc-sep">·</span>
+    <span class="nav-watermark-display" id="nav-email-display"></span>
+  </div>
+  <div class="nav-right">
+    <div class="nav-progress-wrap">
+      <span class="nav-progress-lbl">Progression</span>
+      <div class="nav-progress-bar"><div class="nav-progress-fill" id="nav-progress-fill"></div></div>
+    </div>
+    <button class="nav-export-btn" onclick="showExportModal()">Exporter →</button>
+  </div>
+</nav>
+
+<!-- Bande chromatique sous la nav -->
+<div class="chroma" style="margin-top:64px">
+  <div class="cs" style="background:#B5312A"></div>
+  <div class="cs" style="background:#C4581F"></div>
+  <div class="cs" style="background:#B8930A"></div>
+  <div class="cs" style="background:#2D7A4F"></div>
+  <div class="cs" style="background:#1D5F8A"></div>
+  <div class="cs" style="background:#5C3280"></div>
+  <div class="cs" style="background:#7A3594"></div>
+</div>
+
+<!-- ══ BARRE DE PROGRESSION GLOBALE ══ -->
+<div class="progress-global" id="progress-global">
+  <div class="pg-parts">
+    <div class="pg-part" onclick="scrollToSection('s-hero')" title="Introduction">
+      <div class="pg-part-fill" id="pg-0"></div>
+    </div>
+    <div class="pg-part" onclick="scrollToSection('s-partie1')" title="Biologie">
+      <div class="pg-part-fill" id="pg-1"></div>
+    </div>
+    <div class="pg-part" onclick="scrollToSection('s-partie2')" title="Création">
+      <div class="pg-part-fill" id="pg-2"></div>
+    </div>
+    <div class="pg-part" onclick="scrollToSection('s-partie3')" title="Émotions">
+      <div class="pg-part-fill" id="pg-3"></div>
+    </div>
+    <div class="pg-part" onclick="scrollToSection('s-partie4')" title="Observateur">
+      <div class="pg-part-fill" id="pg-4"></div>
+    </div>
+    <div class="pg-part" onclick="scrollToSection('s-partie5')" title="V.A.L.E.U.R©">
+      <div class="pg-part-fill" id="pg-5"></div>
+    </div>
+  </div>
+  <div class="pg-label">Partie</div>
+  <div class="pg-pct" id="pg-pct-display">0%</div>
+</div>
+
+<!-- ══ MAIN ══ -->
+<main id="main-content">
+
+  <!-- ══════════════════ HERO ══════════════════ -->
+  <section class="livret-hero" id="s-hero">
+    <div class="livret-hero-inner">
+      <div class="hero-badge">Psychoéducation · Méthode V.A.L.E.U.R©</div>
+      <p class="hero-q">Et si l'anxiété n'était pas ce que vous croyez —</p>
+      <div class="hero-rule">
+        <div class="hero-rule-line"></div>
+        <div class="hero-rule-diamond"></div>
+        <div class="hero-rule-line" style="background:linear-gradient(270deg,var(--gold),transparent)"></div>
+      </div>
+      <h1 class="hero-answer">
+        Fondations<br>
+        <em>Comprendre votre monde intérieur</em>
+      </h1>
+      <div class="hero-meta">
+        <span class="hero-meta-item">5 parties · 16 pages</span>
+        <span class="hero-meta-item">Zones d'écriture interactives</span>
+        <span class="hero-meta-item">Export PDF personnalisé</span>
+        <span class="hero-meta-item">Valable pour tous les masques</span>
+      </div>
+      <button class="hero-start-btn" onclick="scrollToSection('s-sommaire')">
+        Commencer le livret <span>→</span>
+      </button>
+      <div class="hero-author">
+        <div class="hero-author-txt">
+          <strong>Céline Bourbon</strong>
+          <span>Psychologue · Auteure de <em>"De la peur à la joie d'être soi"</em> · Éditions L'Harmattan</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ SOMMAIRE ══════════════════ -->
+  <section class="section section-cream" id="s-sommaire">
+    <div class="section-inner">
+      <div class="sec-eyebrow">
+        <div class="sec-eyebrow-line"></div>
+        <span class="sec-eyebrow-txt">Ce livret en un regard</span>
+      </div>
+      <h2 class="sec-title">Votre <em>parcours</em></h2>
+      <p class="sec-intro">Ce livret s'ouvre avant votre livret de masque. Il pose les fondations biologiques, émotionnelles et psychologiques sans lesquelles les exercices restent en surface. Lisez-le dans l'ordre — chaque partie prépare la suivante.</p>
+      <div class="sommaire-grid">
+        <a class="sommaire-item" onclick="scrollToSection('s-partie1')" id="som-1">
+          <div class="sommaire-num">1</div>
+          <div class="sommaire-body">
+            <div class="sommaire-lbl">Biologie</div>
+            <div class="sommaire-name">Votre anxiété n'est pas ce que vous croyez</div>
+            <div class="sommaire-desc">SNA · Fenêtre de tolérance · Cohérence cardiaque · Ce qui se passe dans votre corps</div>
+          </div>
+          <div class="sommaire-check">✓</div>
+        </a>
+        <a class="sommaire-item" onclick="scrollToSection('s-partie2')" id="som-2">
+          <div class="sommaire-num">2</div>
+          <div class="sommaire-body">
+            <div class="sommaire-lbl">Construction</div>
+            <div class="sommaire-name">Comment votre masque s'est construit</div>
+            <div class="sommaire-desc">Logique de survie · Les 3 étapes · La formule D=e×r² · Pourquoi comprendre ne suffit pas</div>
+          </div>
+          <div class="sommaire-check">✓</div>
+        </a>
+        <a class="sommaire-item" onclick="scrollToSection('s-partie3')" id="som-3">
+          <div class="sommaire-num">3</div>
+          <div class="sommaire-body">
+            <div class="sommaire-lbl">Émotions</div>
+            <div class="sommaire-name">Vos émotions ne sont pas vos ennemies</div>
+            <div class="sommaire-desc">Ce que sont les émotions · Besoins sous-jacents · Le masque comme réponse figée</div>
+          </div>
+          <div class="sommaire-check">✓</div>
+        </a>
+        <a class="sommaire-item" onclick="scrollToSection('s-partie4')" id="som-4">
+          <div class="sommaire-num">4</div>
+          <div class="sommaire-body">
+            <div class="sommaire-lbl">Conscience</div>
+            <div class="sommaire-name">La conscience observatrice</div>
+            <div class="sommaire-desc">Vous n'êtes pas vos pensées · L'Observateur · Exercice de la salle de cinéma</div>
+          </div>
+          <div class="sommaire-check">✓</div>
+        </a>
+        <a class="sommaire-item" onclick="scrollToSection('s-partie5')" id="som-5">
+          <div class="sommaire-num">5</div>
+          <div class="sommaire-body">
+            <div class="sommaire-lbl">Méthode</div>
+            <div class="sommaire-name">Ce que change la méthode V.A.L.E.U.R©</div>
+            <div class="sommaire-desc">Les 6 étapes avec le prisme biologique · Auto-évaluation · Vous n'êtes pas défaillant·e</div>
+          </div>
+          <div class="sommaire-check">✓</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════
+       PARTIE 1 — BIOLOGIE
+       ══════════════════════════════════════════════ -->
+  <div class="partie-header" id="s-partie1">
+    <div class="partie-label">Partie 1 · Biologie</div>
+    <h2 class="partie-title">Votre anxiété n'est pas<br><em>ce que vous croyez</em></h2>
+    <p class="partie-desc">Avant de parler de masques, il faut comprendre ce qui se passe dans votre corps quand la peur s'active. Votre anxiété n'est pas abstraite — elle a une adresse précise, une logique précise, et une solution précise.</p>
+    <div class="partie-num">1</div>
+  </div>
+
+  <!-- Page 1 : SNA -->
+  <section class="section" id="s-sna">
+    <div class="section-inner">
+      <div class="sec-eyebrow">
+        <div class="sec-eyebrow-line"></div>
+        <span class="sec-eyebrow-txt">Votre pilote automatique</span>
+      </div>
+      <h2 class="sec-title">Le Système Nerveux Autonome (SNA) —<br><em>pourquoi vous ne "choisissez" pas de réagir</em></h2>
+      <p class="sec-intro">Le SNA — Système Nerveux Autonome — gère la respiration, le rythme cardiaque, la digestion — et surtout : la réponse au danger, réel ou perçu. Il fonctionne sans vous demander votre avis. C'est à la fois son génie et son problème.</p>
+
+      <div class="tri-grid">
+        <div class="tri-col" style="background:rgba(181,49,42,.04)">
+          <div class="tri-label" style="color:var(--rouge)">Mode Alarme</div>
+          <div class="tri-value">Sympathique</div>
+          <div class="tri-desc">Accélération du cœur, tensions musculaires, vigilance accrue, digestion suspendue. Votre corps se prépare à fuir ou à combattre. Efficace face à un prédateur. Épuisant au quotidien.</div>
+        </div>
+        <div class="tri-col" style="background:rgba(45,122,79,.04);border-left:2px solid rgba(45,122,79,.2);border-right:2px solid rgba(45,122,79,.2)">
+          <div class="tri-label" style="color:var(--vert)">Mode Présence</div>
+          <div class="tri-value">Vagal ventral</div>
+          <div class="tri-desc">Connexion, sécurité, créativité, clarté mentale. Le mode dans lequel vous apprenez, créez des liens, êtes pleinement vous-même. L'objectif de la méthode V.A.L.E.U.R©.</div>
+        </div>
+        <div class="tri-col" style="background:rgba(29,95,138,.04)">
+          <div class="tri-label" style="color:var(--bleu)">Mode Gel</div>
+          <div class="tri-value">Parasympathique dorsal</div>
+          <div class="tri-desc">Immobilisation, dissociation, vide, engourdissement. Réponse à une menace perçue comme insurmontable. Ce n'est pas de la faiblesse — c'est une protection archaïque.</div>
+        </div>
+      </div>
+
+      <div class="concept-box" style="margin-top:32px">
+        <div class="concept-label">Ce que ça change pour vous</div>
+        <div class="concept-title">Votre masque maintient votre Système Nerveux Autonome (SNA) en mode alarme</div>
+        <div class="concept-body">Pas parce que vous êtes "trop sensible". Parce que votre système nerveux a appris à lire certains signaux — un silence, un regard, une phrase — comme des dangers. Il réagit en 200 millisecondes, bien avant que votre pensée consciente s'en mêle. <strong style="font-weight:500">Ce n'est pas un manque de volonté. C'est de la neurobiologie.</strong></div>
+      </div>
+
+      <div class="schema-wrap">
+        <div class="schema-header">
+          <span class="schema-header-txt">Ce qui se passe dans les 0,2 secondes qui précèdent votre réaction</span>
+        </div>
+        <div class="schema-body">
+          <div class="schema-row">
+            <div class="schema-icon">👁</div>
+            <div class="schema-content">
+              <div class="schema-label">Signal perçu</div>
+              <div class="schema-text">Un regard froid, un message sans réponse, un ton différent. Votre cerveau scanne en permanence — même quand vous dormez.</div>
+            </div>
+          </div>
+          <div class="schema-row">
+            <div class="schema-icon">⚡</div>
+            <div class="schema-content">
+              <div class="schema-label">Thalamus → Amygdale (0,2 s)</div>
+              <div class="schema-text">L'amygdale — votre détecteur d'alarme archaïque — reçoit le signal avant votre cortex. Elle compare à votre mémoire de survie : <em>"Est-ce dangereux ?"</em>. Pour le masque Vert, l'exclusion sociale = danger de mort. Elle ne se trompe pas — elle interprète mal le contexte actuel.</div>
+            </div>
+          </div>
+          <div class="schema-row">
+            <div class="schema-icon">🔥</div>
+            <div class="schema-content">
+              <div class="schema-label">Réponse automatique</div>
+              <div class="schema-text">Le SNA s'active. Hormones de stress libérées. Corps en alarme. Tout ça avant que vous ayez eu le temps de penser "attends, est-ce que c'est vraiment grave ?".</div>
+            </div>
+          </div>
+          <div class="schema-row">
+            <div class="schema-icon">💭</div>
+            <div class="schema-content">
+              <div class="schema-label">Cortex préfrontal (2–4 s)</div>
+              <div class="schema-text">Votre pensée consciente arrive. Mais l'alarme est déjà sonore. Elle doit <em>travailler contre</em> le signal biologique — c'est pourquoi "me raisonner" ne suffit jamais. Il faut travailler avec le corps, pas seulement avec la tête.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="write-zone">
+        <div class="write-label">Observation personnelle</div>
+        <div class="write-prompt">Quand vous lisez cela, quelle situation récente vous vient à l'esprit où votre SNA a réagi avant votre pensée ?</div>
+        <textarea class="write-area" id="res-sna" placeholder="Décrivez la situation, ce que vous avez ressenti dans le corps, et ce que votre tête a fait ensuite…" oninput="updateCounter(this)"></textarea>
+        <div class="write-counter">0 caractères</div>
+      </div>
+
+      <div class="part-nav">
+        <button class="part-nav-btn primary" onclick="scrollToSection('s-fenetre')">Suite → La fenêtre de tolérance</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 2 : Fenêtre de tolérance -->
+  <section class="section section-cream" id="s-fenetre">
+    <div class="section-inner">
+      <div class="sec-eyebrow">
+        <div class="sec-eyebrow-line"></div>
+        <span class="sec-eyebrow-txt">Pourquoi certaines situations "débordent"</span>
+      </div>
+      <h2 class="sec-title">La fenêtre de tolérance<br><em>au stress</em></h2>
+      <p class="sec-intro">Il y a une zone dans laquelle vous pouvez ressentir, penser et agir clairement en même temps. C'est votre fenêtre de tolérance. En dehors de cette zone — trop haut ou trop bas — quelque chose lâche.</p>
+
+      <div class="tolerance-visual">
+        <div class="tol-zone high">
+          <div class="tol-label">Hyperactivation — Au-dessus de la fenêtre</div>
+          <div class="tol-desc">Panique, pensées intrusives qui s'emballent, cœur qui s'accélère, irritabilité, larmes sans raison apparente, incapacité à se concentrer.</div>
+          <div class="tol-symptoms">Ce que vous pensez : "Je suis fou·lle" · "Je perds le contrôle" · "Je ne m'en sortirai pas"</div>
+        </div>
+        <div class="tol-zone ok">
+          <div class="tol-label">✓ Fenêtre de tolérance — Zone d'apprentissage et de transformation</div>
+          <div class="tol-desc">Vous pouvez ressentir une émotion difficile <strong>et</strong> penser clairement en même temps. Vous pouvez être présent·e à ce qui se passe sans être submergé·e. C'est ici que les exercices de la méthode V.A.L.E.U.R© fonctionnent.</div>
+          <div class="tol-symptoms" style="color:var(--vert)">La méthode V.A.L.E.U.R© élargit progressivement cette fenêtre — à chaque module.</div>
+        </div>
+        <div class="tol-zone low">
+          <div class="tol-label">Hypoactivation — En dessous de la fenêtre</div>
+          <div class="tol-desc">Gel, vide intérieur, dissociation, engourdissement, impression d'être absent·e à soi-même, incapacité à ressentir quoi que ce soit.</div>
+          <div class="tol-symptoms">Ce que vous pensez : "Je ne ressens rien" · "Je suis comme anesthésié·e" · "À quoi bon"</div>
+        </div>
+      </div>
+
+      <div class="dark-box">
+        <div class="concept-label">Ce que votre masque fait à votre fenêtre</div>
+        <div class="concept-title" style="color:#F7F4EE;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400">Une fenêtre rétrécie — depuis longtemps</div>
+        <div class="concept-body">Les personnes qui portent un masque dominant actif ont une fenêtre de tolérance plus étroite que la moyenne — non pas parce qu'elles sont fragiles, mais parce que leur système nerveux a été en alarme chronique pendant longtemps. Leur seuil d'activation est plus bas. Il faut moins pour "déborder". Ce n'est pas un défaut de caractère. C'est une trace biologique d'une histoire précise.</div>
+      </div>
+
+      <div class="write-zone">
+        <div class="write-label">Votre fenêtre personnelle</div>
+        <div class="write-prompt">Dans quelles situations sortez-vous de votre fenêtre vers le haut (hyperactivation) ? Vers le bas (hypoactivation) ? Qu'est-ce qui vous aide à y revenir ?</div>
+        <textarea class="write-area" id="res-fenetre" placeholder="Pensez à des situations concrètes récentes…" oninput="updateCounter(this)"></textarea>
+        <div class="write-counter">0 caractères</div>
+      </div>
+
+      <div class="slider-wrap">
+        <div class="slider-label">En ce moment, où vous situez-vous dans votre fenêtre ?</div>
+        <div class="slider-row">
+          <input type="range" class="slider-input" id="slider-fenetre" min="0" max="10" value="5"
+            oninput="updateSliderVal(this)">
+          <div class="slider-val" id="slider-fenetre-val">5</div>
+        </div>
+        <div class="slider-poles">
+          <span>Hypoactivation (0)</span>
+          <span>Zone optimale (5)</span>
+          <span>Hyperactivation (10)</span>
+        </div>
+      </div>
+
+      <div class="part-nav">
+        <button class="part-nav-btn" onclick="scrollToSection('s-sna')">← SNA</button>
+        <button class="part-nav-btn primary" onclick="scrollToSection('s-coherence')">Suite → Cohérence cardiaque</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 3 : Cohérence cardiaque -->
+  <section class="section" id="s-coherence">
+    <div class="section-inner">
+      <div class="sec-eyebrow">
+        <div class="sec-eyebrow-line"></div>
+        <span class="sec-eyebrow-txt">Votre outil de régulation biologique</span>
+      </div>
+      <h2 class="sec-title">Cohérence cardiaque —<br><em>5 minutes qui changent l'état de votre SNA</em></h2>
+      <p class="sec-intro">La cohérence cardiaque n'est pas une technique de relaxation. C'est un protocole de régulation biologique validé scientifiquement, qui agit directement sur le Système Nerveux Autonome (SNA) via le nerf vague — le lien entre le cœur et le cerveau.</p>
+
+      <div class="concept-box">
+        <div class="concept-label">Pourquoi ça fonctionne</div>
+        <div class="concept-title">Le cœur parle au cerveau — plus que le contraire</div>
+        <div class="concept-body">80% des fibres nerveuses du nerf vague vont du cœur <em>vers</em> le cerveau. Quand vous réglez votre rythme cardiaque par la respiration, vous envoyez un signal direct à votre cerveau : <strong style="font-weight:500">"Le danger est passé. Tu peux sortir du mode alarme."</strong> Votre cortex préfrontal se réactive. La fenêtre de tolérance s'élargit. En 5 minutes.</div>
+      </div>
+
+      <!-- Exercice animé -->
+      <div class="coherence-card" id="coherence-card">
+        <div class="coherence-circle-wrap">
+          <div class="coherence-ring" id="cc-ring"></div>
+          <div class="coherence-circle" id="cc-circle"></div>
+          <div class="coherence-txt">♡</div>
+        </div>
+        <div class="coherence-phase" id="cc-phase">Prêt·e ?</div>
+        <div class="coherence-timer" id="cc-timer">5:00</div>
+        <div class="coherence-desc">5 secondes d'inspiration — 5 secondes d'expiration<br>6 cycles par minute · 5 minutes</div>
+        <button class="coherence-btn" id="cc-btn" onclick="startCoherence()">Commencer (5 min)</button>
+        <div class="coherence-protocol">
+          <strong style="font-weight:500;color:var(--ink2)">Protocole 365</strong> : 3 fois par jour · 6 respirations/min · 5 minutes<br>
+          De préférence avant les repas. Après 3 semaines de pratique quotidienne, l'effet se cumule.
+        </div>
+      </div>
+
+      <div class="citation">
+        <div class="citation-text">"Ce n'est pas de la méditation, ce n'est pas de la relaxation. C'est de la physiologie appliquée. Vous réglez votre biologie comme on règle un instrument — délibérément, méthodiquement, avec un résultat mesurable."</div>
+        <div class="citation-sig">Méthode V.A.L.E.U.R© · Fondements neurobiologiques</div>
+      </div>
+
+      <div class="write-zone">
+        <div class="write-label">Après l'exercice</div>
+        <div class="write-prompt">Si vous venez de faire les 5 minutes : qu'avez-vous remarqué dans votre corps, vos pensées, votre état général avant et après ?</div>
+        <textarea class="write-area" id="res-coherence" placeholder="Comparez votre état avant et après. Même une petite différence compte." oninput="updateCounter(this)"></textarea>
+        <div class="write-counter">0 caractères</div>
+      </div>
+
+      <div class="slider-wrap">
+        <div class="slider-label">Comment intégrez-vous ce protocole dans votre quotidien ? (0 = impossible à imaginer, 10 = je commence demain)</div>
+        <div class="slider-row">
+          <input type="range" class="slider-input" id="slider-coherence" min="0" max="10" value="5"
+            oninput="updateSliderVal(this)">
+          <div class="slider-val" id="slider-coherence-val">5</div>
+        </div>
+        <div class="slider-poles"><span>Impossible (0)</span><span>Je commence demain (10)</span></div>
+      </div>
+
+      <div class="dark-box" style="margin-top:40px">
+        <div class="concept-label">Ce que la Partie 1 vous a appris</div>
+        <div class="concept-title" style="color:#F7F4EE;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400">Trois certitudes biologiques</div>
+        <div class="concept-body">
+          <div style="display:flex;flex-direction:column;gap:14px;margin-top:8px">
+            <div style="display:flex;gap:14px;align-items:flex-start">
+              <span style="color:var(--gold3);flex-shrink:0;font-size:16px">→</span>
+              <span>Votre anxiété a une mécanique précise dans votre corps. Elle n'est pas aléatoire, ni un trait de personnalité.</span>
+            </div>
+            <div style="display:flex;gap:14px;align-items:flex-start">
+              <span style="color:var(--gold3);flex-shrink:0;font-size:16px">→</span>
+              <span>Votre fenêtre de tolérance s'élargit — avec la pratique. Ce n'est pas une donnée fixe.</span>
+            </div>
+            <div style="display:flex;gap:14px;align-items:flex-start">
+              <span style="color:var(--gold3);flex-shrink:0;font-size:16px">→</span>
+              <span>Vous avez un outil immédiat de régulation biologique. La cohérence cardiaque est votre premier levier — avant même les exercices de la méthode.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="part-nav">
+        <button class="part-nav-btn" onclick="scrollToSection('s-fenetre')">← Fenêtre de tolérance</button>
+        <button class="part-nav-btn primary" onclick="scrollToSection('s-partie2')">Partie 2 → Comment votre masque s'est construit</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+  <!-- ══════════════════════════════════════════════
+       PARTIE 2 — CONSTRUCTION DU MASQUE
+       ══════════════════════════════════════════════ -->
+  <div class="partie-header" id="s-partie2">
+    <div class="partie-label">Partie 2 · Construction</div>
+    <h2 class="partie-title">Comment votre masque<br><em>s'est construit</em></h2>
+    <p class="partie-desc">Votre masque n'est pas apparu du néant. Il a été fabriqué — méthodiquement, intelligemment — par votre cerveau pour répondre à un danger précis. Comprendre cette logique, c'est déjà commencer à s'en libérer.</p>
+    <div class="partie-num">2</div>
+  </div>
+
+  <!-- Page 4 : Logique de survie -->
+  <section class="section section-cream" id="s-survie">
+    <div class="section-inner">
+      <div class="sec-eyebrow">
+        <div class="sec-eyebrow-line"></div>
+        <span class="sec-eyebrow-txt">Intelligence archaïque</span>
+      </div>
+      <h2 class="sec-title">La logique de survie —<br><em>votre masque a sauvé quelque chose</em></h2>
+      <p class="sec-intro">À une époque précise — souvent l'enfance, parfois l'adolescence — certaines émotions ou certains comportements étaient dangereux. Pas dangereux en théorie. Dangereux pour un enfant qui dépend de l'amour de ses parents pour survivre.</p>
+
+      <div class="schema-wrap">
+        <div class="schema-header">
+          <span class="schema-header-txt">Les 3 étapes de création d'un masque</span>
+        </div>
+        <div class="schema-body">
+          <div class="schema-row">
+            <div class="schema-icon" style="background:rgba(181,49,42,.08);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:var(--rouge);flex-shrink:0">1</div>
+            <div class="schema-content">
+              <div class="schema-label" style="color:var(--rouge)">L'expérience brutale ou répétée</div>
+              <div class="schema-text">Un événement brutal unique, ou un contexte répété — familial, social, relationnel — dans lequel certaines réactions étaient punies, ignorées ou menaçantes pour le lien. Parfois un traumatisme clair. Parfois juste une atmosphère, un ton, une récurrence invisible. <em style="color:var(--ink4)">Exemple : exprimer ses besoins déclenchait de la colère ou de l'indifférence.</em></div>
+            </div>
+          </div>
+          <div class="schema-row">
+            <div class="schema-icon" style="background:rgba(184,147,10,.08);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:var(--jaune);flex-shrink:0">2</div>
+            <div class="schema-content">
+              <div class="schema-label" style="color:var(--jaune)">La croyance apprise</div>
+              <div class="schema-text">Le cerveau de l'enfant tire une conclusion logique depuis son point de vue : <em>"Si je suis vraiment moi-même — avec mes besoins, mes limites, mes imperfections — je risque de perdre l'amour ou la sécurité de ceux qui comptent."</em> Cette équation est inscrite dans le système nerveux. Pas dans la conscience — dans les automatismes.</div>
+            </div>
+          </div>
+          <div class="schema-row">
+            <div class="schema-icon" style="background:rgba(45,122,79,.08);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:var(--vert);flex-shrink:0">3</div>
+            <div class="schema-content">
+              <div class="schema-label" style="color:var(--vert)">Le comportement automatisé</div>
+              <div class="schema-text">Pour protéger ce lien vital, le cerveau développe une stratégie de protection — le masque. Efficace sur le moment. Répétée assez longtemps, elle devient automatique, invisible, confondue avec la personnalité. <em style="color:var(--ink4)">"C'est comme ça que je suis."</em> Non. C'est comme ça que vous vous êtes protégé·e.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dark-box">
+        <div class="concept-label">La question essentielle</div>
+        <div class="concept-title" style="color:#F7F4EE;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;line-height:1.4">À quel danger précis votre masque répondait-il au départ ?</div>
+        <div class="concept-body" style="margin-top:12px">
+          Chaque masque répond à une peur universelle — mais la forme qu'il a prise est la vôtre. Pas celle d'un autre porteur du même masque. La vôtre. Issue d'une histoire précise, d'un contexte précis, de personnes précises. Comprendre cette origine ne change pas le masque du jour au lendemain — mais ça change le regard qu'on pose dessus. On passe de <em style="color:rgba(247,244,238,.7)">"je suis défaillant·e"</em> à <em style="color:var(--gold3)">"j'ai appris à me protéger de la seule façon que j'avais."</em>
+        </div>
+      </div>
+
+      <div class="write-zone">
+        <div class="write-label">Votre logique de survie</div>
+        <div class="write-prompt">Sans chercher à analyser — juste observer : dans quel contexte, enfant ou adolescent·e, votre comportement actuel avait-il un sens de protection ? Qu'est-ce qu'il protégeait ?</div>
+        <textarea class="write-area" id="res-survie" placeholder="Prenez le temps qu'il faut. Il n'y a pas de bonne réponse — seulement la vôtre." oninput="updateCounter(this)"></textarea>
+        <div class="write-counter">0 caractères</div>
+      </div>
+
+      <div class="write-zone">
+        <div class="write-label">La croyance inscrite</div>
+        <div class="write-prompt">Complétez cette phrase (laissez arriver ce qui vient, sans censure) : <em>"Si je suis vraiment moi-même, avec tous mes besoins et mes limites… "</em></div>
+        <textarea class="write-area" id="res-croyance" placeholder="Ex : je vais déranger… on me rejettera… je serai trop… je ne serai pas à la hauteur…" style="min-height:80px" oninput="updateCounter(this)"></textarea>
+        <div class="write-counter">0 caractères</div>
+      </div>
+
+      <div class="part-nav">
+        <button class="part-nav-btn" onclick="scrollToSection('s-coherence')">← Cohérence cardiaque</button>
+        <button class="part-nav-btn primary" onclick="scrollToSection('s-formule')">Suite → La formule D=e×r²</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 5 : Formule D=e×r² -->
+  <section class="section" id="s-formule">
+    <div class="section-inner">
+      <div class="sec-eyebrow">
+        <div class="sec-eyebrow-line"></div>
+        <span class="sec-eyebrow-txt">Pourquoi éviter aggrave</span>
+      </div>
+      <h2 class="sec-title">D = e × r² —<br><em>la souffrance vient de la résistance</em></h2>
+      <p class="sec-intro">Ce n'est pas l'émotion qui crée la souffrance durable. C'est votre résistance à cette émotion. Et parce que la résistance est au carré — doubler votre résistance multiplie la durée de souffrance par quatre pour la même émotion initiale.</p>
+
+      <div class="formule-wrap">
+        <div class="formule-main">D = e × r<sup>2</sup></div>
+        <div class="formule-legend">
+          <div class="fl-item">
+            <span class="fl-letter">D</span>
+            <span class="fl-desc">Durée de souffrance</span>
+          </div>
+          <div class="fl-item">
+            <span class="fl-letter" style="color:rgba(247,244,238,.6)">=</span>
+            <span class="fl-desc">&nbsp;</span>
+          </div>
+          <div class="fl-item">
+            <span class="fl-letter">e</span>
+            <span class="fl-desc">Émotion initiale</span>
+          </div>
+          <div class="fl-item">
+            <span class="fl-letter" style="color:rgba(247,244,238,.6)">×</span>
+            <span class="fl-desc">&nbsp;</span>
+          </div>
+          <div class="fl-item">
+            <span class="fl-letter" style="color:var(--rouge)">r²</span>
+            <span class="fl-desc">Résistance (au carré)</span>
+          </div>
+        </div>
+        <div style="margin-top:20px;font-size:11px;font-weight:300;color:rgba(247,244,238,.35);letter-spacing:1px">© Céline Bourbon · Méthode V.A.L.E.U.R©</div>
+      </div>
+
+      <div class="concept-box">
+        <div class="concept-label">Ce que ça signifie concrètement</div>
+        <div class="concept-title">Vous ne contrôlez pas l'arrivée des émotions. Vous pouvez réduire la résistance.</div>
+        <div class="concept-body">
+          Une émotion non résistée dure en moyenne 90 secondes. C'est le temps qu'il faut au cerveau pour la traiter si on ne l'amplifie pas. Ce qui prolonge la souffrance — parfois des heures, parfois des années — c'est tout ce qu'on fait pour ne pas ressentir : éviter, contrôler, analyser en boucle, se distraire, minimiser, se juger d'avoir cette émotion.
+          <div style="margin-top:16px;display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ink3)">
+              <span style="color:var(--rouge);flex-shrink:0">→</span>
+              <span><strong style="color:var(--ink2)">Résistance élevée :</strong> Fuir la situation, minimiser ("c'est pas grave"), se rendre indispensable, vérifier compulsivement, s'engourdir</span>
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ink3)">
+              <span style="color:var(--vert);flex-shrink:0">→</span>
+              <span><strong style="color:var(--ink2)">Résistance réduite :</strong> Nommer l'émotion, la localiser dans le corps, la laisser traverser sans agir dessus immédiatement</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="citation">
+        <div class="citation-text">"Ce n'est pas parce que vous avez peur que ça dure. C'est parce que vous avez peur de la peur. Le problème n'est pas l'émotion — c'est la relation que vous avez avec elle."</div>
+        <div class="citation-sig">Méthode V.A.L.E.U.R© · Céline Bourbon</div>
+      </div>
+
+      <!-- Cases à cocher : formes de résistance -->
+      <div style="margin:28px 0">
+        <div style="font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--ink4);margin-bottom:14px">Identifiez vos formes de résistance principales (cochez ce qui vous ressemble)</div>
+        <div class="check-group" id="check-resistances">
+          <div class="check-item" onclick="toggleCheck(this)" data-key="res-r1">
+            <div class="check-box">✓</div>
+            <div class="check-text"><strong style="color:var(--ink2)">Évitement situationnel</strong> — Éviter les situations qui pourraient déclencher l'émotion redoutée</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)" data-key="res-r2">
+            <div class="check-box">✓</div>
+            <div class="check-text"><strong style="color:var(--ink2)">Minimisation</strong> — "C'est pas grave", "les autres ont bien plus de problèmes que moi"</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)" data-key="res-r3">
+            <div class="check-box">✓</div>
+            <div class="check-text"><strong style="color:var(--ink2)">Sur-analyse</strong> — Analyser l'émotion en boucle au lieu de la traverser</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)" data-key="res-r4">
+            <div class="check-box">✓</div>
+            <div class="check-text"><strong style="color:var(--ink2)">Activisme défensif</strong> — S'occuper frénétiquement pour ne pas ressentir</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)" data-key="res-r5">
+            <div class="check-box">✓</div>
+            <div class="check-text"><strong style="color:var(--ink2)">Engourdissement</strong> — Écrans, nourriture, alcool, scroll — tout ce qui coupe du ressenti</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)" data-key="res-r6">
+            <div class="check-box">✓</div>
+            <div class="check-text"><strong style="color:var(--ink2)">Auto-jugement</strong> — Se critiquer d'avoir cette émotion ("je suis trop sensible", "je suis nul·le")</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="write-zone">
+        <div class="write-label">Votre résistance en action</div>
+        <div class="write-prompt">Décrivez une situation récente où vous avez résisté à une émotion. Qu'avez-vous fait ? Et combien de temps la souffrance a-t-elle duré en réalité ?</div>
+        <textarea class="write-area" id="res-resistance" placeholder="Soyez précis·e sur ce que vous avez fait concrètement pour ne pas ressentir…" oninput="updateCounter(this)"></textarea>
+        <div class="write-counter">0 caractères</div>
+      </div>
+
+      <div class="part-nav">
+        <button class="part-nav-btn" onclick="scrollToSection('s-survie')">← Logique de survie</button>
+        <button class="part-nav-btn primary" onclick="scrollToSection('s-comprendre')">Suite → Pourquoi comprendre ne suffit pas</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 6 : Pourquoi comprendre ne suffit pas -->
+  <section class="section section-cream" id="s-comprendre">
+    <div class="section-inner">
+      <div class="sec-eyebrow">
+        <div class="sec-eyebrow-line"></div>
+        <span class="sec-eyebrow-txt">Le piège de l'insight</span>
+      </div>
+      <h2 class="sec-title">Pourquoi comprendre<br><em>ne suffit pas</em></h2>
+      <p class="sec-intro">Vous vous connaissez déjà par cœur. Vous savez que vous avez tendance à vous adapter, à éviter le conflit, à vous mettre en retrait. Et pourtant — ça continue. Ce n'est pas un manque de volonté. C'est de la neurobiologie.</p>
+
+      <div class="schema-wrap">
+        <div class="schema-header">
+          <span class="schema-header-txt">Deux mémoires — deux logiques</span>
+        </div>
+        <div class="schema-body">
+          <div class="schema-row">
+            <div class="schema-icon">🧠</div>
+            <div class="schema-content">
+              <div class="schema-label">Mémoire déclarative — Consciente</div>
+              <div class="schema-text">Ce que vous savez de vous-même. Votre histoire, vos récurrences, vos déclencheurs. Elle vit dans le cortex préfrontal. Elle comprend, analyse, construit des récits. Vous y avez accès — vous pouvez en parler.</div>
+            </div>
+          </div>
+          <div class="schema-row">
+            <div class="schema-icon">⚡</div>
+            <div class="schema-content">
+              <div class="schema-label">Mémoire sensorielle — Automatique</div>
+              <div class="schema-text">Là où le masque est inscrit. Dans le corps, dans les automatismes sensoriels et émotionnels. Elle ne parle pas — elle <em>fait</em>. Une odeur, un ton de voix, une posture peut réactiver un souvenir vieux de 30 ans en 0,2 secondes, sans que votre volonté n'y change quoique ce soit. Le réflexe est plus fort que vous. C'est pourquoi l'intention seule ne suffit jamais.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dark-box">
+        <div class="concept-label">Ce que ça change pour votre parcours</div>
+        <div class="concept-title" style="color:#F7F4EE;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;line-height:1.4">Il faut travailler avec les trois niveaux ensemble</div>
+        <div class="concept-body" style="margin-top:12px">
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;gap:14px;align-items:flex-start">
+              <span style="color:var(--gold3);flex-shrink:0;font-size:18px">V</span>
+              <span><strong style="color:rgba(247,244,238,.9)">VOIR</strong> — Activer la mémoire déclarative : nommer, observer, nommer encore.</span>
+            </div>
+            <div style="display:flex;gap:14px;align-items:flex-start">
+              <span style="color:var(--gold3);flex-shrink:0;font-size:18px">A</span>
+              <span><strong style="color:rgba(247,244,238,.9)">ACCUEILLIR · LOCALISER</strong> — Travailler avec le corps et les émotions : là où vit la mémoire automatique.</span>
+            </div>
+            <div style="display:flex;gap:14px;align-items:flex-start">
+              <span style="color:var(--gold3);flex-shrink:0;font-size:18px">R</span>
+              <span><strong style="color:rgba(247,244,238,.9)">RENFORCER</strong> — Répéter de nouveaux comportements assez longtemps pour créer une nouvelle autoroute neuronale.</span>
+            </div>
+          </div>
+          <div style="margin-top:20px;padding:16px 18px;background:rgba(201,168,76,.07);border-left:2px solid var(--gold3);font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;color:rgba(247,244,238,.85);line-height:1.65">
+            "Comprendre <em>pourquoi</em> vous réagissez ainsi est nécessaire. Ça ne suffit pas. Il faut aussi apprendre à votre corps une autre façon de répondre — par la répétition, par l'expérience, par l'action concrète."
+          </div>
+          <div style="font-size:11px;color:rgba(247,244,238,.35);margin-top:8px;letter-spacing:1px">— Céline Bourbon · Méthode V.A.L.E.U.R©</div>
+        </div>
+      </div>
+
+      <div class="write-zone">
+        <div class="write-label">Ce que vous aviez déjà compris — et ce qui persistait malgré tout</div>
+        <div class="write-prompt">Nommez une chose que vous saviez de votre fonctionnement depuis longtemps — et qui continuait quand même. Qu'est-ce que ce livret vous apporte de différent dans la compréhension de pourquoi ?</div>
+        <textarea class="write-area" id="res-formule" placeholder="Il n'y a pas de bonne réponse. Juste votre observation honnête." oninput="updateCounter(this)"></textarea>
+        <div class="write-counter">0 caractères</div>
+      </div>
+
+      <!-- Récap Partie 2 -->
+      <div class="concept-box" style="background:var(--ink);border:none;margin-top:32px">
+        <div class="concept-label" style="color:var(--gold3)">Ce que la Partie 2 vous a appris</div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:8px">
+          <div style="display:flex;gap:14px;align-items:flex-start;font-size:14px;font-weight:300;color:rgba(247,244,238,.8)">
+            <span style="color:var(--gold3);flex-shrink:0">→</span>
+            <span>Votre masque n'est pas un défaut de caractère. C'est une stratégie de survie intelligente, construite dans un contexte précis.</span>
+          </div>
+          <div style="display:flex;gap:14px;align-items:flex-start;font-size:14px;font-weight:300;color:rgba(247,244,238,.8)">
+            <span style="color:var(--gold3);flex-shrink:0">→</span>
+            <span>La souffrance vient de la résistance à l'émotion — pas de l'émotion elle-même. Réduire la résistance est une compétence qui s'apprend.</span>
+          </div>
+          <div style="display:flex;gap:14px;align-items:flex-start;font-size:14px;font-weight:300;color:rgba(247,244,238,.8)">
+            <span style="color:var(--gold3);flex-shrink:0">→</span>
+            <span>Comprendre est nécessaire. Il faut aussi travailler avec le corps — là où la mémoire automatique du masque est inscrite.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="part-nav">
+        <button class="part-nav-btn" onclick="scrollToSection('s-formule')">← D=e×r²</button>
+        <button class="part-nav-btn primary" onclick="scrollToSection('s-partie3')">Partie 3 → Vos émotions ne sont pas vos ennemies</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════
+       PARTIE 3 — ÉMOTIONS
+       ══════════════════════════════════════════════ -->
+  <div class="partie-header" id="s-partie3">
+    <div class="partie-label">Partie 3 · Émotions</div>
+    <h2 class="partie-title">Vos émotions ne sont pas<br><em>vos ennemies</em></h2>
+    <p class="partie-desc">Vous avez peut-être passé des années à les gérer, les contenir, les taire. Cette partie propose quelque chose de différent : les comprendre. Une émotion est une information. Jamais un problème.</p>
+    <div class="partie-num">3</div>
+  </div>
+
+  <!-- Page 7 : Ce que sont les émotions -->
+  <section class="section section-cream" id="s-emotions">
+    <div class="section-inner">
+      <div class="sec-eyebrow">
+        <div class="sec-eyebrow-line"></div>
+        <span class="sec-eyebrow-txt">Ce qu'elles sont vraiment</span>
+      </div>
+      <h2 class="sec-title">Une émotion dure 90 secondes —<br><em>si on ne la résiste pas</em></h2>
+      <p class="sec-intro">Une émotion est une réponse biologique à un signal. Elle arrive, atteint un pic, puis se dissout — en 60 à 90 secondes. Ce qui la prolonge indéfiniment, c'est la pensée qu'on y associe et la résistance qu'on lui oppose.</p>
+
+      <div class="schema-wrap">
+        <div class="schema-header">
+          <span class="schema-header-txt">Les 4 émotions de base et ce qu'elles signalent</span>
+        </div>
+        <div class="schema-body">
+          <div class="schema-row">
+            <div class="schema-icon" style="color:var(--rouge);font-size:22px">●</div>
+            <div class="schema-content">
+              <div class="schema-label" style="color:var(--rouge)">Peur</div>
+              <div class="schema-text">Signal : un danger perçu — réel ou imaginé. Elle prépare le corps à réagir. Elle dit : <em>"Quelque chose ici me semble menaçant."</em> Elle n'a pas toujours raison sur la nature de la menace — mais elle n'est jamais là par hasard.</div>
+            </div>
+          </div>
+          <div class="schema-row">
+            <div class="schema-icon" style="color:#3182CE;font-size:22px">●</div>
+            <div class="schema-content">
+              <div class="schema-label" style="color:#3182CE">Tristesse</div>
+              <div class="schema-text">Signal : une perte, réelle ou anticipée — d'un lien, d'un idéal, d'une version de soi. Elle dit : <em>"Quelque chose qui comptait pour moi a changé ou disparu."</em> Elle n'est pas une faiblesse. C'est la preuve que vous étiez attaché·e.</div>
+            </div>
+          </div>
+          <div class="schema-row">
+            <div class="schema-icon" style="color:var(--rouge);font-size:22px;opacity:.7">●</div>
+            <div class="schema-content">
+              <div class="schema-label" style="color:#C05621">Colère</div>
+              <div class="schema-text">Signal : une limite franchie, un besoin ignoré, une injustice perçue. Elle dit : <em>"Quelque chose en moi n'est pas respecté."</em> La colère mal canalisée détruit. La colère entendue protège et délimite.</div>
+            </div>
+          </div>
+          <div class="schema-row">
+            <div class="schema-icon" style="color:var(--vert);font-size:22px">●</div>
+            <div class="schema-content">
+              <div class="schema-label" style="color:var(--vert)">Joie</div>
+              <div class="schema-text">Signal : un besoin satisfait, un alignement entre ce que vous vivez et ce qui compte pour vous. Elle dit : <em>"Je suis là où je dois être, en train de faire ce qui m'importe."</em> Elle indique la direction — pas juste le plaisir immédiat.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="concept-box">
+        <div class="concept-label">La métaphore de la vague</div>
+        <div class="concept-title">Traverser l'émotion sans se noyer</div>
+        <div class="concept-body">
+          Une émotion est comme une vague. Elle arrive, monte, atteint un sommet, redescend. Si vous résistez — si vous nagez contre — elle vous épuise et vous entraîne. Si vous restez immobile — figé·e, noyé·e — elle vous submerge. Mais si vous apprenez à la surfer — à la laisser vous traverser en gardant les pieds ancrés — elle passe. Toujours. Aucune vague n'est permanente.
+          <div style="margin-top:16px;font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;color:var(--ink2);line-height:1.7">
+            "Vous n'avez pas à aller chercher vos émotions. Vous n'avez pas non plus à les fuir. Vous avez juste à apprendre à rester debout pendant qu'elles passent."
+          </div>
+        </div>
+      </div>
+
+      <div class="write-zone">
+        <div class="write-label">Votre rapport aux émotions</div>
+        <div class="write-prompt">Quelle émotion vous est la plus difficile à traverser ? Qu'est-ce que vous faites habituellement quand elle arrive ?</div>
+        <textarea class="write-area" id="res-emotion" placeholder="Observez sans juger ce que vous faites réellement — pas ce que vous pensez qu'il faudrait faire." oninput="updateCounter(this)"></textarea>
+        <div class="write-counter">0 caractères</div>
+      </div>
+
+      <div class="part-nav">
+        <button class="part-nav-btn" onclick="scrollToSection('s-comprendre')">← Pourquoi comprendre ne suffit pas</button>
+        <button class="part-nav-btn primary" onclick="scrollToSection('s-besoins')">Suite → Besoins sous les émotions</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 8 : Besoins sous les émotions -->
+  <section class="section" id="s-besoins">
+    <div class="section-inner">
+      <div class="sec-eyebrow">
+        <div class="sec-eyebrow-line"></div>
+        <span class="sec-eyebrow-txt">Ce que l'émotion indique</span>
+      </div>
+      <h2 class="sec-title">Chaque émotion pointe<br><em>vers un besoin</em></h2>
+      <p class="sec-intro">Derrière chaque émotion, il y a un besoin — satisfait ou non. La peur indique un besoin de sécurité. La colère, un besoin de respect ou de justice. La tristesse, un besoin de lien. Nommer le besoin, c'est reprendre un peu de pouvoir sur la situation.</p>
+
+      <table class="emo-table">
+        <thead>
+          <tr>
+            <th>Émotion</th>
+            <th>Ce qu'elle dit</th>
+            <th>Besoin sous-jacent</th>
+            <th>Action possible</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="emo-tag" style="background:rgba(181,49,42,.08);color:var(--rouge)">Anxiété</span></td>
+            <td>"Quelque chose me menace"</td>
+            <td>Sécurité · Prévisibilité</td>
+            <td>Identifier la menace réelle. Cohérence cardiaque. Ancrage corporel.</td>
+          </tr>
+          <tr>
+            <td><span class="emo-tag" style="background:rgba(181,49,42,.1);color:#C05621">Colère</span></td>
+            <td>"Une limite a été franchie"</td>
+            <td>Respect · Justice · Autonomie</td>
+            <td>Nommer la limite. Exprimer le besoin sans attaquer.</td>
+          </tr>
+          <tr>
+            <td><span class="emo-tag" style="background:rgba(49,130,206,.08);color:#2B6CB0">Tristesse</span></td>
+            <td>"J'ai perdu quelque chose"</td>
+            <td>Lien · Reconnaissance · Appartenance</td>
+            <td>Accueillir la perte. Identifier ce qui comptait vraiment.</td>
+          </tr>
+          <tr>
+            <td><span class="emo-tag" style="background:rgba(92,50,128,.08);color:var(--indigo)">Honte</span></td>
+            <td>"Je ne suis pas assez bien"</td>
+            <td>Valeur · Acceptation · Appartenance</td>
+            <td>Séparer l'acte de la personne. Parler à quelqu'un de confiance.</td>
+          </tr>
+          <tr>
+            <td><span class="emo-tag" style="background:rgba(184,147,10,.08);color:var(--jaune)">Culpabilité</span></td>
+            <td>"J'ai transgressé mes valeurs"</td>
+            <td>Cohérence · Réparation</td>
+            <td>Identifier la valeur touchée. Réparer si possible. Apprendre.</td>
+          </tr>
+          <tr>
+            <td><span class="emo-tag" style="background:rgba(45,122,79,.08);color:var(--vert)">Joie</span></td>
+            <td>"Je suis aligné·e"</td>
+            <td>Sens · Connexion · Vitalité</td>
+            <td>Remarquer ce qui a produit cette joie. En faire plus.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="dark-box">
+        <div class="concept-label">Le masque comme réponse émotionnelle figée</div>
+        <div class="concept-title" style="color:#F7F4EE;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;line-height:1.4">Votre masque répond toujours au même besoin — de la même façon</div>
+        <div class="concept-body" style="margin-top:10px">
+          Votre masque dominant est une réponse émotionnelle qui s'est cristallisée : il répond toujours au même besoin, de la même façon, même quand cette façon ne fonctionne plus. Le Masque Vert répond au besoin d'appartenance en s'effaçant — même quand s'effacer coûte tout. Le Masque Indigo répond au besoin de valeur en sur-performant — même quand performer épuise. La méthode V.A.L.E.U.R© apprend à satisfaire ce besoin autrement.
+        </div>
+      </div>
+
+      <div class="write-zone">
+        <div class="write-label">Votre masque et son besoin</div>
+        <div class="write-prompt">Quel besoin profond votre masque tente-t-il de satisfaire ? Et comment tente-t-il de le faire — même quand ça ne fonctionne plus ?</div>
+        <textarea class="write-area" id="res-besoin" placeholder="Mon masque cherche à satisfaire le besoin de… En faisant… Même si ça me coûte…" oninput="updateCounter(this)"></textarea>
+        <div class="write-counter">0 caractères</div>
+      </div>
+
+      <div class="part-nav">
+        <button class="part-nav-btn" onclick="scrollToSection('s-emotions')">← Les émotions</button>
+        <button class="part-nav-btn primary" onclick="scrollToSection('s-partie4')">Partie 4 → La conscience observatrice</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       PARTIE 4 — CONSCIENCE OBSERVATRICE
+       ══════════════════════════════════════════════ -->
+  <div class="partie-header" id="s-partie4">
+    <div class="partie-label">Partie 4 · Conscience</div>
+    <h2 class="partie-title">La conscience<br><em>observatrice</em></h2>
+    <p class="partie-desc">C'est l'outil fondamental de toute la méthode. Pas une technique. Une capacité que vous avez déjà — et que vous allez apprendre à activer délibérément. Sans elle, les exercices suivants restent en surface.</p>
+    <div class="partie-num">4</div>
+  </div>
+
+  <!-- Page 9 : Vous n'êtes pas vos pensées -->
+  <section class="section section-cream" id="s-observateur">
+    <div class="section-inner">
+      <div class="sec-eyebrow">
+        <div class="sec-eyebrow-line"></div>
+        <span class="sec-eyebrow-txt">La découverte centrale</span>
+      </div>
+      <h2 class="sec-title">Vous n'êtes pas<br><em>vos pensées</em></h2>
+      <p class="sec-intro">Si vous pouvez observer une pensée, vous n'êtes pas cette pensée. Il faut être deux pour s'observer. Quelque chose en vous regarde — et ce quelque chose n'est pas ce qu'il regarde.</p>
+
+      <div class="concept-box">
+        <div class="concept-label">Le principe fondamental</div>
+        <div class="concept-title">L'Observateur et l'Observé</div>
+        <div class="concept-body">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:12px">
+            <div style="padding:18px;background:rgba(168,135,58,.06);border:1px solid rgba(168,135,58,.15);border-radius:2px">
+              <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px">L'Observateur</div>
+              <div style="font-size:13px;font-weight:300;color:var(--ink3);line-height:1.65">La conscience qui voit, qui peut choisir. Votre nature authentique. Celle qui veut la liberté. Elle a toujours été là — parfois étouffée par le bruit du masque, jamais détruite.</div>
+            </div>
+            <div style="padding:18px;background:rgba(26,24,20,.04);border:1px solid var(--line);border-radius:2px">
+              <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink4);margin-bottom:8px">L'Observé</div>
+              <div style="font-size:13px;font-weight:300;color:var(--ink3);line-height:1.65">Les pensées répétitives, les émotions automatiques, les comportements de survie. Vos masques. Ce que vous prenez pour vous-même — et qui n'est qu'une stratégie apprise.</div>
+            </div>
+          </div>
+          <div style="margin-top:16px;font-size:14px;font-weight:300;color:var(--ink3);line-height:1.75">
+            <strong style="font-weight:500;color:var(--ink)">Le problème :</strong> vous avez laissé l'Observé conduire. L'Observateur s'est endormi sous le poids du masque. La bonne nouvelle : il ne s'est jamais éteint.
+          </div>
+        </div>
+      </div>
+
+      <div class="citation">
+        <div class="citation-text">"Si vous pouvez observer un problème, c'est qu'il y a une part de vous qui le remarque — et cette part n'est pas le problème. Vous avez déjà ce dont vous avez besoin. Il faut juste apprendre à l'activer."</div>
+        <div class="citation-sig">Céline Bourbon · Méthode V.A.L.E.U.R©</div>
+      </div>
+
+      <div class="schema-wrap">
+        <div class="schema-header">
+          <span class="schema-header-txt">La fusion cognitive — et comment s'en défaire</span>
+        </div>
+        <div class="schema-body">
+          <div class="schema-row">
+            <div class="schema-icon">🔗</div>
+            <div class="schema-content">
+              <div class="schema-label" style="color:var(--rouge)">La fusion</div>
+              <div class="schema-text"><em>"Je suis anxieux·se"</em> — Vous vous confondez avec le contenu de l'esprit. La pensée devient la réalité. Le masque parle et vous croyez que c'est vous.</div>
+            </div>
+          </div>
+          <div class="schema-row">
+            <div class="schema-icon">🌊</div>
+            <div class="schema-content">
+              <div class="schema-label" style="color:var(--vert)">La défusion</div>
+              <div class="schema-text"><em>"J'observe que mon masque génère de l'anxiété"</em> — Vous prenez de la distance. La pensée est un événement mental — pas la réalité. Vous pouvez la regarder sans lui obéir.</div>
+            </div>
+          </div>
+          <div class="schema-row">
+            <div class="schema-icon">💡</div>
+            <div class="schema-content">
+              <div class="schema-label">L'outil pratique</div>
+              <div class="schema-text">Remplacez <em>"Je suis [émotion/pensée]"</em> par <em>"J'observe que je vis [émotion/pensée]"</em>. Ce déplacement de 3 mots crée l'espace entre vous et votre masque. C'est dans cet espace que la liberté existe.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="write-zone">
+        <div class="write-label">Votre expérience de l'Observateur</div>
+        <div class="write-prompt">Pensez à un moment récent où vous vous êtes "vu·e" réagir — où, l'espace d'une seconde, vous avez pensé "ce n'est pas vraiment moi qui parle là". Décrivez ce moment. C'était votre Observateur.</div>
+        <textarea class="write-area" id="res-observateur" placeholder="Ce moment où vous avez eu un peu de recul sur vous-même…" oninput="updateCounter(this)"></textarea>
+        <div class="write-counter">0 caractères</div>
+      </div>
+
+      <div class="part-nav">
+        <button class="part-nav-btn" onclick="scrollToSection('s-besoins')">← Besoins</button>
+        <button class="part-nav-btn primary" onclick="scrollToSection('s-cinema')">Suite → Exercice salle de cinéma</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 10 : Exercice salle de cinéma -->
+  <section class="section" id="s-cinema">
+    <div class="section-inner">
+      <div class="sec-eyebrow">
+        <div class="sec-eyebrow-line"></div>
+        <span class="sec-eyebrow-txt">Protocole guidé</span>
+      </div>
+      <h2 class="sec-title">L'exercice de la<br><em>salle de cinéma</em></h2>
+      <p class="sec-intro">Cet exercice provient directement du Module 1 VOIR de la méthode V.A.L.E.U.R©. Il permet d'activer délibérément l'Observateur face à une situation difficile. À faire dans le calme, en 5 à 10 minutes.</p>
+
+      <div class="dark-box" style="background:var(--ivory2);border:1px solid var(--line)">
+        <div class="concept-label" style="color:var(--ink3)">Avant de commencer</div>
+        <div class="concept-body" style="color:var(--ink3)">
+          Choisissez une situation récente qui vous a activé·e — pas la plus douloureuse, pas la plus anodine. Quelque chose de moyen. Une situation où votre masque s'est manifesté clairement. Gardez-la en tête pendant tout l'exercice.
+        </div>
+      </div>
+
+      <!-- Étapes guidées -->
+      <div style="display:flex;flex-direction:column;gap:3px;margin:28px 0">
+
+        <div style="display:flex;gap:0;border:1px solid var(--line);overflow:hidden;border-radius:3px">
+          <div style="background:var(--ink);color:var(--gold3);font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;padding:20px 22px;display:flex;align-items:center;flex-shrink:0;min-width:56px;justify-content:center">1</div>
+          <div style="padding:20px 24px;background:var(--ivory)">
+            <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:6px">Installez-vous</div>
+            <div style="font-size:14px;font-weight:300;color:var(--ink3);line-height:1.75">Fermez les yeux. Prenez 3 respirations lentes. Sentez votre corps dans la chaise. Vos pieds sur le sol. Votre dos contre le dossier. Vous êtes ici, maintenant, en sécurité.</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:0;overflow:hidden">
+          <div style="background:var(--ink);color:var(--gold3);font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;padding:20px 22px;display:flex;align-items:center;flex-shrink:0;min-width:56px;justify-content:center">2</div>
+          <div style="padding:20px 24px;background:var(--ivory);border:1px solid var(--line);border-left:none">
+            <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:6px">Imaginez la salle</div>
+            <div style="font-size:14px;font-weight:300;color:var(--ink3);line-height:1.75">Vous êtes dans une grande salle de cinéma, confortablement installé·e dans un fauteuil du fond. La salle est vide. Il fait doux. Vous êtes le spectateur, pas l'acteur. L'écran est devant vous — grand, lumineux, vide pour l'instant.</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:0;overflow:hidden">
+          <div style="background:var(--ink);color:var(--gold3);font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;padding:20px 22px;display:flex;align-items:center;flex-shrink:0;min-width:56px;justify-content:center">3</div>
+          <div style="padding:20px 24px;background:var(--ivory);border:1px solid var(--line);border-left:none;border-top:none">
+            <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:6px">Projetez la scène</div>
+            <div style="font-size:14px;font-weight:300;color:var(--ink3);line-height:1.75">Projetez la situation difficile sur l'écran — comme un film. Vous <em>voyez</em> la scène se dérouler. Vous voyez la personne que vous étiez dans cette situation. Vous la regardez de loin, depuis votre fauteuil. Elle est sur l'écran. Vous, vous êtes dans la salle.</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:0;overflow:hidden">
+          <div style="background:var(--ink);color:var(--gold3);font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;padding:20px 22px;display:flex;align-items:center;flex-shrink:0;min-width:56px;justify-content:center">4</div>
+          <div style="padding:20px 24px;background:var(--ivory);border:1px solid var(--line);border-left:none;border-top:none">
+            <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:6px">Observez le masque</div>
+            <div style="font-size:14px;font-weight:300;color:var(--ink3);line-height:1.75">Regardez ce que la personne sur l'écran fait. Comment son corps réagit. Ce que son masque l'amène à dire, à taire, à fuir. Observez sans juger — comme vous regarderiez un personnage dans un film. Avec curiosité, pas avec verdict.</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:0;overflow:hidden;border-radius:0 0 3px 3px">
+          <div style="background:var(--gold);color:var(--ink);font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;padding:20px 22px;display:flex;align-items:center;flex-shrink:0;min-width:56px;justify-content:center">5</div>
+          <div style="padding:20px 24px;background:rgba(168,135,58,.04);border:1px solid rgba(168,135,58,.2);border-left:none;border-top:none">
+            <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px">Identifiez les deux centres</div>
+            <div style="font-size:14px;font-weight:300;color:var(--ink3);line-height:1.75">Revenez à vous dans le fauteuil. Remarquez : <em>qui est en train de regarder ?</em> Celui ou celle qui observe n'est pas celui ou celle qui souffre sur l'écran. C'est votre Observateur. Il était là. Il l'est toujours.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="write-zone">
+        <div class="write-label">Ce que vous avez observé</div>
+        <div class="write-prompt">Décrivez ce que vous avez vu sur l'écran. Comment le masque se manifestait-il dans cette scène ? Et qu'avez-vous ressenti depuis le fauteuil du spectateur — différemment de ce que vous aviez vécu sur le moment ?</div>
+        <textarea class="write-area" id="res-cinema" placeholder="La scène sur l'écran… ce que le masque faisait… ce que j'ai ressenti en observant de loin…" oninput="updateCounter(this)"></textarea>
+        <div class="write-counter">0 caractères</div>
+      </div>
+
+      <!-- Récap Parties 3 & 4 -->
+      <div class="concept-box" style="background:var(--ink);border:none;margin-top:32px">
+        <div class="concept-label" style="color:var(--gold3)">Ce que les Parties 3 et 4 vous ont appris</div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:8px">
+          <div style="display:flex;gap:14px;align-items:flex-start;font-size:14px;font-weight:300;color:rgba(247,244,238,.8)">
+            <span style="color:var(--gold3);flex-shrink:0">→</span>
+            <span>Vos émotions sont des informations, pas des problèmes. Chacune pointe vers un besoin précis.</span>
+          </div>
+          <div style="display:flex;gap:14px;align-items:flex-start;font-size:14px;font-weight:300;color:rgba(247,244,238,.8)">
+            <span style="color:var(--gold3);flex-shrink:0">→</span>
+            <span>Votre masque répond toujours au même besoin — de la même façon. La méthode apprend à y répondre autrement.</span>
+          </div>
+          <div style="display:flex;gap:14px;align-items:flex-start;font-size:14px;font-weight:300;color:rgba(247,244,238,.8)">
+            <span style="color:var(--gold3);flex-shrink:0">→</span>
+            <span>L'Observateur existe en vous. Il n'a jamais disparu. Vous venez de l'activer délibérément.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="part-nav">
+        <button class="part-nav-btn" onclick="scrollToSection('s-observateur')">← L'Observateur</button>
+        <button class="part-nav-btn primary" onclick="scrollToSection('s-partie5')">Partie 5 → Ce que change la méthode V.A.L.E.U.R©</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════
+       PARTIE 5 — V.A.L.E.U.R© + AUTO-ÉVALUATION
+       ══════════════════════════════════════════════ -->
+  <div class="partie-header" id="s-partie5">
+    <div class="partie-label">Partie 5 · Méthode</div>
+    <h2 class="partie-title">Ce que change<br><em>la méthode V.A.L.E.U.R©</em></h2>
+    <p class="partie-desc">Vous avez maintenant les fondations biologiques, psychologiques et émotionnelles. Voici comment la méthode les utilise — et pourquoi l'ordre des 6 étapes n'est pas arbitraire.</p>
+    <div class="partie-num">5</div>
+  </div>
+
+  <!-- Page 11 : V.A.L.E.U.R© avec le prisme biologique -->
+  <section class="section section-cream" id="s-valeur">
+    <div class="section-inner">
+      <div class="sec-eyebrow">
+        <div class="sec-eyebrow-line"></div>
+        <span class="sec-eyebrow-txt">Les 6 étapes — maintenant que vous comprenez la biologie</span>
+      </div>
+      <h2 class="sec-title">V.A.L.E.U.R© —<br><em>une logique neurobiologique</em></h2>
+      <p class="sec-intro">Chaque lettre correspond à une étape précise du processus de transformation. Elles ne sont pas interchangeables. Elles suivent la logique du système nerveux — du plus accessible (l'observation) vers le plus profond (l'ancrage).</p>
+
+      <div style="display:flex;flex-direction:column;gap:2px;margin:32px 0">
+
+        <div style="display:grid;grid-template-columns:72px 1fr;border:1px solid var(--line);overflow:hidden;border-radius:3px 3px 0 0">
+          <div style="background:var(--ink);display:flex;align-items:center;justify-content:center;padding:28px 16px">
+            <span style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:rgba(74,144,217,.9);line-height:1">V</span>
+          </div>
+          <div style="padding:24px 28px;background:rgba(74,144,217,.03)">
+            <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(74,144,217,.9);margin-bottom:6px">VOIR</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:500;color:var(--ink);margin-bottom:8px">Activer l'Observateur — ce que vous venez d'apprendre</div>
+            <div style="font-size:13px;font-weight:300;color:var(--ink3);line-height:1.75">Reconnaître le masque en train de s'activer. Nommer le déclencheur. Prendre la position du spectateur plutôt que de l'acteur. <em style="color:var(--ink4)">Fondement biologique : le cortex préfrontal reprend la main sur l'amygdale — mais seulement si on crée l'espace nécessaire.</em></div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:72px 1fr;overflow:hidden">
+          <div style="background:var(--ink);display:flex;align-items:center;justify-content:center;padding:28px 16px;border-top:1px solid rgba(255,255,255,.04)">
+            <span style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:rgba(229,62,62,.85);line-height:1">A</span>
+          </div>
+          <div style="padding:24px 28px;background:rgba(229,62,62,.03);border:1px solid var(--line);border-left:none;border-top:none">
+            <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(229,62,62,.85);margin-bottom:6px">ACCUEILLIR</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:500;color:var(--ink);margin-bottom:8px">Réduire la résistance — D = e × r²</div>
+            <div style="font-size:13px;font-weight:300;color:var(--ink3);line-height:1.75">Ni supprimer ni amplifier. Laisser l'émotion exister sans lui obéir. <em style="color:var(--ink4)">Fondement biologique : la résistance entretient l'activation du Système Nerveux Autonome (SNA). Accueillir active le nerf vague — le signal de sécurité.</em></div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:72px 1fr;overflow:hidden">
+          <div style="background:var(--ink);display:flex;align-items:center;justify-content:center;padding:28px 16px;border-top:1px solid rgba(255,255,255,.04)">
+            <span style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:rgba(237,137,54,.9);line-height:1">L</span>
+          </div>
+          <div style="padding:24px 28px;background:rgba(237,137,54,.03);border:1px solid var(--line);border-left:none;border-top:none">
+            <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(237,137,54,.9);margin-bottom:6px">LOCALISER</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:500;color:var(--ink);margin-bottom:8px">Descendre dans le corps — là où vit la mémoire automatique</div>
+            <div style="font-size:13px;font-weight:300;color:var(--ink3);line-height:1.75">Trouver où l'émotion se manifeste physiquement. Gorge, ventre, poitrine, épaules. <em style="color:var(--ink4)">Fondement biologique : la mémoire sensorielle est somatique. On ne peut pas la modifier par la pensée seule — il faut passer par le corps.</em></div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:72px 1fr;overflow:hidden">
+          <div style="background:var(--ink);display:flex;align-items:center;justify-content:center;padding:28px 16px;border-top:1px solid rgba(255,255,255,.04)">
+            <span style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:rgba(214,158,46,.9);line-height:1">E</span>
+          </div>
+          <div style="padding:24px 28px;background:rgba(214,158,46,.03);border:1px solid var(--line);border-left:none;border-top:none">
+            <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(214,158,46,.9);margin-bottom:6px">EXPLORER</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:500;color:var(--ink);margin-bottom:8px">Nommer le conflit intérieur — identifier le besoin</div>
+            <div style="font-size:13px;font-weight:300;color:var(--ink3);line-height:1.75"><em>"Une part de moi voudrait… mais une autre a encore plus peur de…"</em> Identifier le besoin sous-jacent que le masque tente de satisfaire. <em style="color:var(--ink4)">Fondement : c'est ici que l'émotion devient information — et que la compréhension rejoint enfin l'expérience.</em></div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:72px 1fr;overflow:hidden">
+          <div style="background:var(--ink);display:flex;align-items:center;justify-content:center;padding:28px 16px;border-top:1px solid rgba(255,255,255,.04)">
+            <span style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:rgba(56,161,105,.9);line-height:1">U</span>
+          </div>
+          <div style="padding:24px 28px;background:rgba(56,161,105,.03);border:1px solid var(--line);border-left:none;border-top:none">
+            <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(56,161,105,.9);margin-bottom:6px">UNIFIER</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:500;color:var(--ink);margin-bottom:8px">Réconcilier — sans effacer ni combattre</div>
+            <div style="font-size:13px;font-weight:300;color:var(--ink3);line-height:1.75">Trouver comment honorer le besoin de sécurité du masque <em>et</em> choisir quelque chose de nouveau. Pas de combat. Une intégration. <em style="color:var(--ink4)">Fondement : le changement durable ne vient pas de la suppression d'une part de soi — mais de son inclusion dans une posture plus vaste.</em></div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:72px 1fr;overflow:hidden;border-radius:0 0 3px 3px">
+          <div style="background:linear-gradient(180deg,var(--ink),#1a1408);display:flex;align-items:center;justify-content:center;padding:28px 16px;border-top:1px solid rgba(255,255,255,.04)">
+            <span style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:var(--gold3);line-height:1">R</span>
+          </div>
+          <div style="padding:24px 28px;background:rgba(201,168,76,.04);border:1px solid rgba(201,168,76,.2);border-left:none;border-top:none;border-radius:0 0 3px 0">
+            <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:6px">RENFORCER</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:500;color:var(--ink);margin-bottom:8px">Ancrer par la répétition — créer une nouvelle autoroute neuronale</div>
+            <div style="font-size:13px;font-weight:300;color:var(--ink3);line-height:1.75">Poser une petite action concrète, choisie, répétée. Pas subie. <em style="color:var(--ink4)">Fondement neurologique : les neurones qui s'activent ensemble se connectent ensemble. La répétition de nouveaux comportements reconfigure littéralement le cerveau — c'est la neuroplasticité.</em></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="citation">
+        <div class="citation-text">"V.A.L.E.U.R© ne cherche pas seulement ce qui vous retient. Il cherche aussi ce qui, en vous, n'a jamais cessé d'être vrai."</div>
+        <div class="citation-sig">Céline Bourbon · Psychologue · <em style="font-style:italic;color:var(--gold)">"De la peur à la joie d'être soi"</em> · Éditions L'Harmattan</div>
+      </div>
+
+      <div class="part-nav">
+        <button class="part-nav-btn" onclick="scrollToSection('s-cinema')">← Salle de cinéma</button>
+        <button class="part-nav-btn primary" onclick="scrollToSection('s-evaluation')">Suite → Auto-évaluation</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 12 : Auto-évaluation avant/après + synthèse -->
+  <section class="section" id="s-evaluation">
+    <div class="section-inner">
+      <div class="sec-eyebrow">
+        <div class="sec-eyebrow-line"></div>
+        <span class="sec-eyebrow-txt">Mesurer le chemin parcouru</span>
+      </div>
+      <h2 class="sec-title">Auto-évaluation —<br><em>avant et après</em></h2>
+      <p class="sec-intro">Notez chaque affirmation de 1 (pas du tout) à 5 (entièrement). Faites-le maintenant — à la fin de ce livret. Vous pourrez revenir sur cette page dans 3 semaines et comparer.</p>
+
+      <!-- Grille évaluation -->
+      <div style="border:1px solid var(--line);border-radius:3px;overflow:hidden;margin:28px 0">
+        <div style="display:grid;grid-template-columns:1fr 90px 90px;background:var(--ink)">
+          <div style="padding:12px 20px;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(247,244,238,.6)">Affirmation</div>
+          <div style="padding:12px 16px;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold3);text-align:center;border-left:1px solid rgba(255,255,255,.06)">Maintenant</div>
+          <div style="padding:12px 16px;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(247,244,238,.3);text-align:center;border-left:1px solid rgba(255,255,255,.06)">Dans 3 sem.</div>
+        </div>
+
+        <div id="eval-rows">
+        </div>
+      </div>
+
+      <script>
+(function(){
+  var affirmations=[
+    "Je comprends d’où vient mon anxiété",
+    "Je reconnais mes réactions automatiques quand elles arrivent",
+    "Je peux traverser une émotion difficile sans immédiatement la fuir",
+    "Je me sens présent·e à moi-même dans mes journées",
+    "Je sais par où commencer pour changer quelque chose"
+  ];
+  var selectStyle="background:var(--ivory2);border:1px solid var(--line);border-radius:2px;padding:6px 8px;font-size:13px;color:var(--ink);width:70px;text-align:center;outline:none;cursor:pointer;-webkit-user-select:text;user-select:text";
+  var selectStyle3="background:rgba(247,244,238,.5);border:1px dashed var(--line);border-radius:2px;padding:6px 8px;font-size:13px;color:var(--ink4);width:70px;text-align:center;outline:none;cursor:pointer;-webkit-user-select:text;user-select:text";
+  var html="";
+  affirmations.forEach(function(aff,i){
+    var key="eval-debut-"+(i+1);
+    var key3="eval-3sem-"+(i+1);
+    var opts="<option value=\"\">—</option>";
+    for(var v=1;v<=5;v++) opts+="<option value=\""+v+"\">"+v+"</option>";
+    html+="<div style=\"display:grid;grid-template-columns:1fr 90px 90px;border-bottom:1px solid var(--line2)\">";
+    html+="<div style=\"padding:14px 20px;font-size:13px;font-weight:300;color:var(--ink3);line-height:1.5;display:flex;align-items:center\">"+aff+"</div>";
+    html+="<div style=\"padding:10px;border-left:1px solid var(--line2);display:flex;align-items:center;justify-content:center\">";
+    html+="<select id=\""+key+"\" style=\""+selectStyle+"\" onchange=\"saveAnswer('"+key+"',this.value)\">"+opts+"</select></div>";
+    html+="<div style=\"padding:10px;border-left:1px solid var(--line2);display:flex;align-items:center;justify-content:center\">";
+    html+="<select id=\""+key3+"\" style=\""+selectStyle3+"\" onchange=\"saveAnswer('"+key3+"',this.value)\">"+opts+"</select></div>";
+    html+="</div>";
+  });
+  document.getElementById("eval-rows").innerHTML=html;
+  // Restore saved values
+  setTimeout(function(){
+    affirmations.forEach(function(_,i){
+      ["eval-debut-","eval-3sem-"].forEach(function(pfx){
+        var k=pfx+(i+1);
+        var v=getAnswer(k,"");
+        var el=document.getElementById(k);
+        if(el&&v) el.value=v;
+      });
+    });
+  },200);
+})();
+</script>
+
+      <div style="padding:16px 20px;background:rgba(168,135,58,.05);border:1px solid rgba(168,135,58,.15);border-radius:2px;font-size:12px;font-weight:300;color:var(--ink4);line-height:1.7;margin-bottom:32px">
+        ✦ La colonne "Dans 3 sem." est à remplir après avoir commencé votre livret de masque dominant. Revenez ici — vos réponses actuelles seront toujours là.
+      </div>
+
+      <div class="sec-divider-gold"></div>
+
+      <!-- Synthèse finale -->
+      <div class="sec-eyebrow" style="margin-top:40px">
+        <div class="sec-eyebrow-line"></div>
+        <span class="sec-eyebrow-txt">Votre synthèse personnelle</span>
+      </div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3.5vw,36px);font-weight:300;color:var(--ink);line-height:1.2;margin-bottom:20px">Ce que vous emportez<br><em style="color:var(--gold)">de ce livret</em></h3>
+
+      <div class="write-zone">
+        <div class="write-label">La prise de conscience la plus importante</div>
+        <div class="write-prompt">Si vous ne deviez retenir qu'une chose de ce livret — une seule phrase — quelle serait-elle ?</div>
+        <textarea class="write-area" id="res-final" placeholder="Écrivez-la comme si vous l'écriviez pour vous rappeler dans 6 mois…" style="min-height:90px" oninput="updateCounter(this)"></textarea>
+        <div class="write-counter">0 caractères</div>
+      </div>
+
+      <div class="write-zone">
+        <div class="write-label">Ce que vous allez faire différemment</div>
+        <div class="write-prompt">Une chose concrète — petite, précise, faisable dès cette semaine — que vous vous engagez à faire différemment.</div>
+        <textarea class="write-area" id="res-action" placeholder="Soyez précis·e. Pas 'être moins anxieux' — mais 'faire la cohérence cardiaque avant de répondre à cet email difficile'" style="min-height:90px" oninput="updateCounter(this)"></textarea>
+        <div class="write-counter">0 caractères</div>
+      </div>
+
+      <!-- Mot de clôture -->
+      <div class="dark-box" style="margin-top:40px;text-align:center">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(20px,3vw,28px);font-weight:300;color:#F7F4EE;line-height:1.6;margin-bottom:24px">
+          Vous n'êtes pas défaillant·e.<br>
+          <em style="color:var(--gold3)">Vous vous êtes protégé·e de la seule façon que vous aviez.</em><br>
+          Maintenant vous en avez d'autres.
+        </div>
+        <div style="width:40px;height:1px;background:rgba(201,168,76,.3);margin:0 auto 20px"></div>
+        <div style="font-size:13px;font-weight:300;color:rgba(247,244,238,.45);line-height:1.8;max-width:480px;margin:0 auto">
+          Ce livret est la fondation. Votre livret de masque dominant est le chemin.<br>
+          Chaque exercice que vous ferez s'appuiera sur ce que vous venez de comprendre ici.
+        </div>
+        <div style="margin-top:24px;font-size:11px;font-weight:300;color:rgba(247,244,238,.3);letter-spacing:.5px">
+          Céline Bourbon · Psychologue · © Méthode V.A.L.E.U.R© · Tous droits réservés
+        </div>
+      </div>
+
+      <!-- Bouton export final -->
+      <div style="text-align:center;margin-top:48px;padding-top:40px;border-top:1px solid var(--line)">
+        <p style="font-size:13px;font-weight:300;color:var(--ink4);line-height:1.7;margin-bottom:20px">
+          Toutes vos réponses sont sauvegardées localement.<br>
+          Exportez votre livret complété en PDF pour conserver une trace imprimable de votre parcours.
+        </p>
+        <button class="nav-export-btn" onclick="showExportModal()" style="padding:15px 40px;font-size:12px">
+          ✦ Exporter mon livret en PDF →
+        </button>
+        <p style="font-size:11px;font-weight:300;color:var(--ink5);margin-top:10px">Votre email apparaîtra en filigrane · Document strictement personnel</p>
+      </div>
+
+      <div class="part-nav" style="margin-top:32px">
+        <button class="part-nav-btn" onclick="scrollToSection('s-valeur')">← V.A.L.E.U.R©</button>
+        <button class="part-nav-btn" onclick="scrollToSection('s-hero')" style="border-color:var(--gold);color:var(--gold)">↑ Retour au début</button>
+      </div>
+    </div>
+  </section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="ft-logo">V.A.L.E.U.R©</div>
+  <p class="ft-copy">
+    © Céline Bourbon · Méthode V.A.L.E.U.R© · Tous droits réservés<br>
+    Ce livret est strictement personnel. Toute reproduction est interdite.<br>
+    <em>"De la peur à la joie d'être soi"</em> · Éditions L'Harmattan
+  </p>
+  <div class="ft-right" id="footer-email"></div>
+</footer>
+
+<!-- ══ JAVASCRIPT PRINCIPAL ══ -->
+<script>
+/* ══════════════════════════════════════════════
+   CONFIG
+   ══════════════════════════════════════════════ */
+var VERCEL_API = 'https://valeur-backend.vercel.app/api';
+var SECTION_IDS = ['s-hero','s-sommaire','s-partie1','s-sna','s-fenetre','s-coherence','s-partie2','s-survie','s-formule','s-comprendre','s-partie3','s-emotions','s-besoins','s-partie4','s-observateur','s-cinema','s-partie5','s-valeur','s-evaluation'];
+
+/* Stockage des réponses */
+var ANSWERS = {};
+var buyerEmail = '';
+var buyerToken = '';
+
+/* ══════════════════════════════════════════════
+   TOKEN & ACCÈS
+   ══════════════════════════════════════════════ */
+function parseToken(tok) {
+  try {
+    return JSON.parse(decodeURIComponent(escape(atob(tok))));
+  } catch(e) { return null; }
+}
+
+function checkAccess() {
+  var params = new URLSearchParams(window.location.search);
+  var tok = params.get('access');
+
+  /* 0. Mode démo/prévisualisation */
+  if (params.get('demo') === '1' || params.get('preview') === '1') {
+    grantAccess('demo@valeur.psyh.fr', '');
+    return;
+  }
+
+  /* 1. Token URL */
+  if (tok) {
+    var d = parseToken(tok);
+    if (d && (d.pack >= 2) && d.email) {
+      grantAccess(d.email, tok);
+      return;
+    }
+  }
+
+  /* 2. localStorage valeur_acces */
+  try {
+    var ls = JSON.parse(localStorage.getItem('valeur_acces'));
+    if (ls && ls.pack >= 2 && ls.email) {
+      grantAccess(ls.email, tok || '');
+      return;
+    }
+  } catch(e) {}
+
+  /* 3. localhost */
+  if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    grantAccess('demo@valeur.psyh.fr', '');
+    return;
+  }
+
+  /* Accès refusé */
+  document.getElementById('access-gate').innerHTML = `
+    <div class="gate-box">
+      <div class="gate-logo">V.A.L.E.U.R<sup>©</sup></div>
+      <span class="gate-icon" style="opacity:.5">🔒</span>
+      <h2 class="gate-title">Accès non autorisé</h2>
+      <p class="gate-desc">Ce livret est inclus dans le Pack 2.<br>Si vous avez acheté, utilisez le lien reçu par email.</p>
+      <a href="https://celinebourbon-ux.github.io/QuestionnaireVALEUR/resultats.html"
+         style="display:inline-block;margin-top:20px;padding:12px 28px;background:var(--ink);color:var(--ivory);text-decoration:none;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;border-radius:2px">
+        Retour aux résultats →
+      </a>
+    </div>`;
+}
+
+function grantAccess(email, tok) {
+  buyerEmail = email;
+  buyerToken = tok;
+
+  /* Masquer le gate */
+  document.getElementById('access-gate').classList.add('hidden');
+
+  /* Appliquer le filigrane */
+  applyWatermark(email);
+
+  /* Afficher l'email dans la nav */
+  document.getElementById('nav-email-display').textContent = email;
+  document.getElementById('footer-email').textContent = email;
+
+  /* Charger les réponses sauvegardées */
+  loadAnswers(email);
+
+  /* Init progression */
+  initProgress();
+
+  /* Retirer le token de l'URL */
+  if (tok) window.history.replaceState({}, '', window.location.pathname);
+}
+
+/* ══════════════════════════════════════════════
+   FILIGRANE
+   ══════════════════════════════════════════════ */
+function applyWatermark(email) {
+  var repeat = (email + ' · © Céline Bourbon · Méthode V.A.L.E.U.R© · ').repeat(12);
+  var el = document.getElementById('watermark-text');
+  el.style.lineHeight = '5';
+  var lines = [];
+  for (var i = 0; i < 15; i++) lines.push(repeat);
+  el.textContent = lines.join('\n');
+}
+
+/* ══════════════════════════════════════════════
+   PROGRESSION
+   ══════════════════════════════════════════════ */
+function initProgress() {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) updateProgress(e.target.id);
+    });
+  }, { threshold: 0.3 });
+
+  SECTION_IDS.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+
+  window.addEventListener('scroll', updateProgressBar);
+}
+
+function updateProgress(sectionId) {
+  var idx = SECTION_IDS.indexOf(sectionId);
+  if (idx < 0) return;
+  var pct = Math.round((idx / (SECTION_IDS.length - 1)) * 100);
+
+  /* Barre nav */
+  document.getElementById('nav-progress-fill').style.width = pct + '%';
+  document.getElementById('pg-pct-display').textContent = pct + '%';
+
+  /* Parties */
+  for (var i = 0; i <= 5; i++) {
+    var fill = document.getElementById('pg-' + i);
+    if (fill) fill.style.width = (idx >= i ? '100' : '0') + '%';
+  }
+}
+
+function updateProgressBar() {
+  var scrollTop = window.scrollY;
+  var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  var pct = Math.round((scrollTop / docHeight) * 100);
+  document.getElementById('nav-progress-fill').style.width = pct + '%';
+}
+
+function scrollToSection(id) {
+  var el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* ══════════════════════════════════════════════
+   SAUVEGARDE RÉPONSES
+   ══════════════════════════════════════════════ */
+function saveAnswer(key, value) {
+  ANSWERS[key] = value;
+  try {
+    var stored = JSON.parse(localStorage.getItem('valeur_psychoed_' + buyerEmail) || '{}');
+    stored[key] = value;
+    localStorage.setItem('valeur_psychoed_' + buyerEmail, JSON.stringify(stored));
+  } catch(e) {}
+  updateSommaireDone();
+}
+
+function loadAnswers(email) {
+  try {
+    var stored = JSON.parse(localStorage.getItem('valeur_psychoed_' + email) || '{}');
+    ANSWERS = stored;
+    Object.keys(stored).forEach(function(k) {
+      var el = document.getElementById(k);
+      if (!el) return;
+      if (el.tagName === 'TEXTAREA') { el.value = stored[k]; updateCounter(el); }
+      if (el.type === 'range') { el.value = stored[k]; updateSliderVal(el); }
+    });
+  } catch(e) {}
+}
+
+function getAnswer(key, def) {
+  return ANSWERS[key] !== undefined ? ANSWERS[key] : (def || '');
+}
+
+function updateSommaireDone() {
+  /* Partie 1 done si au moins 2 zones remplies */
+  var p1keys = ['res-sna','res-fenetre','res-coherence'];
+  var p1done = p1keys.filter(function(k){return ANSWERS[k]&&ANSWERS[k].length>10}).length >= 2;
+  if (p1done) document.getElementById('som-1') && document.getElementById('som-1').classList.add('done');
+
+  var p2keys = ['res-survie','res-resistance'];
+  var p2done = p2keys.filter(function(k){return ANSWERS[k]&&ANSWERS[k].length>10}).length >= 1;
+  if (p2done) document.getElementById('som-2') && document.getElementById('som-2').classList.add('done');
+
+  var p3keys = ['res-emotion','res-besoin'];
+  var p3done = p3keys.filter(function(k){return ANSWERS[k]&&ANSWERS[k].length>10}).length >= 1;
+  if (p3done) document.getElementById('som-3') && document.getElementById('som-3').classList.add('done');
+
+  var p4keys = ['res-observateur','res-cinema'];
+  var p4done = p4keys.filter(function(k){return ANSWERS[k]&&ANSWERS[k].length>10}).length >= 1;
+  if (p4done) document.getElementById('som-4') && document.getElementById('som-4').classList.add('done');
+
+  var p5keys = ['eval-debut-1','eval-debut-2','eval-debut-3','eval-debut-4','eval-debut-5'];
+  var p5done = p5keys.filter(function(k){return ANSWERS[k]!==undefined}).length >= 3;
+  if (p5done) document.getElementById('som-5') && document.getElementById('som-5').classList.add('done');
+}
+
+/* ══════════════════════════════════════════════
+   HELPERS UI
+   ══════════════════════════════════════════════ */
+function updateCounter(el) {
+  var counter = el.parentElement.querySelector('.write-counter');
+  if (counter) counter.textContent = el.value.length + ' caractères';
+  saveAnswer(el.id, el.value);
+}
+
+function updateSliderVal(el) {
+  var display = document.getElementById(el.id + '-val');
+  if (display) display.textContent = el.value;
+  saveAnswer(el.id, el.value);
+}
+
+function toggleCheck(el) {
+  el.classList.toggle('checked');
+  var key = el.dataset.key;
+  if (key) saveAnswer(key, el.classList.contains('checked'));
+}
+
+/* ══════════════════════════════════════════════
+   COHÉRENCE CARDIAQUE — ANIMATION
+   ══════════════════════════════════════════════ */
+var ccRunning = false;
+var ccInterval = null;
+var ccTimeLeft = 300; /* 5 minutes */
+var ccPhase = 'inhale';
+var ccPhaseSec = 5;
+var ccPhaseLeft = 5;
+
+function startCoherence() {
+  if (ccRunning) {
+    stopCoherence();
+    return;
+  }
+  ccRunning = true;
+  ccTimeLeft = 300;
+  var btn = document.getElementById('cc-btn');
+  if (btn) { btn.textContent = 'Arrêter'; btn.classList.add('active'); }
+  runCCPhase();
+  ccInterval = setInterval(tickCoherence, 1000);
+}
+
+function stopCoherence() {
+  ccRunning = false;
+  clearInterval(ccInterval);
+  var btn = document.getElementById('cc-btn');
+  if (btn) { btn.textContent = 'Commencer (5 min)'; btn.classList.remove('active'); }
+  setCCPhase('inhale', 5);
+  document.getElementById('cc-timer').textContent = '5:00';
+}
+
+function tickCoherence() {
+  ccTimeLeft--;
+  ccPhaseLeft--;
+
+  /* Timer global */
+  var m = Math.floor(ccTimeLeft / 60);
+  var s = ccTimeLeft % 60;
+  var timerEl = document.getElementById('cc-timer');
+  if (timerEl) timerEl.textContent = m + ':' + (s < 10 ? '0' : '') + s;
+
+  /* Phase */
+  if (ccPhaseLeft <= 0) {
+    ccPhase = ccPhase === 'inhale' ? 'exhale' : 'inhale';
+    ccPhaseLeft = 5;
+    runCCPhase();
+  }
+
+  /* Fin */
+  if (ccTimeLeft <= 0) {
+    stopCoherence();
+    saveAnswer('cc-done', true);
+  }
+}
+
+function runCCPhase() {
+  var phase = document.getElementById('cc-phase');
+  var circle = document.getElementById('cc-circle');
+  var ring = document.getElementById('cc-ring');
+  if (!circle) return;
+
+  if (ccPhase === 'inhale') {
+    if (phase) phase.textContent = 'Inspirez';
+    circle.style.transform = 'scale(1.3)';
+    ring.style.transform = 'scale(1.2)';
+    circle.style.background = 'linear-gradient(135deg,rgba(45,122,79,.25),rgba(45,122,79,.1))';
+    circle.style.borderColor = 'rgba(45,122,79,.4)';
+  } else {
+    if (phase) phase.textContent = 'Expirez';
+    circle.style.transform = 'scale(1)';
+    ring.style.transform = 'scale(1)';
+    circle.style.background = 'linear-gradient(135deg,rgba(168,135,58,.2),rgba(168,135,58,.08))';
+    circle.style.borderColor = 'rgba(168,135,58,.3)';
+  }
+}
+
+/* ══════════════════════════════════════════════
+   EXPORT PDF
+   ══════════════════════════════════════════════ */
+function showExportModal() { document.getElementById('export-modal-bg').classList.add('open'); }
+function closeExportModal() { document.getElementById('export-modal-bg').classList.remove('open'); }
+
+function generatePDF() {
+  var btn = document.getElementById('export-cta-btn');
+  var progress = document.getElementById('export-progress');
+  var bar = document.getElementById('export-bar-fill');
+  var pct = document.getElementById('export-pct');
+
+  btn.disabled = true;
+  btn.textContent = 'Génération en cours…';
+  progress.style.display = 'block';
+
+  var filled = 0;
+  var timer = setInterval(function() {
+    filled += 8;
+    bar.style.width = Math.min(filled, 95) + '%';
+    pct.textContent = Math.min(filled, 95) + '% — Compilation des réponses…';
+  }, 150);
+
+  setTimeout(function() {
+    clearInterval(timer);
+    bar.style.width = '100%';
+    pct.textContent = '100% — Prêt !';
+
+    /* Construction du PDF texte avec jsPDF */
+    try {
+      var { jsPDF } = window.jspdf;
+      var doc = new jsPDF({ orientation: 'p', unit: 'mm', format: 'a4' });
+      var margin = 20;
+      var pageW = 210;
+      var contentW = pageW - margin * 2;
+      var y = margin;
+
+      function addLine(text, size, bold, color) {
+        doc.setFontSize(size || 11);
+        doc.setFont('helvetica', bold ? 'bold' : 'normal');
+        if (color) doc.setTextColor(color[0], color[1], color[2]);
+        else doc.setTextColor(40, 40, 40);
+        var lines = doc.splitTextToSize(text, contentW);
+        lines.forEach(function(l) {
+          if (y > 270) { doc.addPage(); y = margin; }
+          doc.text(l, margin, y);
+          y += (size || 11) * 0.5;
+        });
+        y += 3;
+      }
+
+      function addSection(title) {
+        y += 6;
+        if (y > 260) { doc.addPage(); y = margin; }
+        doc.setFillColor(26, 24, 20);
+        doc.rect(margin, y - 5, contentW, 10, 'F');
+        doc.setTextColor(247, 244, 238);
+        doc.setFontSize(9);
+        doc.setFont('helvetica', 'bold');
+        doc.text(title.toUpperCase(), margin + 3, y + 1);
+        doc.setTextColor(40, 40, 40);
+        y += 12;
+      }
+
+      function addAnswer(label, key) {
+        var val = getAnswer(key, '');
+        if (!val || val.length < 3) return;
+        addLine(label, 9, true, [90, 83, 74]);
+        addLine(val, 10, false);
+        y += 2;
+      }
+
+      /* En-tête */
+      doc.setFillColor(26, 24, 20);
+      doc.rect(0, 0, 210, 18, 'F');
+      doc.setTextColor(201, 168, 76);
+      doc.setFontSize(11);
+      doc.setFont('helvetica', 'bold');
+      doc.text('V.A.L.E.U.R© — FONDATIONS', margin, 11);
+      doc.setFontSize(8);
+      doc.setFont('helvetica', 'normal');
+      doc.setTextColor(180, 170, 160);
+      doc.text('Livret de Psychoéducation · Document personnel', 210 - margin, 11, { align: 'right' });
+      y = 26;
+
+      /* Info acheteur */
+      addLine('Document généré pour : ' + buyerEmail, 9, false, [140, 130, 120]);
+      addLine('Date : ' + new Date().toLocaleDateString('fr-FR', { year:'numeric', month:'long', day:'numeric' }), 9, false, [140, 130, 120]);
+      y += 4;
+
+      /* Filigrane diagonal */
+      doc.saveGraphicsState();
+      doc.setGState(doc.GState({ opacity: 0.04 }));
+      doc.setFontSize(11);
+      doc.setFont('helvetica', 'normal');
+      doc.setTextColor(168, 135, 58);
+      var wText = buyerEmail + ' · © Céline Bourbon · Méthode V.A.L.E.U.R©';
+      for (var wi = 0; wi < 297; wi += 28) {
+        doc.text(wText, -20, wi, { angle: 35 });
+      }
+      doc.restoreGraphicsState();
+      y = 40;
+
+      /* Sections de réponses */
+      addSection('PARTIE 1 — BIOLOGIE');
+      addAnswer('Ce que j\'ai compris sur mon SNA', 'res-sna');
+      addAnswer('Ma fenêtre de tolérance — observations', 'res-fenetre');
+      addAnswer('Cohérence cardiaque — ce que j\'ai ressenti', 'res-coherence');
+      var ccVal = getAnswer('slider-resistance', '');
+      if (ccVal) addLine('Mon niveau de résistance actuel : ' + ccVal + '/10', 10);
+
+      addSection('PARTIE 2 — CONSTRUCTION DU MASQUE');
+      addAnswer('Ma logique de survie personnelle', 'res-survie');
+      addAnswer('Ma forme de résistance principale', 'res-resistance');
+      addAnswer('Ce que j\'ai compris sur la formule D=e×r²', 'res-formule');
+
+      addSection('PARTIE 3 — ÉMOTIONS');
+      addAnswer('Mon émotion la plus fréquente et le besoin derrière', 'res-emotion');
+      addAnswer('Ce que mon masque cherche à satisfaire', 'res-besoin');
+
+      addSection('PARTIE 4 — CONSCIENCE OBSERVATRICE');
+      addAnswer('Mon expérience de l\'Observateur', 'res-observateur');
+      addAnswer('Exercice salle de cinéma — ce que j\'ai vu', 'res-cinema');
+
+      addSection('PARTIE 5 — AUTO-ÉVALUATION');
+      var evalLabels = [
+        'Je comprends d\'où vient mon anxiété',
+        'Je reconnais mes réactions automatiques',
+        'Je peux tolérer mes émotions difficiles',
+        'Je me sens présent·e à moi-même',
+        'Je sais par où commencer'
+      ];
+      evalLabels.forEach(function(lbl, i) {
+        var key = 'eval-debut-' + (i+1);
+        var val = getAnswer(key, '—');
+        addLine(lbl + ' : ' + val + '/5', 10);
+      });
+
+      addAnswer('Ce que je veux retenir de ce livret', 'res-final');
+
+      /* Footer chaque page */
+      var pageCount = doc.internal.getNumberOfPages();
+      for (var pi = 1; pi <= pageCount; pi++) {
+        doc.setPage(pi);
+        doc.setFontSize(7);
+        doc.setFont('helvetica', 'normal');
+        doc.setTextColor(180, 170, 160);
+        doc.text('© Céline Bourbon · Méthode V.A.L.E.U.R© · Tous droits réservés · Document strictement personnel · ' + buyerEmail, margin, 292);
+        doc.text(pi + '/' + pageCount, 210 - margin, 292, { align: 'right' });
+      }
+
+      var dateStr = new Date().toISOString().slice(0,10);
+      doc.save('VALEUR-Fondations-' + dateStr + '.pdf');
+
+    } catch(err) {
+      console.error(err);
+      alert('Erreur lors de la génération. Vérifiez que vous avez accès à Internet.');
+    }
+
+    btn.disabled = false;
+    btn.textContent = '✦ Générer mon PDF personnalisé';
+    setTimeout(closeExportModal, 1500);
+  }, 2400);
+}
+
+/* ══════════════════════════════════════════════
+   INIT
+   ══════════════════════════════════════════════ */
+window.addEventListener('DOMContentLoaded', function() {
+  /* Lancer la vérification d'accès après animation du gate */
+  setTimeout(checkAccess, 1800);
+});
+</script>
+
+</body>
+</html>
